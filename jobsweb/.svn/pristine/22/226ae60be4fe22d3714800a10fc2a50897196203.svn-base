@@ -1,0 +1,67 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/paginas/templates/componentes/corpo.xhtml">
+
+<ui:define name="corpo">
+
+			<p:fieldset legend="#{msg.lbl_combinacao_idioma_listar_titulo}" styleClass="cadastro">
+
+			<p:scrollPanel mode="native" style="border: none" styleClass="cadastroBarra" >
+			
+			<h:form id="formCombinacaoIdioma" style="font-weight: bold;" >
+
+				<p:growl id="messages" showDetail="true" />
+				
+					<p:dataTable id="dataTable" styleClass="fonteMenorCentralizado" var="combinacaoIdioma"
+						value="#{combinacaoIdiomaMB.listarTodosCombinacaoIdiomas()}" paginator="true" rows="#{msg.lbl_quantidade_linhas}"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+						emptyMessage="#{msg.lbl_combinacao_idioma_listagem}">
+						
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="#{msg.lbl_combinacao_idioma_status}" />
+							</f:facet>
+							<h:commandLink action="#{combinacaoIdiomaMB.ativarCombinacaoIdioma}" title="#{msg.lbl_combinacao_idioma_commandlink_status}">
+								<h:graphicImage library="imagens" name="combinacao_idioma_#{combinacaoIdioma.combinacao_idioma_status}.png" style="border:0" />
+								<f:setPropertyActionListener target="#{combinacaoIdiomaMB.combinacao_Idioma}" value="#{combinacaoIdioma}" />
+							</h:commandLink>
+						</p:column>
+						
+						<p:column headerText="#{msg.lbl_combinacao_idioma_idioma}" filterBy="#{combinacaoIdioma.idioma}" filterMatchMode="contains">
+							<h:outputText value="#{combinacaoIdioma.idioma.idioma_descricao}" />
+						</p:column>			
+						
+						<p:column headerText="#{msg.lbl_combinacao_idioma_nivel}" filterBy="#{combinacaoIdioma.nivel}" filterMatchMode="contains">
+							<h:outputText value="#{combinacaoIdioma.nivel.nivel_descricao}" />
+						</p:column>
+						
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="#{msg.lbl_acoes_jobs}" />
+							</f:facet>
+						
+							<h:commandLink action="#{combinacaoIdiomaMB.combinacao_Idioma}" title="#{msg.lbl_combinacao_idioma_commandlink_ver}" >
+								<h:graphicImage library="imagens" name="ver.png"	style="border:0" />
+								<f:setPropertyActionListener target="#{combinacaoIdiomaMB.combinacao_Idioma}" value="#{combinacaoIdioma}"></f:setPropertyActionListener>
+							</h:commandLink>
+							
+						</p:column>
+									
+					</p:dataTable>
+
+			</h:form>
+
+			</p:scrollPanel>
+		</p:fieldset>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

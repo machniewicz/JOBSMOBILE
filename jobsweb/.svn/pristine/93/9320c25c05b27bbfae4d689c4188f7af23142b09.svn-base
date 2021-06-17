@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+						<p:fieldset legend="#{msg.lbl_empresa_detalhar_titulo}">
+
+							<h:form id="formEmpresa" acceptcharset="ISO-8859-1">
+
+								<p:growl id="messages" showDetail="true" life="8000" />
+
+								<h:panelGrid columns="2" cellpadding="3" cellspacing="5">
+									<h:outputText value="#{msg.lbl_empresa_incluir_razao}" />
+									<h:outputText value="#{empresaMB.empresa.empresa_razao}"
+										styleClass="fonteCorFormulario" />
+								</h:panelGrid>
+
+								<h:panelGrid columns="6" cellpadding="3" cellspacing="5">
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_cnpj}" />
+									<h:outputText value="#{empresaMB.empresa.empresa_cnpj}"
+										styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_estado}" />
+									<h:outputText
+										value="#{empresaMB.empresa.estado.estado_descricao}"
+										styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_cidade}" />
+									<h:outputText
+										value="#{empresaMB.empresa.cidade.cidade_descricao}"
+										styleClass="fonteCorFormulario" />
+
+								</h:panelGrid>
+
+								<h:panelGrid columns="2" cellpadding="3" cellspacing="5">
+									<h:outputText value="#{msg.lbl_empresa_incluir_endereco}" />
+									<h:outputText value="#{empresaMB.empresa.empresa_endereco}"
+										styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_bairro}" />
+									<h:outputText value="#{empresaMB.empresa.empresa_bairro}"
+										styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_cep}" />
+									<h:outputText value="#{empresaMB.empresa.empresa_cep}"
+										styleClass="fonteCorFormulario" />
+
+									<h:outputLabel value="#{msg.lbl_empresa_incluir_email}" />
+									<h:outputText value="#{empresaMB.empresa.empresa_email}"
+										styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_telefone}" />
+									<h:outputText value="#{empresaMB.empresa.empresa_telefone}"
+										styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_site}" />
+									<h:outputText value="#{empresaMB.empresa.empresa_site}"
+										styleClass="fonteCorFormulario" />
+										
+									<h:outputText value="#{msg.lbl_empresa_incluir_alias}" />
+									<h:outputText value="#{empresaMB.empresa.empresa_alias}"
+										styleClass="fonteCorFormulario" />
+
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+								<h:panelGrid columns="1" cellpadding="5" cellspacing="5">
+									<h:outputText value="#{msg.lbl_empresa_incluir_divulgar}" />
+									<h:outputText value="#{msg.lbl_empresa_incluir_observacao}" />
+									<p:selectOneRadio id="divulgar"
+										value="#{empresaMB.empresa.empresa_divulgar}"
+										styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.msg_sim}" itemValue="true" />
+										<f:selectItem itemLabel="#{msg.msg_nao}" itemValue="false" />
+									</p:selectOneRadio>
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+								<h:panelGrid columns="1" cellpadding="5" cellspacing="5">
+									<h:outputText value="#{msg.lbl_empresa_incluir_banco}" />
+									<p:selectOneRadio id="banco"
+										value="#{empresaMB.empresa.empresa_banco_curriculo}"
+										styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.msg_sim}" itemValue="true" />
+										<f:selectItem itemLabel="#{msg.msg_nao}" itemValue="false" />
+									</p:selectOneRadio>
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+								<h:panelGrid columns="1" cellpadding="5" cellspacing="5">
+									<h:outputText value="#{msg.lbl_empresa_incluir_curriculo}" />
+									<p:selectOneRadio id="curriculo"
+										value="#{empresaMB.empresa.empresa_recebe_curriculo}"
+										styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.msg_sim}" itemValue="true" />
+										<f:selectItem itemLabel="#{msg.msg_nao}" itemValue="false" />
+									</p:selectOneRadio>
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+								<h:panelGrid columns="1" cellpadding="5" cellspacing="5">
+									<h:outputText value="#{msg.lbl_empresa_incluir_gratuito}" />
+									<h:outputText value="#{msg.lbl_empresa_incluir_gratuito_obs}" />
+									<p:selectOneRadio id="gratuito"
+										value="#{empresaMB.empresa.empresa_gratuito}"
+										styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.msg_sim}" itemValue="true" />
+										<f:selectItem itemLabel="#{msg.msg_nao}" itemValue="false" />
+									</p:selectOneRadio>
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+								<h:outputText value="#{msg.lbl_empresa_incluir_periodo}" />
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+									<h:outputText value="#{msg.lbl_empresa_incluir_data_inicio}" />
+									<h:outputText
+										value="#{empresaMB.empresa.empresa_dt_validade_inicio}"
+										styleClass="fonteCorFormulario" converter="dateConverter" />
+									<h:outputText value="#{msg.lbl_empresa_incluir_data_fim}" />
+									<h:outputText
+										value="#{empresaMB.empresa.empresa_dt_validade_fim}"
+										styleClass="fonteCorFormulario" converter="dateConverter" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_quantidade}" />
+									<h:outputText value="#{empresaMB.empresa.empresa_quantidade}"
+										styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_valor}" />
+
+									<h:outputText
+										value="#{msg.lbl_msk_moeda} #{empresaMB.empresa.empresa_valor}"
+										styleClass="fonteCorFormulario" />
+
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_data}" />
+									<h:outputText value="#{empresaMB.empresa.empresa_dt_inclusao}"
+										size="20" disabled="true" styleClass="fonteCorFormulario"
+										converter="dateConverter" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_status}" />
+									<h:outputText value="#{msg.lbl_empresa_status_ativo_1}"
+										styleClass="fonteCorFormulario" />
+
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+
+								<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
+									<p:commandButton value="#{msg.btn_voltar_empresa}"
+										icon="#{msg.icon_btn_voltar}"
+										action="#{empresaMB.voltarEmpresa}" ajax="false" />
+								</h:panelGrid>
+							</h:form>
+
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

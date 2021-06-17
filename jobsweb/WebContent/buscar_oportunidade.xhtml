@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+																
+											<p:layout style="min-width:400px;min-height:200px;">
+    <p:layoutUnit position="west" resizable="true" size="100" minSize="40" maxSize="200" styleClass="painelGridBusca" >
+        West
+												<h:selectOneMenu value="#{cadastroMB.filtro.categoria}"
+													id="categoria" converter="toCategoriaConverter"
+													styleClass="fonteCorFormulario">
+													<f:selectItem itemLabel="#{msg.lbl_categoria_inicial}"
+														itemValue="#{null}" />
+													<f:selectItems
+														value="#{categoriaMB.listarTodasCategoriasAtivas()}"
+														var="categoria"
+														itemLabel="#{categoria.categoria_descricao}"
+														itemValue="#{categoria}" />
+												</h:selectOneMenu>
+												
+												<br></br>
+												
+												<h:selectOneMenu value="#{cadastroMB.filtro.salario}"
+													id="salario" converter="toSalarioConverter"
+													styleClass="fonteCorFormulario">
+													<f:selectItem itemLabel="#{msg.lbl_salario_inicial}"
+														itemValue="#{null}" />
+													<f:selectItems
+														value="#{salarioMB.listarTodosSalariosAtivas()}"
+														var="salario" itemLabel="#{salario.salario_descricao}"
+														itemValue="#{salario}" />
+												</h:selectOneMenu>
+												
+												
+        
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="center">
+        Center
+    </p:layoutUnit>
+</p:layout>
+						<p:fieldset legend="#{msg.lbl_filtro_titulo}">
+
+							<h:form id="formBuscar" acceptcharset="ISO-8859-1">
+								<div>
+									<div>
+										<div>
+
+											<h:outputText value="#{msg.lbl_filtro_filtro}"
+												styleClass="fonteCorTamanhoTitulo" />
+											<br /> <br />
+
+											<!--  PanelGrid Filtrar Categoria -->
+
+	
+										
+											<p:panelGrid columns="1">
+
+												<f:facet name="header">
+													<h:outputText value="#{msg.lbl_filtro_categoria}"
+														styleClass="fonteCorTamanhoTitulo" />
+												</f:facet>
+
+												<h:selectOneMenu value="#{cadastroMB.filtro.categoria}"
+													id="categoria" converter="toCategoriaConverter"
+													styleClass="fonteCorFormulario">
+													<f:selectItem itemLabel="#{msg.lbl_categoria_inicial}"
+														itemValue="#{null}" />
+													<f:selectItems
+														value="#{categoriaMB.listarTodasCategoriasAtivas()}"
+														var="categoria"
+														itemLabel="#{categoria.categoria_descricao}"
+														itemValue="#{categoria}" />
+												</h:selectOneMenu>
+												
+												
+
+											</p:panelGrid>
+											<br />
+
+											<!--  PanelGrid Filtrar Função -->
+											<!-- 
+							<p:panelGrid columns="1" cellpadding="1" cellspacing="1"
+								styleClass="painelGridBusca">
+
+								<f:facet name="header">
+									<h:outputText value="#{msg.lbl_filtro_funcao}"
+										styleClass="fonteCorTamanhoTitulo" />
+								</f:facet>
+
+								<h:selectOneMenu value="#{cadastroMB.filtro.funcao}"
+									id="funcao" converter="toFuncaoConverter">
+									<f:selectItem itemLabel="#{msg.lbl_funcao_inicial}"
+										itemValue="#{null}" />
+									<f:selectItems value="#{funcaoMB.listarTodasFuncoes()}" var="funcao"
+										itemLabel="#{funcao.funcao_descricao}" itemValue="#{funcao}" />
+								</h:selectOneMenu>
+								
+							</p:panelGrid>
+							 <br />
+							 -->
+
+											<!--  PanelGrid Filtrar Estado -->
+											<p:panelGrid columns="1" cellpadding="1" cellspacing="1">
+
+											<f:facet name="header">
+													<h:outputText value="#{msg.lbl_filtro_estado}"
+														styleClass="fonteCorTamanhoTitulo" />
+												</f:facet>
+
+												<h:selectOneMenu value="#{cadastroMB.filtro.estado}"
+													id="estado"
+													valueChangeListener="#{cidadeMB.listarTodasPorEstado}"
+													converter="toEstadoConverter"
+													styleClass="fonteCorFormulario">
+													<f:selectItem itemLabel="#{msg.lbl_estado_inicial}"
+														itemValue="#{null}" />
+													<f:selectItems value="#{estadoMB.listarTodosEstados()}"
+														var="estado" itemLabel="#{estado.estado_descricao}"
+														itemValue="#{estado}" />
+													<f:ajax event="change" render="cidade" />
+												</h:selectOneMenu>
+
+											</p:panelGrid>
+ 											<br />
+
+											<!--  PanelGrid Filtrar Cidade -->
+											<p:panelGrid columns="1" cellpadding="1" cellspacing="1"
+												styleClass="painelGridBusca">
+
+												<f:facet name="header">
+													<h:outputText value="#{msg.lbl_filtro_cidade}"
+														styleClass="fonteCorTamanhoTitulo" />
+												</f:facet>
+
+												<h:selectOneMenu value="#{cadastroMB.filtro.cidade}"
+													id="cidade" converter="toCidadeConverter"
+													styleClass="fonteCorFormulario">
+													<f:selectItem itemLabel="#{msg.lbl_cidade_inicial}"
+														itemValue="#{null}" />
+													<f:selectItems value="#{cidadeMB.cidades}" var="cidade"
+														itemLabel="#{cidade.cidade_descricao}"
+														itemValue="#{cidade}" />
+												</h:selectOneMenu>
+
+											</p:panelGrid>
+											<br />
+
+											<!--  PanelGrid Filtrar Faixa Salarial -->
+											<p:panelGrid columns="1" cellpadding="1" cellspacing="1"
+												styleClass="painelGridBusca">
+
+												<f:facet name="header">
+													<h:outputText value="#{msg.lbl_filtro_salario}"
+														styleClass="fonteCorTamanhoTitulo" />
+												</f:facet>
+
+												<h:selectOneMenu value="#{cadastroMB.filtro.salario}"
+													id="salario" converter="toSalarioConverter"
+													styleClass="fonteCorFormulario">
+													<f:selectItem itemLabel="#{msg.lbl_salario_inicial}"
+														itemValue="#{null}" />
+													<f:selectItems
+														value="#{salarioMB.listarTodosSalariosAtivas()}"
+														var="salario" itemLabel="#{salario.salario_descricao}"
+														itemValue="#{salario}" />
+												</h:selectOneMenu>
+
+											</p:panelGrid>
+											<br />
+
+											<!--  PanelGrid Filtrar Formação -->
+											<p:panelGrid columns="1" cellpadding="1" cellspacing="1"
+												styleClass="painelGridBusca">
+
+												<f:facet name="header">
+													<h:outputText value="#{msg.lbl_filtro_formacao}"
+														styleClass="fonteCorTamanhoTitulo" />
+												</f:facet>
+
+												<h:selectOneMenu value="#{cadastroMB.filtro.formacao}"
+													id="formacao" converter="toFormacaoConverter"
+													styleClass="fonteCorFormulario">
+													<f:selectItem itemLabel="#{msg.lbl_formacao_inicial}"
+														itemValue="#{null}" />
+													<f:selectItems
+														value="#{formacaoMB.listarTodasFormacoesAtivas()}"
+														var="formacao" itemLabel="#{formacao.formacao_descricao}"
+														itemValue="#{formacao}" />
+												</h:selectOneMenu>
+
+											</p:panelGrid>
+											<br />
+
+											<!--  PanelGrid Filtrar Tempo de Experiência -->
+
+											<p:panelGrid columns="1" cellpadding="1" cellspacing="1"
+												styleClass="painelGridBusca">
+
+												<f:facet name="header">
+													<h:outputText value="#{msg.lbl_filtro_experiencia}"
+														styleClass="fonteCorTamanhoTitulo" />
+												</f:facet>
+
+												<p:inputText id="txtExperiencia"
+													value="#{cadastroMB.filtro.experiencia}" />
+												<p:slider for="txtExperiencia" maxValue="40" />
+
+											</p:panelGrid>
+											<br />
+
+
+											<!--  PanelGrid Filtrar Idioma/Conhecimento -->
+											<p:panelGrid columns="2" cellpadding="1" cellspacing="1"
+												styleClass="painelGridBusca">
+
+												<f:facet name="header">
+													<h:outputText value="#{msg.lbl_filtro_idioma}"
+														styleClass="fonteCorTamanhoTitulo" />
+												</f:facet>
+
+												<h:outputText value="#{msg.lbl_oportunidade_incluir_idioma}" />
+												<h:selectOneMenu value="#{cadastroMB.filtro.idioma}"
+													id="idioma" converter="toIdiomaConverter"
+													styleClass="fonteCorFormulario">
+													<f:selectItem itemLabel="#{msg.lbl_idioma_inicial}"
+														itemValue="#{null}" />
+													<f:selectItems
+														value="#{idiomaMB.listarTodosIdiomasAtivos()}"
+														var="idioma" itemLabel="#{idioma.idioma_descricao}"
+														itemValue="#{idioma}" />
+												</h:selectOneMenu>
+
+												<h:outputText value="#{msg.lbl_oportunidade_incluir_nivel}" />
+												<h:selectOneMenu value="#{cadastroMB.filtro.nivel}"
+													id="nivel" converter="toNivelConverter"
+													styleClass="fonteCorFormulario">
+													<f:selectItem itemLabel="#{msg.lbl_nivel_inicial}"
+														itemValue="#{null}" />
+													<f:selectItems value="#{nivelMB.listarTodosNiveisAtivos()}"
+														var="nivel" itemLabel="#{nivel.nivel_descricao}"
+														itemValue="#{nivel}" />
+												</h:selectOneMenu>
+											</p:panelGrid>
+											<br /> <br />
+
+										</div>
+										<div class="ui-grid-col-6">
+											<h:outputText value="#{msg.lbl_filtro_resultado}"
+												styleClass="fonteCorTamanhoTitulo" />
+											<br /> <br />
+											<p:scrollPanel mode="native">
+
+												<p:dataTable id="dataTable"
+													styleClass="fonteMenorCentralizado" var="cadastro"
+													value="#{cadastroMB.cadastros}" paginator="true"
+													rows="#{msg.lbl_quantidade_linhas_busca}"
+													paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+													emptyMessage="#{msg.lbl_cadastro_listagem}">
+
+													<p:column>
+
+														<f:facet name="header">
+
+															<h:outputText value="#{msg.lbl_cadastro_incluir_status}" />
+
+														</f:facet>
+
+														<h:graphicImage library="imagens"
+															name="cadastro_#{cadastro.cadastro_status}.png"
+															style="border:0" />
+
+													</p:column>
+
+													<p:column>
+
+														<f:facet name="header">
+
+															<h:outputText value="#{msg.lbl_cadastro_incluir_data}" />
+
+														</f:facet>
+
+														<h:outputText value="#{cadastro.cadastro_data}"
+															converter="dateConverter" />
+
+													</p:column>
+
+													<p:column headerText="#{msg.lbl_cadastro_incluir_nome}"
+														filterBy="#{cadastro.cadastro_nome}"
+														filterMatchMode="contains">
+														<h:outputText value="#{cadastro.cadastro_nome}" />
+													</p:column>
+
+													<p:column>
+
+														<f:facet name="header">
+															<h:outputText value="#{msg.lbl_acoes_jobs}" />
+														</f:facet>
+
+														<h:commandLink action="#{cadastroMB.detalharCadastro}"
+															title="#{msg.lbl_cadastro_commandlink_ver}">
+
+															<h:graphicImage library="imagens" name="cadastro_ver.png"
+																style="border:0" />
+
+															<f:setPropertyActionListener
+																target="#{cadastroMB.cadastro}" value="#{cadastro}" />
+
+														</h:commandLink>
+
+													</p:column>
+
+												</p:dataTable>
+
+												<h:outputText value="#{cadastroMB.retorno}" />
+
+												<br />
+												<br />
+												<br />
+
+												<p:dataTable id="dataTableFiltro"
+													styleClass="fonteMenorCentralizado" var="filtros"
+													value="#{cadastroMB.filtros}"
+													rows="#{msg.lbl_quantidade_linhas_busca}"
+													emptyMessage="#{msg.lbl_lista_filtro}">
+													<f:facet name="header">
+														<h:outputText value="#{msg.lbl_filtro_filtro}" />
+													</f:facet>
+													<p:column>
+
+														<f:facet name="header">
+
+															<h:outputText value="#{msg.lbl_filtro_aplicado}" />
+
+														</f:facet>
+
+														<h:outputText value="#{filtros.item_filtro_descricao}" />
+
+													</p:column>
+
+													<p:column>
+
+														<f:facet name="header">
+
+															<h:outputText value="#{msg.lbl_acoes_jobs}" />
+
+														</f:facet>
+
+														<h:commandLink
+															actionListener="#{cadastroMB.removerFiltro(filtros)}"
+															title="#{msg.lbl_filtro_commandlink_remover}">
+
+															<h:graphicImage library="imagens"
+																name="filtro_remover.png" style="border:0" />
+
+														</h:commandLink>
+
+													</p:column>
+
+												</p:dataTable>
+
+											</p:scrollPanel>
+
+										</div>
+									</div>
+								</div>
+								<h:panelGrid columns="2" cellpadding="10" cellspacing="10">
+
+									<p:commandButton styleClass="fonteMaior"
+										value="#{msg.btn_aplicar_filtro}" id="filtroBuscar"
+										icon="#{msg.icon_btn_filtro}"
+										actionListener="#{cadastroMB.filtrarCadastros}" ajax="false" />
+									<p:commandButton styleClass="fonteMaior"
+										value="#{msg.btn_limpar_filtro}" id="filtroLimpar"
+										icon="#{msg.icon_btn_filtro_limpar}"
+										actionListener="#{cadastroMB.limparFiltro}" ajax="false" />
+
+								</h:panelGrid>
+
+							</h:form>
+
+						</p:fieldset>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</ui:define>
+
+</ui:composition>
+
+</html>
+
+

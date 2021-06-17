@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+
+						<p:fieldset legend="#{msg.lbl_usuario_incluir_titulo}">
+
+							<h:form id="formUsuario" acceptcharset="ISO-8859-1">
+
+								<p:growl id="messages" showDetail="true" life="8000" />
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+									<h:outputText value="#{msg.lbl_usuario_incluir_descricao}" />
+									<p:inputText value="#{usuarioMB.usuario.usuario_descricao}"
+										size="80" disabled="false" converter="toUpperCaseConverter" />
+
+									<h:outputText value="#{msg.lbl_usuario_incluir_login}" />
+									<p:inputText value="#{usuarioMB.usuario.usuario_login}"
+										size="30" disabled="false" converter="toLowerCaseConverter" />
+
+									<h:outputText value="#{msg.lbl_usuario_incluir_senha}" />
+									<p:password value="#{usuarioMB.usuario.usuario_senha}"
+										size="30" />
+
+
+									<h:outputLabel value="#{msg.lbl_usuario_incluir_email}"
+										for="email" />
+									<h:panelGroup>
+										<p:inputText id="email"
+											value="#{usuarioMB.usuario.usuario_email}" size="50"
+											maxlength="50" required="true"
+											validatorMessage="#{msg.msg_falha_email}">
+											<f:validateRegex
+												pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
+										</p:inputText>
+										<h:message for="email" />
+									</h:panelGroup>
+
+									<h:outputText value="#{msg.lbl_usuario_incluir_empresa}" />
+									<h:selectOneMenu value="#{usuarioMB.usuario.empresa}"
+										id="empresa" converter="toEmpresaConverter"
+										styleClass="fonteCorFormulario">
+										<f:selectItems
+											value="#{empresaMB.listarTodasEmpresasAtivas()}"
+											var="empresa" itemLabel="#{empresa.empresa_razao}"
+											itemValue="#{empresa}" />
+									</h:selectOneMenu>
+
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+									<h:outputText value="#{msg.lbl_usuario_incluir_data}" />
+									<h:outputText value="#{usuarioMB.dataAtual()}" size="20"
+										disabled="true" styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_usuario_incluir_perfil}" />
+									<h:selectOneMenu id="roleUsuario" value="#{usuarioMB.idPerfil}"
+										styleClass="fonteCorFormulario">
+										<f:selectItem
+											itemLabel="#{msg.lbl_usuario_perfil_administrador}"
+											itemValue="1" />
+										<f:selectItem itemLabel="#{msg.lbl_usuario_perfil_empresa}"
+											itemValue="3" />
+										<f:selectItem itemLabel="#{msg.lbl_usuario_perfil_cliente}"
+											itemValue="2" />
+									</h:selectOneMenu>
+
+									<h:outputText value="#{msg.lbl_usuario_incluir_status}" />
+									<h:selectOneMenu id="statusUsuario"
+										value="#{usuarioMB.usuario.usuario_status}"
+										styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_usuario_status_ativo_1}"
+											itemValue="true" />
+										<f:selectItem itemLabel="#{msg.lbl_usuario_status_ativo_0}"
+											itemValue="false" />
+									</h:selectOneMenu>
+
+								</h:panelGrid>
+								<p:separator style="width: 100%; height: 2px" />
+
+								<h:panelGrid columns="1" cellpadding="5" cellspacing="5"
+									styleClass="fonteCorTamanho">
+									<h:outputText value="#{msg.lbl_msg_role_lembrando}" />
+								</h:panelGrid>
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5"
+									styleClass="fonteCorTamanho">
+									<li><h:outputText
+											value="#{msg.lbl_msg_role_administrador}" /></li>
+									<li><h:outputText value="#{msg.lbl_msg_role_empresa}" /></li>
+									<li><h:outputText value="#{msg.lbl_msg_role_cliente}" /></li>
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+
+								<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
+
+									<p:commandButton styleClass="fonteMaior"
+										value="#{msg.btn_salvar_usuario}"
+										icon="#{msg.icon_btn_salvar}"
+										action="#{usuarioMB.salvarUsuario}" ajax="false" />
+
+								</h:panelGrid>
+							</h:form>
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

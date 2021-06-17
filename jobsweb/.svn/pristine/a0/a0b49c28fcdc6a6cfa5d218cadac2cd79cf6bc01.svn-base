@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+	<hibernate-configuration>
+ 		<session-factory>
+		<property name="current_session_context_class">thread</property>
+		
+		<!-- Conexão para Postgres 9.xx  REDE     
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.connection.password">@gfen1br</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://192.168.0.96:5432/JobsMobile</property>
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		-->
+		
+		<!-- Conexão para Postgres 9.xx  REDE TESTE      
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.connection.password">@gfen1br</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://192.168.0.96:5432/JobsMobileTeste</property>
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		-->
+		
+		<!-- Conexão para Postgres 9.xx  Local -->     
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.connection.password">N@lson1br</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/JobsMobile</property>
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		
+		
+		
+		<!-- Conexão para Postgres 9.xx  Cloud       
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.connection.password">uSL4usol1br</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/usoluc_jobsmobile</property>
+		<property name="hibernate.connection.username">usoluc</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		-->
+		
+		<!-- Conexão para Postgres 9.xx  Cloud Teste 
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.connection.password">@jobs1br</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/usoluc_jobsmobile_teste</property>
+		<property name="hibernate.connection.username">usoluc_jobs</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		-->   
+		
+		<!-- Conexão SQL SERVER 2008  
+		<property name="hibernate.connection.driver_class" > com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="hibernate.connection.password">N@lson1br</property>
+		<property name="hibernate.connection.url">jdbc:sqlserver://srv-sql:1433;databaseName=JobsMobile;instanceName=NMCZ</property>
+		<property name="hibernate.connection.username">java</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+		-->
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+
+		<mapping class="br.com.jobs.modelo.categoria.Categoria" />
+		<mapping class="br.com.jobs.modelo.oportunidade.Oportunidade" />
+		<mapping class="br.com.jobs.modelo.perfil.Perfil" />
+		<mapping class="br.com.jobs.modelo.usuario.Usuario" />
+		<mapping class="br.com.jobs.modelo.estado.Estado" />
+		<mapping class="br.com.jobs.modelo.email.Email"/>
+		<mapping class="br.com.jobs.modelo.enviado.Enviado"/>
+		<mapping class="br.com.jobs.modelo.cadastro.Cadastro"/>
+		<mapping class="br.com.jobs.modelo.formacao.Formacao"/>
+		<mapping class="br.com.jobs.modelo.salario.Salario"/>
+		<mapping class="br.com.jobs.modelo.curriculo.Curriculo"/>
+		<mapping class="br.com.jobs.modelo.cidade.Cidade"/>
+		<mapping class="br.com.jobs.modelo.pais.Pais"/>
+		<mapping class="br.com.jobs.modelo.empresa.Empresa"/>
+		
+		<mapping class="br.com.jobs.modelo.beneficio.Beneficio"/>
+		<mapping class="br.com.jobs.modelo.idioma.Idioma"/>
+		<mapping class="br.com.jobs.modelo.software.Software"/>
+		<mapping class="br.com.jobs.modelo.vaga.Vaga"/>
+		<mapping class="br.com.jobs.modelo.nivel.Nivel"/>
+		<mapping class="br.com.jobs.modelo.funcao.Funcao"/>
+		
+		<mapping class="br.com.jobs.modelo.experiencia.Experiencia"/>
+		<mapping class="br.com.jobs.modelo.escolaridade.Escolaridade"/>
+		<mapping class="br.com.jobs.modelo.situacao.Situacao"/>
+		<mapping class="br.com.jobs.modelo.curso.Curso"/>
+		
+		<mapping class="br.com.jobs.combinacao.idioma.Combinacao_Idioma"/>
+		<mapping class="br.com.jobs.combinacao.software.Combinacao_Software"/>
+		
+		
+		<mapping class="br.com.jobs.modelo.meta.Meta"/>
+		<mapping class="br.com.jobs.modelo.comissao.Comissao"/>
+		<mapping class="br.com.jobs.modelo.faturamento.Faturamento"/>
+		<mapping class="br.com.jobs.modelo.pagamento.Pagamento"/>
+		<mapping class="br.com.jobs.modelo.vendedor.Vendedor"/>
+		<mapping class="br.com.jobs.modelo.ajudadecusto.AjudaDeCusto"/>
+		<mapping class="br.com.jobs.modelo.financeiro.Financeiro"/>
+		
+		<mapping class="br.com.jobs.combinacao.ajudadecusto.Combinacao_AjudaDeCusto"/>
+		
+		<!-- Meta, Comissao, Faturamento, Pagamento, Vendedor, AjudaDeCusto, Combinacao_Ajudadecusto, Financeiro -->
+			
+	</session-factory>
+</hibernate-configuration>

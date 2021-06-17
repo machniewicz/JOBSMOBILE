@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.1.final using JasperReports Library version 6.2.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_cv_escolaridade" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5d2a7060-50d7-49fc-93fe-b734684413fd">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="formacao" class="br.com.jobs.modelo.formacao.Formacao">
+		<fieldDescription><![CDATA[formacao]]></fieldDescription>
+	</field>
+	<field name="escolaridade_descricao" class="java.lang.String">
+		<fieldDescription><![CDATA[escolaridade_descricao]]></fieldDescription>
+	</field>
+	<field name="escolaridade_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[escolaridade_id]]></fieldDescription>
+	</field>
+	<field name="escolaridade_instituicao" class="java.lang.String">
+		<fieldDescription><![CDATA[escolaridade_instituicao]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="25">
+			<staticText>
+				<reportElement x="4" y="0" width="546" height="20" uuid="f7e6dac9-ea53-406c-b2ea-b70252b8f3b6">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Escolaridade(s):]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="90" splitType="Stretch">
+			<textField>
+				<reportElement x="70" y="0" width="480" height="30" uuid="bd38ec6b-457b-4780-a8ae-a7d7dfba3c0e"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{escolaridade_descricao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="70" height="30" uuid="89626331-85ba-493f-81f8-4f69ef72a711"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="80" height="30" uuid="729c9c71-d069-46c0-b394-2bbadd56af79"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Instituição:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="30" width="470" height="30" uuid="2e851a8f-6f62-4018-b446-ff0af21c21df"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{escolaridade_instituicao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="60" width="70" height="30" uuid="1c6937a5-cfe3-48a1-8692-361f77d80b12"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Formação:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="60" width="480" height="30" uuid="92bb41fa-e5e4-41c3-b62e-71d3fcccd45d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{formacao}.getFormacao_descricao()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="18">
+			<line>
+				<reportElement x="40" y="10" width="431" height="1" uuid="b7db20ca-0d11-463e-a3a2-ca0e1a2951af"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

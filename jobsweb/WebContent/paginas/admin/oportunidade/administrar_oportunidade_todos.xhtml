@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+						<p:fieldset
+							legend="#{msg.lbl_oportunidade_administrar_todos_titulo}">
+
+							<h:form id="formOportunidade" style="font-weight: bold;">
+
+								<p:growl id="messages" showDetail="true" life="6000" />
+
+								<p:dataTable id="dataTable" styleClass="fonteMenorCentralizado"
+									var="oportunidade"
+									value="#{oportunidadeMB.administrarTodasOportunidadesEnviado()}"
+									paginator="true" rows="#{msg.lbl_quantidade_linhas}"
+									paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+									emptyMessage="#{msg.lbl_oportunidade_listagem}">
+
+									<p:column>
+
+										<f:facet name="header">
+
+											<h:outputText value="#{msg.lbl_oportunidade_incluir_status}" />
+
+										</f:facet>
+
+										<h:graphicImage library="imagens"
+											name="oportunidade_#{oportunidade.oportunidade_status}.png"
+											style="border:0" />
+
+									</p:column>
+
+									<p:column headerText="#{msg.lbl_oportunidade_incluir_usuario}"
+										filterBy="#{oportunidade.usuario.usuario_descricao}"
+										filterMatchMode="contains">
+
+										<h:outputText
+											value="#{oportunidade.usuario.usuario_descricao}" />
+
+									</p:column>
+
+
+									<p:column headerText="#{msg.lbl_oportunidade_incluir_data}"
+										filterBy="#{oportunidade.oportunidade_data}"
+										filterMatchMode="contains">
+
+										<h:outputText value="#{oportunidade.oportunidade_data}"
+											converter="dateConverter" />
+
+									</p:column>
+
+									<p:column
+										headerText="#{msg.lbl_oportunidade_incluir_categoria}"
+										filterBy="#{oportunidade.categoria.categoria_descricao}"
+										filterMatchMode="contains">
+
+										<h:outputText
+											value="#{oportunidade.categoria.categoria_descricao}" />
+
+									</p:column>
+
+									<p:column headerText="#{msg.lbl_oportunidade_incluir_funcao}"
+										filterBy="#{oportunidade.funcao.funcao_descricao}"
+										filterMatchMode="contains">
+
+										<h:outputText value="#{oportunidade.funcao.funcao_descricao}" />
+
+									</p:column>
+
+									<p:column>
+
+
+										<f:facet name="header">
+
+											<h:outputText value="#{msg.lbl_acoes_jobs}" />
+
+										</f:facet>
+
+										<h:commandLink
+											action="#{enviadoMB.listarEnviadoAdministrador}"
+											title="#{msg.lbl_oportunidade_commandlink_estatistica}">
+
+											<h:graphicImage library="imagens" name="estatistica.png"
+												style="border:0" />
+
+											<f:setPropertyActionListener
+												target="#{enviadoMB.oportunidade}" value="#{oportunidade}" />
+
+										</h:commandLink>
+
+										<h:commandLink action="#{oportunidadeMB.editarOportunidade}"
+											title="#{msg.lbl_oportunidade_commandlink_editar}">
+
+											<h:graphicImage library="imagens" name="editar.png"
+												style="border:0" />
+
+											<f:setPropertyActionListener
+												target="#{oportunidadeMB.oportunidade}"
+												value="#{oportunidade}" />
+
+										</h:commandLink>
+
+										<h:commandLink action="#{oportunidadeMB.detalharOportunidade}"
+											title="#{msg.lbl_oportunidade_commandlink_ver}">
+
+											<h:graphicImage library="imagens" name="ver.png"
+												style="border:0" />
+
+											<f:setPropertyActionListener
+												target="#{oportunidadeMB.oportunidade}"
+												value="#{oportunidade}" />
+
+										</h:commandLink>
+
+										<p:commandLink
+											title="#{msg.lbl_oportunidade_commandlink_excluir}"
+											update=":formDelete:Delete" oncomplete="confirmation.show()"
+											immediate="true">
+
+											<h:graphicImage library="imagens" name="excluir.png"
+												style="border:0" />
+
+											<f:setPropertyActionListener
+												target="#{oportunidadeMB.oportunidade}"
+												value="#{oportunidade}" />
+
+										</p:commandLink>
+
+									</p:column>
+
+								</p:dataTable>
+
+							</h:form>
+
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<h:form id="formDelete">
+			<p:confirmDialog id="Delete"
+				message="#{msg.msg_oportunidade_excluir_confirmacao}"
+				header="#{msg.msg_oportunidade_titulo_confirmacao_excluir}"
+				severity="alert" widgetVar="confirmation" showEffect="fade"
+				hideEffect="explode">
+				<p:commandButton id="confirm" value="#{msg.msg_sim}"
+					oncomplete="confirmation.hide()"
+					actionListener="#{oportunidadeMB.excluirOportunidade()}"
+					update=":formOportunidade:dataTable, :formOportunidade:messages" />
+				<p:commandButton id="decline" value="#{msg.msg_nao}"
+					onclick="confirmation.hide()" type="button" />
+			</p:confirmDialog>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.jobs"
+    android:versionCode="12"
+    android:versionName="12" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="22" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+        
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/HomeText" >
+        
+        <receiver android:name="br.com.jobs.broadcast.IniciarNotificacao">
+            <intent-filter>
+              	<!--
+              	<action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/> -->
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        
+        <service android:name="br.com.jobs.broadcast.ServicoNotificacao" android:exported="false">
+            <intent-filter>
+                <action android:name="VERIFICA_NOTIFICACAO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        
+        
+        <activity
+            android:name="br.com.jobs.PrincipalActivity"
+            android:label="@string/app_name" 
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="br.com.jobs.BuscarActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="br.com.jobs.ResumoActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="br.com.jobs.OportunidadeActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="br.com.jobs.DetalharOportunidadeActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="br.com.jobs.SobreActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="br.com.jobs.ConfiguracoesActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="br.com.jobs.CurriculoActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity
+            android:name="br.com.jobs.BuscarArquivoActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity 
+            android:name="br.com.jobs.VazioActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity 
+            android:name="br.com.jobs.HistoricoActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity 
+            android:name="br.com.jobs.InfoActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity 
+            android:name="br.com.jobs.EscolhaActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+        <activity 
+            android:name="br.com.jobs.SincronizarActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        
+    </application>
+
+</manifest>

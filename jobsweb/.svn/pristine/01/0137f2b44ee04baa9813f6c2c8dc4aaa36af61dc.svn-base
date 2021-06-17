@@ -1,0 +1,1041 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+						<p:fieldset legend="#{msg.lbl_cadastro_incluir_titulo}">
+
+							<h:form id="formCurriculo" acceptcharset="ISO-8859-1">
+
+								<p:growl id="messages" showDetail="true" />
+
+								<!-- Dados pessoais - Cadastro Currículo -->
+
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText value="#{msg.lbl_cadastro_incluir_dados_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+									<h:outputText value="#{msg.lbl_cadastro_incluir_status}" />
+									<h:selectOneMenu id="status"
+										value="#{cadastroMB.cadastro.cadastro_status}"
+										styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_cadastro_status_ativo_1}"
+											itemValue="true" />
+										<f:selectItem itemLabel="#{msg.lbl_cadastro_status_ativo_0}"
+											itemValue="false" />
+									</h:selectOneMenu>
+
+									<h:outputText value="#{msg.lbl_cadastro_incluir_nome}" />
+									<p:inputText id="nome"
+										value="#{cadastroMB.cadastro.cadastro_nome}" size="50" />
+
+									<h:outputText value="#{msg.lbl_cadastro_incluir_email}" />
+									<p:inputText id="email"
+										value="#{cadastroMB.cadastro.cadastro_email}" size="50" />
+
+									<h:outputText value="#{msg.lbl_cadastro_incluir_cpf}" />
+									<p:inputMask id="cpf"
+										value="#{cadastroMB.cadastro.cadastro_cpf}"
+										mask="#{msg.lbl_msk_cpf}" />
+
+									<h:outputText value="#{msg.lbl_cadastro_incluir_senha}" />
+									<p:password id="senhaAlterada" value="#{cadastroMB.senhaTmp}"
+										size="20" feedback="true" inline="true"
+										promptLabel="#{msg.lbl_login_prompt}"
+										weakLabel="#{msg.lbl_login_fraco}"
+										goodLabel="#{msg.lbl_login_medio}"
+										strongLabel="#{msg.lbl_login_forte}">
+										<p:watermark for="senhaAlterada"
+											value="#{msg.msg_usuario_alterar_senha}" id="watermark" />
+									</p:password>
+
+
+								</h:panelGrid>
+
+								<h:panelGrid columns="3" cellpadding="2" cellspacing="2">
+									<h:outputText
+										value="#{msg.lbl_cadsatro_incluir_tempo_experiencia}" />
+									<p:inputText id="tempo_experiencia"
+										value="#{cadastroMB.cadastro.cadastro_experiencia}" size="3" />
+									<p:slider for="tempo_experiencia" style="width: 100px" />
+								</h:panelGrid>
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+									<h:outputText
+										value="#{msg.lbl_cadastro_incluir_pretensao_salarial}" />
+									<h:selectOneMenu value="#{cadastroMB.cadastro.salario}"
+										id="salario" converter="toSalarioConverter"
+										styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_salario_inicial}"
+											itemValue="#{null}" />
+										<f:selectItems
+											value="#{salarioMB.listarTodosSalariosAtivas()}"
+											var="salario" itemLabel="#{salario.salario_descricao}"
+											itemValue="#{salario}" />
+									</h:selectOneMenu>
+
+									<h:outputText value="#{msg.lbl_cadastro_incluir_categoria}" />
+									<h:selectOneMenu value="#{cadastroMB.cadastro.categoria}"
+										id="categoria" immediate="true"
+										converter="toCategoriaConverter"
+										styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_categoria_inicial}"
+											itemValue="#{null}" />
+										<f:selectItems
+											value="#{categoriaMB.listarTodasCategoriasAtivas()}"
+											var="categoria" itemLabel="#{categoria.categoria_descricao}"
+											itemValue="#{categoria}" />
+									</h:selectOneMenu>
+
+									<h:outputText
+										value="#{msg.lbl_cadastro_incluir_formacao_atual}" />
+									<h:selectOneMenu value="#{cadastroMB.cadastro.formacao}"
+										id="formacao_atual" converter="toFormacaoConverter"
+										styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_formacao_inicial}"
+											itemValue="#{null}" />
+										<f:selectItems
+											value="#{formacaoMB.listarTodasFormacoesAtivas()}"
+											var="formacao" itemLabel="#{formacao.formacao_descricao}"
+											itemValue="#{formacao}" />
+									</h:selectOneMenu>
+
+
+									<h:outputText value="#{msg.lbl_cadastro_incluir_data}" />
+									<h:outputText value="#{cadastroMB.cadastro.cadastro_data}"
+										size="20" disabled="true" styleClass="fonteCorFormulario"
+										converter="dateConverter" />
+
+								</h:panelGrid>
+
+								<!-- Cadastro Currículo - Dados complementares -->
+
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText
+									value="#{msg.lbl_cadastro_incluir_complemento_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+									<h:outputText
+										value="#{msg.lbl_cadastro_incluir_complemento_sexo}" />
+									<h:selectOneMenu id="sexo"
+										value="#{cadastroMB.cadastro.cadastro_complemento_sexo}"
+										styleClass="fonteCorFormulario">
+										<f:selectItem
+											itemLabel="#{msg.lbl_cadastro_incluir_complemento_sexo_m}"
+											itemValue="0" />
+										<f:selectItem
+											itemLabel="#{msg.lbl_cadastro_incluir_complemento_sexo_f}"
+											itemValue="1" />
+									</h:selectOneMenu>
+
+									<p:outputLabel for="dt_nascimento"
+										value="#{msg.lbl_cadastro_incluir_complemento_dt_nascimento}" />
+									<p:calendar id="dt_nascimento"
+										value="#{cadastroMB.cadastro.cadastro_complemento_dt_nascimento}"
+										pattern="#{msg.lbl_msk_data_calendar}" mask="true"
+										converter="dateConverter" />
+
+									<h:outputText
+										value="#{msg.lbl_cadastro_incluir_complemento_telefone}" />
+									<p:inputMask id="telefone"
+										value="#{cadastroMB.cadastro.cadastro_complemento_telefone}"
+										mask="#{msg.lbl_msk_telefone}" />
+
+									<h:outputText
+										value="#{msg.lbl_cadastro_incluir_complemento_celular}" />
+									<p:inputMask id="celular"
+										value="#{cadastroMB.cadastro.cadastro_complemento_celular}"
+										mask="#{msg.lbl_msk_telefone}" />
+
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText
+									value="#{msg.lbl_cadastro_incluir_endereco_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+									<h:outputText value="#{msg.lbl_cadastro_incluir_endereco_rua}" />
+									<p:inputText id="rua"
+										value="#{cadastroMB.cadastro.cadastro_endereco_rua}" size="80" />
+
+									<h:outputText
+										value="#{msg.lbl_cadastro_incluir_endereco_numero}" />
+									<p:inputText id="numero"
+										value="#{cadastroMB.cadastro.cadastro_endereco_numero}"
+										size="5" />
+
+									<h:outputText
+										value="#{msg.lbl_cadastro_incluir_endereco_bairro}" />
+									<p:inputText id="bairro"
+										value="#{cadastroMB.cadastro.cadastro_endereco_bairro}"
+										size="50" />
+
+									<h:outputText
+										value="#{msg.lbl_cadastro_incluir_endereco_complemento}" />
+									<p:inputTextarea id="complemento"
+										value="#{cadastroMB.cadastro.cadastro_endereco_complemento}"
+										size="50" />
+
+									<h:outputText value="#{msg.lbl_cadastro_incluir_endereco_cep}" />
+									<p:inputMask id="cep"
+										value="#{cadastroMB.cadastro.cadastro_endereco_cep}"
+										mask="#{msg.lbl_msk_cep}" />
+
+									<h:outputText
+										value="#{msg.lbl_cadastro_incluir_endereco_estado}" />
+									<h:selectOneMenu value="#{cadastroMB.cadastro.estado}"
+										id="estado"
+										valueChangeListener="#{cidadeMB.listarTodasPorEstado}"
+										immediate="true" converter="toEstadoConverter"
+										styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_estado_inicial}"
+											itemValue="#{null}" />
+										<f:selectItems value="#{estadoMB.listarTodosEstados()}"
+											var="estado" itemLabel="#{estado.estado_descricao}"
+											itemValue="#{estado}" />
+										<f:ajax event="change" render="cidade" />
+									</h:selectOneMenu>
+
+									<h:outputText
+										value="#{msg.lbl_cadastro_incluir_endereco_cidade}" />
+									<h:selectOneMenu value="#{cadastroMB.cadastro.cidade}"
+										id="cidade" converter="toCidadeConverter"
+										styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_cidade_inicial}"
+											itemValue="#{null}" />
+										<f:selectItems
+											value="#{cidadeMB.listarPorEstado(cadastroMB.cadastro.estado)}"
+											var="cidade" itemLabel="#{cidade.cidade_descricao}"
+											itemValue="#{cidade}" />
+									</h:selectOneMenu>
+
+								</h:panelGrid>
+
+								<!-- Escolaridade -->
+
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText
+									value="#{msg.lbl_cadastro_incluir_escolaridade_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="1" cellpadding="1" cellspacing="1">
+
+
+									<p:panelGrid columns="2" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+
+										<f:facet name="header">
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_escolaridade_sub_titulo}"
+												styleClass="fonteCorTamanhoTitulo" />
+										</f:facet>
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_escolaridade_instituicao}" />
+										<p:inputText id="escolaridade_instituicao"
+											value="#{escolaridadeMB.escolaridade.escolaridade_instituicao}"
+											size="60" />
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_escolaridade_descricao}" />
+										<p:inputText id="escolaridade_descricao"
+											value="#{escolaridadeMB.escolaridade.escolaridade_descricao}"
+											size="60" />
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_escolaridade_formacao}" />
+										<h:selectOneMenu
+											value="#{escolaridadeMB.escolaridade.formacao}" id="formacao"
+											converter="toFormacaoConverter"
+											styleClass="fonteCorFormulario">
+											<f:selectItem itemLabel="#{msg.lbl_formacao_inicial}"
+												itemValue="#{null}" />
+											<f:selectItems
+												value="#{formacaoMB.listarTodasFormacoesAtivas()}"
+												var="formacao" itemLabel="#{formacao.formacao_descricao}"
+												itemValue="#{formacao}" />
+										</h:selectOneMenu>
+
+									</p:panelGrid>
+
+									<p:panelGrid columns="1" layout="grid"
+										styleClass="painelGridIdioma">
+
+										<p:commandButton
+											value="#{msg.btn_adicionar_escolaridade_cadastro}"
+											id="adicionarEscolaridade" update="messages"
+											icon="#{msg.icon_btn_adicionar}"
+											actionListener="#{cadastroMB.adicionarEscolaridade(escolaridadeMB.escolaridade)}"
+											ajax="false" />
+
+									</p:panelGrid>
+
+									<h:panelGrid columns="1" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+										<h:outputText
+											value="#{msg.lbl_cadastro_escolaridades_adicionadas}" />
+										<p:dataTable id="dataTableEscolaridade"
+											styleClass="fonteMenorCentralizado" var="escolaridade"
+											value="#{cadastroMB.cadastro.escolaridades}" paginator="true"
+											rows="#{msg.lbl_quantidade_linhas_pequeno}"
+											paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+											emptyMessage="#{msg.lbl_escolaridade_listagem}">
+
+											<p:column
+												headerText="#{msg.lbl_cadastro_incluir_escolaridade_instituicao}"
+												filterBy="#{escolaridade.escolaridade_instituicao}"
+												filterMatchMode="contains">
+												<h:outputText
+													value="#{escolaridade.escolaridade_instituicao}" />
+											</p:column>
+
+											<p:column
+												headerText="#{msg.lbl_cadastro_incluir_escolaridade_descricao}"
+												filterBy="#{escolaridade.escolaridade_descricao}"
+												filterMatchMode="contains">
+												<h:outputText value="#{escolaridade.escolaridade_descricao}" />
+											</p:column>
+
+											<p:column>
+												<f:facet name="header">
+													<h:outputText value="#{msg.lbl_acoes_jobs}" />
+												</f:facet>
+
+												<p:commandButton id="removerEscolaridade"
+													title="#{msg.btn_remover_escolaridade_cadastro}"
+													value="#{msg.btn_remover_escolaridade_cadastro}"
+													update="messagesEscolaridade"
+													icon="#{msg.icon_btn_remover}"
+													actionListener="#{cadastroMB.removerEscolaridade(escolaridade)}"
+													ajax="false">
+												</p:commandButton>
+
+												<p:commandButton update=":formCurriculo:escolaridadeDetail"
+													oncomplete="PF('escolaridadeDialog').show()"
+													icon="#{msg.icon_btn_detalhar}"
+													title="#{msg.btn_detalhar_escolaridade_cadastro}"
+													value="#{msg.btn_detalhar_escolaridade_cadastro}">
+													<f:setPropertyActionListener value="#{escolaridade}"
+														target="#{cadastroMB.escolaridade}" />
+												</p:commandButton>
+
+											</p:column>
+
+										</p:dataTable>
+
+									</h:panelGrid>
+
+								</h:panelGrid>
+
+
+								<!-- Idiomas -->
+
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText value="#{msg.lbl_cadastro_incluir_idioma_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="1" cellpadding="1" cellspacing="1">
+
+
+									<p:panelGrid columns="2" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+
+										<f:facet name="header">
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_idioma_sub_titulo}"
+												styleClass="fonteCorTamanhoTitulo" />
+										</f:facet>
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_idioma_descricao}" />
+										<h:selectOneMenu
+											value="#{combinacaoIdiomaMB.combinacao_Idioma.idioma}"
+											id="idioma" immediate="true" converter="toIdiomaConverter"
+											styleClass="fonteCorFormulario">
+											<f:selectItem itemLabel="#{msg.lbl_idioma_inicial}"
+												itemValue="#{null}" />
+											<f:selectItems value="#{idiomaMB.listarTodosIdiomasAtivos()}"
+												var="idioma" itemLabel="#{idioma.idioma_descricao}"
+												itemValue="#{idioma}" />
+										</h:selectOneMenu>
+
+										<h:outputText value="#{msg.lbl_cadastro_incluir_idioma_nivel}" />
+										<h:selectOneMenu
+											value="#{combinacaoIdiomaMB.combinacao_Idioma.nivel}"
+											id="nivel" immediate="true" converter="toNivelConverter"
+											styleClass="fonteCorFormulario">
+											<f:selectItem itemLabel="#{msg.lbl_nivel_inicial}"
+												itemValue="#{null}" />
+											<f:selectItems value="#{nivelMB.listarTodosNiveisAtivos()}"
+												var="nivel" itemLabel="#{nivel.nivel_descricao}"
+												itemValue="#{nivel}" />
+										</h:selectOneMenu>
+
+									</p:panelGrid>
+
+									<p:panelGrid columns="1" layout="grid"
+										styleClass="painelGridIdioma">
+										<p:commandButton value="#{msg.btn_adicionar_idioma_cadastro}"
+											id="adicionar" update="messagesIdioma"
+											icon="#{msg.icon_btn_adicionar}"
+											actionListener="#{cadastroMB.adicionarCombinacaoIdioma(combinacaoIdiomaMB.combinacao_Idioma)}"
+											ajax="false" />
+									</p:panelGrid>
+
+									<h:panelGrid columns="1" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+										<h:outputText value="#{msg.lbl_cadastro_idioma_adicionados}" />
+										<p:dataTable id="dataTable"
+											styleClass="fonteMenorCentralizado" var="combinacoes_idiomas"
+											value="#{cadastroMB.cadastro.combinacoes_idiomas}"
+											paginator="true" rows="#{msg.lbl_quantidade_linhas_pequeno}"
+											paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+											emptyMessage="#{msg.lbl_idioma_listagem}">
+
+											<p:column
+												headerText="#{msg.lbl_cadastro_incluir_idioma_descricao}"
+												filterBy="#{combinacoes_idiomas.idioma.idioma_descricao}"
+												filterMatchMode="contains">
+												<h:outputText
+													value="#{combinacoes_idiomas.idioma.idioma_descricao}" />
+											</p:column>
+
+											<p:column
+												headerText="#{msg.lbl_cadastro_incluir_idioma_nivel}"
+												filterBy="#{combinacoes_idiomas.nivel.nivel_descricao}"
+												filterMatchMode="contains">
+												<h:outputText
+													value="#{combinacoes_idiomas.nivel.nivel_descricao}" />
+											</p:column>
+
+											<p:column>
+												<f:facet name="header">
+													<h:outputText value="#{msg.lbl_acoes_jobs}" />
+												</f:facet>
+
+												<p:commandButton value="#{msg.btn_remover_idioma_cadastro}"
+													id="remover" update="messagesIdioma"
+													icon="#{msg.icon_btn_remover}"
+													actionListener="#{cadastroMB.removerCombinacaoIdioma(combinacoes_idiomas)}"
+													ajax="false">
+												</p:commandButton>
+											</p:column>
+
+										</p:dataTable>
+
+									</h:panelGrid>
+
+
+								</h:panelGrid>
+
+
+
+								<!-- Cursos -->
+
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText value="#{msg.lbl_cadastro_incluir_curso_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="1" cellpadding="1" cellspacing="1">
+
+
+									<p:panelGrid columns="2" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+
+										<f:facet name="header">
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_curso_sub_titulo}"
+												styleClass="fonteCorTamanhoTitulo" />
+										</f:facet>
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_curso_instituicao}" />
+										<p:inputText id="curso_instituicao"
+											value="#{cursoMB.curso.curso_instituicao}" size="60" />
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_curso_descricao}" />
+										<p:inputText id="curso_descricao"
+											value="#{cursoMB.curso.curso_descricao}" size="60" />
+
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_curso_carga_horaria}" />
+										<p:panelGrid columns="2" cellpadding="1" cellspacing="1"
+											styleClass="painelGridIdioma">
+											<p:inputText id="curso_carga_horaria"
+												value="#{cursoMB.curso.curso_carga_horaria}" size="3" />
+											<h:outputText value="#{msg.lbl_curso_hora}" />
+										</p:panelGrid>
+
+										<h:outputText value="#{msg.lbl_cadastro_incluir_curso_ano}" />
+										<p:inputText id="curso_ano" value="#{cursoMB.curso.curso_ano}"
+											size="10" />
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_curso_situacao}" />
+										<h:selectOneMenu value="#{cursoMB.curso.situacao}"
+											id="situacao" converter="toSituacaoConverter"
+											styleClass="fonteCorFormulario">
+											<f:selectItem itemLabel="#{msg.lbl_situacao_inicial}"
+												itemValue="#{null}" />
+											<f:selectItems
+												value="#{situacaoMB.listarTodosSituacoesAtivas()}"
+												var="situacao" itemLabel="#{situacao.situacao_descricao}"
+												itemValue="#{situacao}" />
+										</h:selectOneMenu>
+
+									</p:panelGrid>
+
+									<p:panelGrid columns="1" layout="grid"
+										styleClass="painelGridIdioma">
+
+										<p:commandButton value="#{msg.btn_adicionar_curso_cadastro}"
+											id="adicionarCurso" update="messages"
+											icon="#{msg.icon_btn_adicionar}"
+											actionListener="#{cadastroMB.adicionarCurso(cursoMB.curso)}"
+											ajax="false" />
+
+									</p:panelGrid>
+
+									<h:panelGrid columns="1" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+										<h:outputText value="#{msg.lbl_cadastro_cursos_adicionados}" />
+										<p:dataTable id="dataTableCurso"
+											styleClass="fonteMenorCentralizado" var="curso"
+											value="#{cadastroMB.cadastro.cursos}" paginator="true"
+											rows="#{msg.lbl_quantidade_linhas_pequeno}"
+											paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+											emptyMessage="#{msg.lbl_curso_listagem}">
+
+											<p:column
+												headerText="#{msg.lbl_cadastro_incluir_curso_instituicao}"
+												filterBy="#{curso.curso_instituicao}"
+												filterMatchMode="contains">
+												<h:outputText value="#{curso.curso_instituicao}" />
+											</p:column>
+
+											<p:column
+												headerText="#{msg.lbl_cadastro_incluir_curso_descricao}"
+												filterBy="#{curso.curso_descricao}"
+												filterMatchMode="contains">
+												<h:outputText value="#{curso.curso_descricao}" />
+											</p:column>
+
+											<p:column>
+												<f:facet name="header">
+													<h:outputText value="#{msg.lbl_acoes_jobs}" />
+												</f:facet>
+
+												<p:commandButton id="removerCurso"
+													title="#{msg.btn_remover_curso_cadastro}"
+													value="#{msg.btn_remover_curso_cadastro}" update="messages"
+													icon="#{msg.icon_btn_remover}"
+													actionListener="#{cadastroMB.removerCurso(curso)}"
+													ajax="false">
+												</p:commandButton>
+
+												<p:commandButton update=":formCurriculo:cursoDetail"
+													oncomplete="PF('cursoDialog').show()"
+													icon="#{msg.icon_btn_detalhar}"
+													title="#{msg.btn_detalhar_curso_cadastro}"
+													value="#{msg.btn_detalhar_curso_cadastro}">
+													<f:setPropertyActionListener value="#{curso}"
+														target="#{cadastroMB.curso}" />
+												</p:commandButton>
+
+											</p:column>
+
+										</p:dataTable>
+
+									</h:panelGrid>
+
+								</h:panelGrid>
+
+								<!-- Combinacao_Software-->
+
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText
+									value="#{msg.lbl_cadastro_incluir_software_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="1" cellpadding="1" cellspacing="1">
+
+
+									<p:panelGrid columns="2" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+
+										<f:facet name="header">
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_software_sub_titulo}"
+												styleClass="fonteCorTamanhoTitulo" />
+										</f:facet>
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_software_descricao}" />
+										<h:selectOneMenu
+											value="#{combinacaoSoftwareMB.combinacao_Software.software}"
+											id="software" immediate="true"
+											converter="toSoftwareConverter"
+											styleClass="fonteCorFormulario">
+											<f:selectItem itemLabel="#{msg.lbl_software_inicial}"
+												itemValue="#{null}" />
+											<f:selectItems
+												value="#{softwareMB.listarTodosSoftwaresAtivos()}"
+												var="software" itemLabel="#{software.software_descricao}"
+												itemValue="#{software}" />
+										</h:selectOneMenu>
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_software_nivel}" />
+										<h:selectOneMenu
+											value="#{combinacaoSoftwareMB.combinacao_Software.nivel}"
+											id="nivel_sw" immediate="true" converter="toNivelConverter"
+											styleClass="fonteCorFormulario">
+											<f:selectItem itemLabel="#{msg.lbl_nivel_inicial}"
+												itemValue="#{null}" />
+											<f:selectItems value="#{nivelMB.listarTodosNiveisAtivos()}"
+												var="nivel_sw" itemLabel="#{nivel_sw.nivel_descricao}"
+												itemValue="#{nivel_sw}" />
+										</h:selectOneMenu>
+
+									</p:panelGrid>
+
+									<p:panelGrid columns="1" layout="grid"
+										styleClass="painelGridIdioma">
+										<p:commandButton
+											value="#{msg.btn_adicionar_software_oportunidade}"
+											id="adicionarSw" update="messagesSoftware"
+											icon="#{msg.icon_btn_adicionar}"
+											actionListener="#{cadastroMB.adicionarCombinacaoSoftware(combinacaoSoftwareMB.combinacao_Software)}"
+											ajax="false" />
+									</p:panelGrid>
+
+									<h:panelGrid columns="1" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+										<h:outputText value="#{msg.lbl_cadastro_software_adicionados}" />
+										<p:dataTable id="dataTableSw"
+											styleClass="fonteMenorCentralizado"
+											var="combinacoes_softwares"
+											value="#{cadastroMB.cadastro.combinacoes_softwares}"
+											paginator="true" rows="#{msg.lbl_quantidade_linhas_pequeno}"
+											paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+											emptyMessage="#{msg.lbl_software_listagem}">
+
+											<p:column headerText="#{msg.lbl_software_descricao}"
+												filterBy="#{combinacoes_softwares.software.software_descricao}"
+												filterMatchMode="contains">
+												<h:outputText
+													value="#{combinacoes_softwares.software.software_descricao}" />
+											</p:column>
+
+											<p:column headerText="#{msg.lbl_software_conhecimento}"
+												filterBy="#{combinacoes_softwares.nivel.nivel_descricao}"
+												filterMatchMode="contains">
+												<h:outputText
+													value="#{combinacoes_softwares.nivel.nivel_descricao}" />
+											</p:column>
+
+											<p:column>
+												<f:facet name="header">
+													<h:outputText value="#{msg.lbl_acoes_jobs}" />
+												</f:facet>
+
+												<p:commandButton
+													value="#{msg.btn_remover_software_cadastro}" id="removerSw"
+													update="messagesSoftware" icon="#{msg.icon_btn_remover}"
+													actionListener="#{cadastroMB.removerCombinacaoSoftware(combinacoes_softwares)}"
+													ajax="false">
+												</p:commandButton>
+											</p:column>
+
+										</p:dataTable>
+
+									</h:panelGrid>
+
+								</h:panelGrid>
+
+
+								<!-- Experiência -->
+
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText
+									value="#{msg.lbl_cadastro_incluir_experiencia_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="1" cellpadding="1" cellspacing="1">
+
+
+									<p:panelGrid columns="2" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+
+										<f:facet name="header">
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_experiencia_sub_titulo}"
+												styleClass="fonteCorTamanhoTitulo" />
+										</f:facet>
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_experiencia_empresa}" />
+										<p:inputText id="experiencia_empresa"
+											value="#{experienciaMB.experiencia.experiencia_empresa}"
+											size="60" />
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_experiencia_funcao}" />
+										<p:inputText id="experiencia_funcao"
+											value="#{experienciaMB.experiencia.experiencia_funcao}"
+											size="60" />
+
+									</p:panelGrid>
+
+									<p:panelGrid columns="5" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+
+										<f:facet name="header">
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_experiencia_periodo}"
+												styleClass="fonteCorTamanhoTitulo" />
+										</f:facet>
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_experiencia_dt_inicio}" />
+										<p:inputMask id="experiencia_dt_inicio"
+											value="#{experienciaMB.experiencia.experiencia_dt_inicio}"
+											mask="#{msg.lbl_msk_data}" converter="dateConverter" />
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_experiencia_ate}" />
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_experiencia_dt_fim}" />
+										<p:inputMask id="experiencia_dt_fim"
+											value="#{experienciaMB.experiencia.experiencia_dt_fim}"
+											mask="#{msg.lbl_msk_data}" converter="dateConverter" />
+
+									</p:panelGrid>
+
+									<p:panelGrid columns="1" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+
+										<f:facet name="header">
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_experiencia_descricao}"
+												styleClass="fonteCorTamanhoTitulo" />
+										</f:facet>
+
+										<p:inputTextarea
+											rows="#{msg.lbl_cadastro_descricao_experiencia_linha}"
+											cols="#{msg.lbl_cadastro_descricao_experiencia_coluna}"
+											counter="display"
+											maxlength="#{msg.lbl_cadastro_descricao_experiencia_quantidade}"
+											counterTemplate="{0} #{msg.lbl_cadastro_incluir_experiencia_restante}"
+											autoResize="false"
+											value="#{experienciaMB.experiencia.experiencia_descricao}" />
+										<h:outputText id="display" />
+
+
+									</p:panelGrid>
+
+									<p:panelGrid columns="1" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+
+										<f:facet name="header">
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_experiencia_atual}"
+												styleClass="fonteCorTamanhoTitulo" />
+										</f:facet>
+
+										<p:selectBooleanButton id="experiencia_atual"
+											value="#{experienciaMB.experiencia.experiencia_atual}"
+											onLabel="#{msg.msg_sim}" offLabel="#{msg.msg_nao}"
+											onIcon="#{msg.icon_btn_sim}" offIcon="#{msg.icon_btn_nao}"
+											style="width:60px" />
+
+									</p:panelGrid>
+
+									<p:panelGrid columns="2" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+
+										<f:facet name="header">
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_experiencia_saida}"
+												styleClass="fonteCorTamanhoTitulo" />
+										</f:facet>
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_experiencia_saida}" />
+										<p:inputText id="experiencia_saida"
+											value="#{experienciaMB.experiencia.experiencia_saida}"
+											size="60" />
+
+									</p:panelGrid>
+
+									<p:panelGrid columns="1" cellpadding="5" cellspacing="5"
+										layout="grid" styleClass="painelGridIdioma">
+
+										<p:commandButton
+											value="#{msg.btn_adicionar_experiencia_cadastro}"
+											id="adicionarExperiencia" update="messages"
+											icon="#{msg.icon_btn_adicionar}"
+											actionListener="#{cadastroMB.adicionarExperiencia(experienciaMB.experiencia)}"
+											ajax="false" />
+
+									</p:panelGrid>
+
+									<h:panelGrid columns="1" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+										<h:outputText
+											value="#{msg.lbl_cadastro_experiencias_adicionadas}" />
+										<p:dataTable id="dataTableExperiencia"
+											styleClass="fonteMenorCentralizado" var="experiencia"
+											value="#{cadastroMB.cadastro.experiencias}" paginator="true"
+											rows="#{msg.lbl_quantidade_linhas_pequeno}"
+											paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+											emptyMessage="#{msg.lbl_experiencia_listagem}">
+
+											<p:column
+												headerText="#{msg.lbl_cadastro_incluir_experiencia_empresa}"
+												filterBy="#{experiencia.experiencia_empresa}"
+												filterMatchMode="contains">
+												<h:outputText value="#{experiencia.experiencia_empresa}" />
+											</p:column>
+
+											<p:column
+												headerText="#{msg.lbl_cadastro_incluir_experiencia_funcao}"
+												filterBy="#{experiencia.experiencia_funcao}"
+												filterMatchMode="contains">
+												<h:outputText value="#{experiencia.experiencia_funcao}" />
+											</p:column>
+
+											<p:column>
+												<f:facet name="header">
+													<h:outputText value="#{msg.lbl_acoes_jobs}" />
+												</f:facet>
+
+												<p:commandButton id="removerExperiencia"
+													title="#{msg.btn_remover_experiencia_cadastro}"
+													value="#{msg.btn_remover_experiencia_cadastro}"
+													update="messages" icon="#{msg.icon_btn_remover}"
+													actionListener="#{cadastroMB.removerExperiencia(experiencia)}"
+													ajax="false">
+												</p:commandButton>
+
+												<p:commandButton update=":formCurriculo:experienciaDetail"
+													oncomplete="PF('experienciaDialog').show()"
+													icon="#{msg.icon_btn_detalhar}"
+													title="#{msg.btn_detalhar_experiencia_cadastro}"
+													value="#{msg.btn_detalhar_experiencia_cadastro}">
+													<f:setPropertyActionListener value="#{experiencia}"
+														target="#{cadastroMB.experiencia}" />
+												</p:commandButton>
+
+											</p:column>
+
+										</p:dataTable>
+
+									</h:panelGrid>
+
+								</h:panelGrid>
+
+								<!-- Botões -->
+								<p:separator style="width: 100%; height: 2px" />
+
+								<h:panelGrid columns="2" cellpadding="20" cellspacing="20">
+									<p:commandButton styleClass="fonteMaior"
+										value="#{msg.btn_gravar_cadastro}"
+										icon="#{msg.icon_btn_salvar}"
+										action="#{cadastroMB.salvarCadastro}" ajax="false" />
+										
+										<p:commandButton styleClass="fonteMaior"
+										value="Imprimir Curriculo"
+										icon="#{msg.icon_btn_voltar}"
+										action="#{relatorioMB.pdfReport()}" ajax="false" />
+								</h:panelGrid>
+
+								<!-- Dialog - Detalhar Escolaridades adicionadas ao curriculo -->
+								<p:dialog header="#{msg.lbl_escolaridade_titulo_detalhar}"
+									widgetVar="escolaridadeDialog" modal="true" showEffect="fade"
+									hideEffect="fade" resizable="false">
+
+									<p:outputPanel id="escolaridadeDetail"
+										style="text-align:center;">
+
+										<p:panelGrid columns="2"
+											rendered="#{not empty cadastroMB.escolaridade}"
+											columnClasses="label,value">
+
+											<f:facet name="header">
+												<p:graphicImage library="imagens" name="escolaridade.png"
+													style="border:0" />
+											</f:facet>
+
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_escolaridade_instituicao}" />
+											<h:outputText
+												value="#{cadastroMB.escolaridade.escolaridade_instituicao}" />
+
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_escolaridade_descricao}" />
+											<h:outputText
+												value="#{cadastroMB.escolaridade.escolaridade_descricao}" />
+
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_escolaridade_formacao}" />
+											<h:outputText
+												value="#{cadastroMB.escolaridade.formacao.formacao_descricao}" />
+
+										</p:panelGrid>
+
+									</p:outputPanel>
+
+								</p:dialog>
+
+								<!-- Dialog - Detalhar Cursos adicionados ao curriculo -->
+								<p:dialog header="#{msg.lbl_curso_titulo_detalhar}"
+									widgetVar="cursoDialog" modal="true" showEffect="fade"
+									hideEffect="fade" resizable="false">
+
+									<p:outputPanel id="cursoDetail" style="text-align:center;">
+
+										<p:panelGrid columns="2"
+											rendered="#{not empty cadastroMB.curso}"
+											columnClasses="label,value">
+
+											<f:facet name="header">
+												<p:graphicImage library="imagens" name="curso.png"
+													style="border:0" />
+											</f:facet>
+
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_curso_instituicao}" />
+											<h:outputText value="#{cadastroMB.curso.curso_instituicao}" />
+
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_curso_descricao}" />
+											<h:outputText value="#{cadastroMB.curso.curso_descricao}" />
+
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_curso_carga_horaria}" />
+											<h:outputText
+												value="#{cadastroMB.curso.curso_carga_horaria} #{msg.lbl_curso_hora}" />
+
+											<h:outputText value="#{msg.lbl_cadastro_incluir_curso_ano}" />
+											<h:outputText value="#{cadastroMB.curso.curso_ano}" />
+
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_curso_situacao}" />
+											<h:outputText
+												value="#{cadastroMB.curso.situacao.situacao_descricao}" />
+
+										</p:panelGrid>
+
+									</p:outputPanel>
+
+								</p:dialog>
+
+								<!-- Dialog - Detalhar Experiências adicionadas ao curriculo -->
+								<p:dialog header="#{msg.lbl_experiencia_titulo_detalhar}"
+									widgetVar="experienciaDialog" modal="true" width="400"
+									showEffect="fade" hideEffect="fade" resizable="false">
+
+									<p:outputPanel id="experienciaDetail"
+										style="text-align:center;">
+
+										<p:panelGrid columns="2"
+											rendered="#{not empty cadastroMB.experiencia}"
+											columnClasses="label,value">
+
+											<f:facet name="header">
+												<p:graphicImage library="imagens" name="experiencia.png"
+													style="border:0" />
+											</f:facet>
+
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_experiencia_empresa}" />
+											<h:outputText
+												value="#{cadastroMB.experiencia.experiencia_empresa}" />
+
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_experiencia_funcao}" />
+											<h:outputText
+												value="#{cadastroMB.experiencia.experiencia_funcao}" />
+
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_experiencia_dt_inicio}" />
+											<h:outputText
+												value="#{cadastroMB.experiencia.experiencia_dt_inicio}"
+												converter="dateConverter" />
+
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_experiencia_dt_fim}" />
+											<h:outputText
+												value="#{cadastroMB.experiencia.experiencia_dt_fim}"
+												converter="dateConverter" />
+
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_experiencia_descricao}" />
+											<h:outputText
+												value="#{cadastroMB.experiencia.experiencia_descricao}"
+												escape="false" />
+
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_experiencia_atual}" />
+											<h:outputText value="#{cadastroMB.empregoAtual()}" />
+
+											<h:outputText
+												value="#{msg.lbl_cadastro_incluir_experiencia_saida}" />
+											<h:outputText
+												value="#{cadastroMB.experiencia.experiencia_saida}" />
+
+
+										</p:panelGrid>
+
+									</p:outputPanel>
+
+								</p:dialog>
+
+							</h:form>
+
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

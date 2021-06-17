@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+						<p:fieldset legend="#{msg.lbl_enviado_listar_titulo}">
+
+							<h:form id="formEnviadoLista" style="font-weight: bold;">
+
+								<p:growl id="messages" showDetail="true" life="6000" />
+								<!--    <p:chart type="line" model="#{enviadoMB.modelGrafico}" style="height:400px;"/> -->
+
+								<p:dataTable id="dataTable" styleClass="fonteMenorCentralizado"
+									var="enviado" value="#{enviadoMB.listarTodosEnviados()}"
+									paginator="true" rows="15"
+									paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+									emptyMessage="#{msg.lbl_enviado_listagem}">
+
+									<p:column>
+										<f:facet name="header">
+											<h:outputText value="#{msg.lbl_enviado_incluir_status}" />
+										</f:facet>
+										<h:graphicImage library="imagens" name="enviado.png"
+											style="border:0" />
+
+										<h:commandLink action="#{enviadoMB.detalharEnviado}"
+											title="#{msg.lbl_cadastro_commandlink_ver}">
+
+											<h:graphicImage library="imagens" name="cadastro_ver.png"
+												style="border:0" />
+
+											<f:setPropertyActionListener target="#{enviadoMB.enviado}"
+												value="#{enviado}" />
+
+										</h:commandLink>
+
+									</p:column>
+
+									<p:column headerText="#{msg.lbl_enviado_incluir_data}"
+										filterBy="#{enviado.enviado_data}" filterMatchMode="contains">
+										<h:outputText value="#{enviado.enviado_data}"
+											converter="dateConverter" />
+									</p:column>
+
+									<p:column headerText="#{msg.lbl_enviado_incluir_codigo}"
+										filterBy="#{enviado.enviado_id}" filterMatchMode="contains">
+										<h:outputText value="#{enviado.enviado_id}" />
+									</p:column>
+
+									<p:column headerText="#{msg.lbl_enviado_incluir_nome}"
+										filterBy="#{enviado.enviado_nome}" filterMatchMode="contains">
+										<h:outputText value="#{enviado.enviado_nome}" />
+									</p:column>
+
+									<p:column headerText="#{msg.lbl_enviado_incluir_email}"
+										filterBy="#{enviado.enviado_email}" filterMatchMode="contains">
+										<h:outputText value="#{enviado.enviado_email}" />
+									</p:column>
+
+								</p:dataTable>
+
+
+								<h:panelGrid columns="3">
+									<p:commandButton value="#{msg.btn_voltar_enviado}"
+										icon="#{msg.icon_btn_voltar}"
+										action="#{enviadoMB.voltarEnviado}" ajax="false" />
+								</h:panelGrid>
+
+							</h:form>
+
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	
+	<ui:composition template="/paginas/templates/principal.xhtml">
+		<ui:define name="content">
+			 <h:form prependId="false">
+	   
+	   		<p:dialog header="#{msg.lbl_negado_titulo}"
+	   				  closable="false"
+	   				  position="center"
+	   				  widgetVar="modalNegado"
+	   				  minWidth="300"
+	   				  width="300"
+	   				  showEffect="explode" 
+	   		    	  resizable="false"
+	   		    	  visible="true"
+	   		    	  hideEffect="bounce">		 
+	   				 
+	   			<center>	 
+	   				 
+		   			<h:panelGrid columns="1">   		
+							<center> <img src="#{facesContext.externalContext.requestContextPath}/img/acesso_negado.png" align="middle"/> </center>	
+							<h:outputText value="#{msg.lbl_negado_mensagem}" styleClass="fonteFalhaAcessoCentralizado" />	     	
+							<h:outputText value="#{msg.lbl_negado_informacao}" styleClass="fonteMenorCentralizado"/>
+							
+					</h:panelGrid>
+					
+					<br />	
+					<a href="#{facesContext.externalContext.requestContextPath}/paginas/inicio.jsf"> #{msg.lbl_negado_voltar} </a>
+							
+					
+				</center>
+					
+			</p:dialog>
+				
+	 	</h:form>
+			
+		</ui:define>
+		
+	</ui:composition>
+
+</h:body>
+</html>
+
+

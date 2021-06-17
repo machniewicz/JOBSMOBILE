@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+ 
+<resources>
+    <color name="title_background">#96A5CE</color>
+    <color name="title_text">#ffffffff</color>
+    <color name="foreground">#ffffffff</color>
+    <color name="background">#FDF5E6</color>
+    <color name="text_main">#1D3472</color>
+    <color name="background_none">#E0FFFF</color>
+    <color name="footer">#FF8C00</color>
+    <color name="item_spinner">#00008B</color>
+    <color name="lista_resumo">#EEE5DE</color>
+    <color name="lista_arquivos">#EEE5DE</color>
+    <color name="lista_preferencia">#EEE5DE</color>
+    <color name="text_principal_resumo">#FF8C00</color>
+    <color name="text_outras_resumo">#00008B</color>
+    <color name="background_componente">#FAEBD7</color>
+    
+    <!-- Oportunidades -->
+    <color name="lbl_detalhes_oportunidades">#FF8C00</color>
+    <color name="background_detalhes_oportunidades">#EEE5DE</color>
+    <color name="txt_detalhes_oportunidades">#000080</color>
+    
+    <!-- Anexar Arquivos -->
+    <color name="txt_anexar">#00008B</color>
+    <color name="lbl_anexar_arquivo">#FF8C00</color>
+</resources>

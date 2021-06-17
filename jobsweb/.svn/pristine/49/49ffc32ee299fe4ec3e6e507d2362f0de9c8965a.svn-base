@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+			<h:form id="formCategoria" acceptcharset="ISO-8859-1"
+				styleClass="fonteMenor" style="font-weight: bold;">
+
+					<p:outputPanel id="escolaridadeDetalhes" style="text-align:center;">
+							<p:panelGrid columns="2"
+								rendered="#{not empty cadastroMB.escolaridade}" 
+								columnClasses="label,value">
+								<f:facet name="header">
+									<p:graphicImage library="imagens" name="escolaridade.png" style="border:0" />
+								</f:facet>
+
+								<h:outputText value="Situação:" />
+								<h:outputText value="#{cadastroMB.escolaridade.situacao.situacao_descricao}" />
+
+								<h:outputText value="Instituição:" />
+								<h:outputText value="#{cadastroMB.escolaridade.escolaridade_instituicao}" />
+
+								<h:outputText value="Formação:" />
+								<h:outputText value="#{cadastroMB.escolaridade.formacao.formacao_descricao}" />
+
+								<h:outputText value="Descrição:" />
+								<h:outputText value="#{cadastroMB.escolaridade.escolaridade_descricao}" />
+							</p:panelGrid>
+						</p:outputPanel>
+			</h:form>
+	</html>

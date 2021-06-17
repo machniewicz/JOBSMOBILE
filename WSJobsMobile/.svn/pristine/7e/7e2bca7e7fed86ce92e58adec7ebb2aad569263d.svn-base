@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://mobile.jobs.com.br" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://mobile.jobs.com.br" xmlns:intf="http://mobile.jobs.com.br" xmlns:tns1="http://modelo.mobile.jobs.com.br" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://mobile.jobs.com.br" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://modelo.mobile.jobs.com.br"/>
+   <element name="atualizarCurriculo">
+    <complexType>
+     <sequence>
+      <element name="preferencia" type="tns1:Preferencia"/>
+      <element name="curriculo" type="tns1:Curriculo"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="atualizarCurriculoResponse">
+    <complexType/>
+   </element>
+   <element name="listaNotificacao">
+    <complexType/>
+   </element>
+   <element name="listaNotificacaoResponse">
+    <complexType>
+     <sequence>
+      <element name="listaNotificacaoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listaVaga">
+    <complexType/>
+   </element>
+   <element name="listaVagaResponse">
+    <complexType>
+     <sequence>
+      <element name="listaVagaReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listaResumo">
+    <complexType/>
+   </element>
+   <element name="listaResumoResponse">
+    <complexType>
+     <sequence>
+      <element name="listaResumoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listaOportunidade">
+    <complexType>
+     <sequence>
+      <element name="estadoID" type="xsd:int"/>
+      <element name="categoriaID" type="xsd:int"/>
+      <element name="vagaID" type="xsd:int"/>
+      <element name="flag" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listaOportunidadeResponse">
+    <complexType>
+     <sequence>
+      <element name="listaOportunidadeReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listaConfiguracaoEmail">
+    <complexType/>
+   </element>
+   <element name="listaConfiguracaoEmailResponse">
+    <complexType>
+     <sequence>
+      <element name="listaConfiguracaoEmailReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="atualizarEstatitisca">
+    <complexType>
+     <sequence>
+      <element name="enviado" type="tns1:Enviado"/>
+      <element name="preferencia" type="tns1:Preferencia"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="atualizarEstatitiscaResponse">
+    <complexType/>
+   </element>
+   <element name="atualizarPrecadastro">
+    <complexType>
+     <sequence>
+      <element name="preferencia" type="tns1:Preferencia"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="atualizarPrecadastroResponse">
+    <complexType/>
+   </element>
+   <element name="listaEstado">
+    <complexType/>
+   </element>
+   <element name="listaEstadoResponse">
+    <complexType>
+     <sequence>
+      <element name="listaEstadoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listaFormacao">
+    <complexType/>
+   </element>
+   <element name="listaFormacaoResponse">
+    <complexType>
+     <sequence>
+      <element name="listaFormacaoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listaSalario">
+    <complexType/>
+   </element>
+   <element name="listaSalarioResponse">
+    <complexType>
+     <sequence>
+      <element name="listaSalarioReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listaCategoria">
+    <complexType/>
+   </element>
+   <element name="listaCategoriaResponse">
+    <complexType>
+     <sequence>
+      <element name="listaCategoriaReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listaPreferencia">
+    <complexType>
+     <sequence>
+      <element name="login" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listaPreferenciaResponse">
+    <complexType>
+     <sequence>
+      <element name="listaPreferenciaReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://modelo.mobile.jobs.com.br" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Preferencia">
+    <sequence>
+     <element name="preferencia_categoria_id" nillable="true" type="xsd:int"/>
+     <element name="preferencia_codigo" nillable="true" type="xsd:int"/>
+     <element name="preferencia_cpf" nillable="true" type="xsd:string"/>
+     <element name="preferencia_data" nillable="true" type="xsd:dateTime"/>
+     <element name="preferencia_email" nillable="true" type="xsd:string"/>
+     <element name="preferencia_estado_id" nillable="true" type="xsd:int"/>
+     <element name="preferencia_experiencia" nillable="true" type="xsd:int"/>
+     <element name="preferencia_formacao_id" nillable="true" type="xsd:int"/>
+     <element name="preferencia_nome" nillable="true" type="xsd:string"/>
+     <element name="preferencia_salario_id" nillable="true" type="xsd:int"/>
+     <element name="preferencia_senha" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Curriculo">
+    <sequence>
+     <element name="curriculo_arquivo" nillable="true" type="xsd:base64Binary"/>
+     <element name="curriculo_codigo" nillable="true" type="xsd:int"/>
+     <element name="curriculo_data_inclusao" nillable="true" type="xsd:dateTime"/>
+     <element name="curriculo_descricao" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Enviado">
+    <sequence>
+     <element name="enviado_cpf" nillable="true" type="xsd:string"/>
+     <element name="enviado_data" nillable="true" type="xsd:dateTime"/>
+     <element name="enviado_email" nillable="true" type="xsd:string"/>
+     <element name="enviado_id" nillable="true" type="xsd:int"/>
+     <element name="enviado_nome" nillable="true" type="xsd:string"/>
+     <element name="enviado_oportunidade_id" nillable="true" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="listaNotificacaoRequest">
+
+      <wsdl:part element="impl:listaNotificacao" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaNotificacaoResponse">
+
+      <wsdl:part element="impl:listaNotificacaoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="atualizarEstatitiscaRequest">
+
+      <wsdl:part element="impl:atualizarEstatitisca" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="atualizarCurriculoResponse">
+
+      <wsdl:part element="impl:atualizarCurriculoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaEstadoResponse">
+
+      <wsdl:part element="impl:listaEstadoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaOportunidadeRequest">
+
+      <wsdl:part element="impl:listaOportunidade" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaCategoriaRequest">
+
+      <wsdl:part element="impl:listaCategoria" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaEstadoRequest">
+
+      <wsdl:part element="impl:listaEstado" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaFormacaoResponse">
+
+      <wsdl:part element="impl:listaFormacaoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="atualizarEstatitiscaResponse">
+
+      <wsdl:part element="impl:atualizarEstatitiscaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="atualizarPrecadastroResponse">
+
+      <wsdl:part element="impl:atualizarPrecadastroResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaFormacaoRequest">
+
+      <wsdl:part element="impl:listaFormacao" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaResumoRequest">
+
+      <wsdl:part element="impl:listaResumo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaOportunidadeResponse">
+
+      <wsdl:part element="impl:listaOportunidadeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="atualizarPrecadastroRequest">
+
+      <wsdl:part element="impl:atualizarPrecadastro" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaVagaRequest">
+
+      <wsdl:part element="impl:listaVaga" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaCategoriaResponse">
+
+      <wsdl:part element="impl:listaCategoriaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaVagaResponse">
+
+      <wsdl:part element="impl:listaVagaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="atualizarCurriculoRequest">
+
+      <wsdl:part element="impl:atualizarCurriculo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaSalarioRequest">
+
+      <wsdl:part element="impl:listaSalario" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaResumoResponse">
+
+      <wsdl:part element="impl:listaResumoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaPreferenciaRequest">
+
+      <wsdl:part element="impl:listaPreferencia" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaPreferenciaResponse">
+
+      <wsdl:part element="impl:listaPreferenciaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaConfiguracaoEmailRequest">
+
+      <wsdl:part element="impl:listaConfiguracaoEmail" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaSalarioResponse">
+
+      <wsdl:part element="impl:listaSalarioResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listaConfiguracaoEmailResponse">
+
+      <wsdl:part element="impl:listaConfiguracaoEmailResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Controle">
+
+      <wsdl:operation name="atualizarCurriculo">
+
+         <wsdl:input message="impl:atualizarCurriculoRequest" name="atualizarCurriculoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:atualizarCurriculoResponse" name="atualizarCurriculoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaNotificacao">
+
+         <wsdl:input message="impl:listaNotificacaoRequest" name="listaNotificacaoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listaNotificacaoResponse" name="listaNotificacaoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaVaga">
+
+         <wsdl:input message="impl:listaVagaRequest" name="listaVagaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listaVagaResponse" name="listaVagaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaResumo">
+
+         <wsdl:input message="impl:listaResumoRequest" name="listaResumoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listaResumoResponse" name="listaResumoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaOportunidade">
+
+         <wsdl:input message="impl:listaOportunidadeRequest" name="listaOportunidadeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listaOportunidadeResponse" name="listaOportunidadeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaConfiguracaoEmail">
+
+         <wsdl:input message="impl:listaConfiguracaoEmailRequest" name="listaConfiguracaoEmailRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listaConfiguracaoEmailResponse" name="listaConfiguracaoEmailResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="atualizarEstatitisca">
+
+         <wsdl:input message="impl:atualizarEstatitiscaRequest" name="atualizarEstatitiscaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:atualizarEstatitiscaResponse" name="atualizarEstatitiscaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="atualizarPrecadastro">
+
+         <wsdl:input message="impl:atualizarPrecadastroRequest" name="atualizarPrecadastroRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:atualizarPrecadastroResponse" name="atualizarPrecadastroResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaEstado">
+
+         <wsdl:input message="impl:listaEstadoRequest" name="listaEstadoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listaEstadoResponse" name="listaEstadoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaFormacao">
+
+         <wsdl:input message="impl:listaFormacaoRequest" name="listaFormacaoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listaFormacaoResponse" name="listaFormacaoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaSalario">
+
+         <wsdl:input message="impl:listaSalarioRequest" name="listaSalarioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listaSalarioResponse" name="listaSalarioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaCategoria">
+
+         <wsdl:input message="impl:listaCategoriaRequest" name="listaCategoriaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listaCategoriaResponse" name="listaCategoriaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaPreferencia">
+
+         <wsdl:input message="impl:listaPreferenciaRequest" name="listaPreferenciaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listaPreferenciaResponse" name="listaPreferenciaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ControleSoapBinding" type="impl:Controle">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="atualizarCurriculo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="atualizarCurriculoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="atualizarCurriculoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaNotificacao">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listaNotificacaoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listaNotificacaoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaVaga">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listaVagaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listaVagaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaResumo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listaResumoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listaResumoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaOportunidade">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listaOportunidadeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listaOportunidadeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaConfiguracaoEmail">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listaConfiguracaoEmailRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listaConfiguracaoEmailResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="atualizarEstatitisca">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="atualizarEstatitiscaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="atualizarEstatitiscaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="atualizarPrecadastro">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="atualizarPrecadastroRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="atualizarPrecadastroResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaEstado">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listaEstadoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listaEstadoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaFormacao">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listaFormacaoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listaFormacaoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaSalario">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listaSalarioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listaSalarioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaCategoria">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listaCategoriaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listaCategoriaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listaPreferencia">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listaPreferenciaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listaPreferenciaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ControleService">
+
+      <wsdl:port binding="impl:ControleSoapBinding" name="Controle">
+
+         <wsdlsoap:address location="http://localhost:8080/WSJobsMobile/services/Controle"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

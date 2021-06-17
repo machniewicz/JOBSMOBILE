@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<p:fieldset legend="#{msg.lbl_informacoes_titulo}">
+
+		<h:form id="formInfo" acceptcharset="ISO-8859-1">
+
+			<p:layout style="min-width:300px;min-height:350px;">
+
+				<p:layoutUnit position="west" resizable="true" size="250" minSize="50" maxSize="250">
+				
+       			<h:outputText value="#{msg.lbl_menu_rapido_titulo}" />
+        			
+					<p:separator style="width: 100%; height: 2px" />
+					
+					<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+
+						<h:graphicImage library="imagens" name="favorito.png" style="border:0" />
+						<h:commandLink action="#{oportunidadeMB.novaOportunidade}" value="#{msg.lbl_menu_rapido_oportunidade}" />
+			
+						<h:graphicImage library="imagens" name="favorito.png" style="border:0" />
+						<h:commandLink action="#{oportunidadeMB.administrarOportunidade}" value="#{msg.lbl_menu_rapido_administrar_oportunidade}" />
+					
+						<h:graphicImage library="imagens" name="trocar.png" style="border:0" />
+						<h:commandLink action="#{usuarioMB.trocarSenha}" value="#{msg.lbl_menu_rapido_senha}" />
+					
+					</h:panelGrid>
+					
+					<p:separator style="width: 100%; height: 2px" />
+					
+					<h:panelGrid columns="1" cellpadding="2" cellspacing="5">
+					  					
+						<h:outputText value="#{msg.lbl_menu_oportunidade_titulo}" />
+					
+					</h:panelGrid>
+					<p:separator style="width: 100%; height: 2px" />
+					
+				  
+					<h:panelGrid columns="3" cellpadding="2" cellspacing="2">
+
+						<h:graphicImage library="imagens" name="quantidade_add.png" style="border:0" />
+						<h:outputText value="#{msg.lbl_informacoes_empresa_contratada}" />
+						<p:outputLabel value="#{usuarioMB.usuario.empresa.empresa_quantidade}" styleClass= "fonteCorFormulario"/>
+						
+						<h:graphicImage library="imagens" name="quantidade_delete.png" style="border:0" />
+						<h:outputText value="#{msg.lbl_informacoes_empresa_disponivel}" />
+						<p:outputLabel value="#{usuarioMB.quantidadeAtivo()}" styleClass= "fonteCorFormulario"/>
+											
+					</h:panelGrid>
+					
+       			
+    </p:layoutUnit>
+
+	<p:layoutUnit position="center">
+    			
+        			<h:outputText value="#{msg.lbl_informacoes_bem_vindo}" />
+					
+					<p:separator style="width: 100%; height: 2px" />
+					
+					<h:panelGrid columns="2" cellpadding="3" cellspacing="2">				
+						
+						<h:outputText value="#{msg.lbl_informacoes_usuario}" />
+						<p:outputLabel value="#{usuarioMB.usuario.usuario_descricao}" size="42" converter="toUpperCaseConverter" styleClass= "fonteCorFormulario"/>
+					
+						<h:outputText value="#{msg.lbl_informacoes_email}" />
+						<p:outputLabel value="#{usuarioMB.usuario.usuario_email}" size="42" converter="toLowerCaseConverter" styleClass= "fonteCorFormulario"/>
+					
+						<h:outputText value="#{msg.lbl_informacoes_data}" />
+						<p:outputLabel value="#{usuarioMB.dataHoje}" styleClass= "fonteCorFormulario"/>
+					</h:panelGrid>
+		
+					<p:separator style="width: 100%; height: 2px" />
+		
+					<h:panelGrid columns="2" cellpadding="2" cellspacing="5">
+						<h:outputText value="#{msg.lbl_informacoes_empresa}" />
+						<p:outputLabel value="#{usuarioMB.usuario.empresa.empresa_razao}" size="42" converter="toUpperCaseConverter" styleClass= "fonteCorFormulario"/>
+					</h:panelGrid>
+					
+					<h:panelGrid columns="3" cellpadding="2" cellspacing="2">
+					
+						<h:graphicImage library="imagens" name="date_inicio.png" style="border:0" />
+						<h:outputText value="#{msg.lbl_informacoes_validade_inicio}" />
+						<p:outputLabel value="#{usuarioMB.usuario.empresa.empresa_dt_validade_inicio}" converter="dateConverter" styleClass= "fonteCorFormulario"/>
+						
+						<h:graphicImage library="imagens" name="date_fim.png" style="border:0" />
+						<h:outputText value="#{msg.lbl_informacoes_validade_fim}" />
+						<p:outputLabel value="#{usuarioMB.usuario.empresa.empresa_dt_validade_fim}" converter="dateConverter" styleClass= "fonteCorFormulario"/>
+						
+					</h:panelGrid>
+		
+					<p:separator style="width: 100%; height: 2px" />
+						<h:outputText value="#{msg.lbl_informacoes_desenvolvido}" />
+						<h:outputLink id="sobre" >
+							<h:outputText value="#{msg.lbl_informacoes_descricao}" />
+						</h:outputLink>
+						<p:tooltip id="toolTipContent" for="sobre">
+							<p:graphicImage library="imagens" name="4u.png" />
+						</p:tooltip>
+    			</p:layoutUnit>
+		
+			</p:layout>
+
+		</h:form>
+	</p:fieldset>
+
+</h:body>
+</html>

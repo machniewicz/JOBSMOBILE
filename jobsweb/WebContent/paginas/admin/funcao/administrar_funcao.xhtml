@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+						<p:fieldset legend="#{msg.lbl_funcao_administrar_titulo}">
+
+							<h:form id="formFuncao" style="font-weight: bold;">
+
+								<p:growl id="messages" showDetail="true" />
+
+								<p:dataTable id="dataTable" styleClass="fonteMenorCentralizado"
+									var="funcao" value="#{funcaoMB.listarTodasFuncoes()}"
+									paginator="true" rows="#{msg.lbl_quantidade_linhas}"
+									paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+									emptyMessage="#{msg.lbl_funcao_listagem}">
+
+									<p:column>
+										<f:facet name="header">
+											<h:outputText value="#{msg.lbl_funcao_status}" />
+										</f:facet>
+										<h:commandLink action="#{funcaoMB.ativarFuncao}"
+											title="#{msg.lbl_funcao_commandlink_status}">
+											<h:graphicImage library="imagens"
+												name="funcao_#{funcao.funcao_status}.png" style="border:0" />
+											<f:setPropertyActionListener target="#{funcaoMB.funcao}"
+												value="#{funcao}" />
+										</h:commandLink>
+									</p:column>
+
+									<p:column headerText="#{msg.lbl_funcao_categoria}"
+										filterBy="#{funcao.categoria.categoria_descricao}"
+										filterMatchMode="contains">
+										<h:outputText value="#{funcao.categoria.categoria_descricao}" />
+									</p:column>
+
+									<p:column headerText="#{msg.lbl_funcao_descricao}"
+										filterBy="#{funcao.funcao_descricao}"
+										filterMatchMode="contains">
+										<h:outputText value="#{funcao.funcao_descricao}" />
+									</p:column>
+
+									<p:column>
+										<f:facet name="header">
+											<h:outputText value="#{msg.lbl_acoes_jobs}" />
+										</f:facet>
+
+										<h:commandLink action="#{funcaoMB.editarFuncao}"
+											title="#{msg.lbl_funcao_commandlink_editar}">
+											<h:graphicImage library="imagens" name="editar.png"
+												style="border:0" />
+											<f:setPropertyActionListener target="#{funcaoMB.funcao}"
+												value="#{funcao}"></f:setPropertyActionListener>
+										</h:commandLink>
+
+										<h:commandLink action="#{funcaoMB.detalharFuncao}"
+											title="#{msg.lbl_funcao_commandlink_ver}">
+											<h:graphicImage library="imagens" name="ver.png"
+												style="border:0" />
+											<f:setPropertyActionListener target="#{funcaoMB.funcao}"
+												value="#{funcao}"></f:setPropertyActionListener>
+										</h:commandLink>
+
+										<p:commandLink title="#{msg.lbl_funcao_commandlink_excluir}"
+											update=":formDelete:Delete" oncomplete="confirmation.show()"
+											immediate="true">
+											<h:graphicImage library="imagens" name="excluir.png"
+												style="border:0" />
+											<f:setPropertyActionListener target="#{funcaoMB.funcao}"
+												value="#{funcao}" />
+										</p:commandLink>
+
+									</p:column>
+
+								</p:dataTable>
+
+
+							</h:form>
+
+
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<h:form id="formDelete">
+			<p:confirmDialog id="Delete"
+				message="#{msg.msg_funcao_excluir_confirmacao}"
+				header="#{msg.msg_funcao_titulo_confirmacao_excluir}"
+				severity="alert" widgetVar="confirmation" showEffect="fade"
+				hideEffect="explode">
+				<p:commandButton id="confirm" value="#{msg.msg_sim}"
+					oncomplete="confirmation.hide()"
+					actionListener="#{funcaoMB.excluirFuncao()}"
+					update=":formFuncao:dataTable, :formFuncao:messages" />
+				<p:commandButton id="decline" value="#{msg.msg_nao}"
+					onclick="confirmation.hide()" type="button" />
+			</p:confirmDialog>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

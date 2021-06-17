@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+						<p:fieldset legend="#{msg.lbl_email_incluir_titulo}">
+
+							<h:form id="formEmail">
+
+								<p:growl id="messages" showDetail="true" />
+
+								<h:panelGrid columns="2" cellpadding="5">
+
+									<h:outputText value="#{msg.lbl_email_incluir_smtp}" />
+									<p:inputText value="#{emailMB.email.email_smtp}" size="70"
+										converter="toUpperCaseConverter" />
+
+									<h:outputLabel value="#{msg.lbl_email_incluir_email}"
+										for="email" />
+									<h:panelGroup>
+										<p:inputText id="email" value="#{emailMB.email.email_email}"
+											size="50" maxlength="50" required="true"
+											validatorMessage="#{msg.msg_falha_email}">
+											<f:validateRegex
+												pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
+										</p:inputText>
+										<h:message for="email" />
+									</h:panelGroup>
+
+									<h:outputText value="#{msg.lbl_email_incluir_senha}" />
+									<p:password value="#{emailMB.email.email_senha}" size="70" />
+
+									<h:outputText value="#{msg.lbl_email_incluir_porta}" />
+									<p:inputText value="#{emailMB.email.email_porta}" size="5" />
+
+									<h:outputText value="#{msg.lbl_email_incluir_autenticacao}" />
+
+									<h:selectOneMenu id="autenticacaoEmail"
+										value="#{emailMB.email.email_auth}"
+										styleClass="fonteCorFormulario">
+
+										<f:selectItem itemLabel="#{msg.lbl_email_true}"
+											itemValue="true" />
+
+										<f:selectItem itemLabel="#{msg.lbl_email_false}"
+											itemValue="false" />
+
+									</h:selectOneMenu>
+
+									<h:outputText value="#{msg.lbl_email_incluir_tls}" />
+
+									<h:selectOneMenu id="tlsEmail"
+										value="#{emailMB.email.email_tls}"
+										styleClass="fonteCorFormulario">
+
+										<f:selectItem itemLabel="#{msg.lbl_email_true}"
+											itemValue="true" />
+
+										<f:selectItem itemLabel="#{msg.lbl_email_false}"
+											itemValue="false" />
+
+									</h:selectOneMenu>
+
+								</h:panelGrid>
+								<p:separator style="width: 100%; height: 2px" />
+
+								<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
+
+									<p:commandButton styleClass="fonteMaior"
+										value="#{msg.btn_gravar_email}" icon="#{msg.icon_btn_salvar}"
+										actionListener="#{emailMB.salvarEmail}" ajax="false"
+										update="messages" />
+
+								</h:panelGrid>
+							</h:form>
+
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

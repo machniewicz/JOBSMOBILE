@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/paginas/templates/componentes/corpo.xhtml">
+
+	<ui:define name="corpo">
+
+		<p:fieldset legend="#{msg.lbl_combinacao_idioma_detalhar_titulo}"
+			styleClass="cadastro">
+
+			<p:scrollPanel mode="native" style="border: none" styleClass="cadastroBarra" >
+			
+			<h:form id="formCombinacaoIdioma" acceptcharset="ISO-8859-1"
+				styleClass="fonteMenor" style="font-weight: bold;">
+
+				<p:growl id="messages" showDetail="true" />
+
+				<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+					<h:outputLabel value="#{msg.lbl_combinacao_idioma_incluir_status}" />
+					<h:outputText value="#{combinacaoIdiomaMB.carregaStatusIdioma()}"	styleClass="fonteCorFormulario" />
+
+					<h:outputLabel value="#{msg.lbl_combinacao_idioma_incluir_idioma}" />
+					<h:outputText value="#{combinacaoIdiomaMB.combinacao_Idioma.idioma.idioma_descricao}" size="100" styleClass= "fonteCorFormulario" />
+
+					<h:outputLabel value="#{msg.lbl_combinacao_idioma_incluir_nivel}" />
+					<h:outputText value="#{combinacaoIdiomaMB.combinacao_Idioma.nivel.nivel_descricao}" size="100" styleClass= "fonteCorFormulario" />
+					
+				</h:panelGrid>
+
+				<h:panelGrid columns="3">
+					<p:commandButton value="#{msg.btn_voltar_combinacao_idioma}" icon="#{msg.icon_btn_voltar}" action="#{combinacaoIdiomaMB.voltarCombinacaoIdioma}" ajax="false" />
+				</h:panelGrid>
+			</h:form>
+			</p:scrollPanel>
+		</p:fieldset>
+	</ui:define>
+
+</ui:composition>
+
+</html>

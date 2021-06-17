@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+						<p:fieldset legend="#{msg.lbl_email_detalhar_titulo}">
+
+							<h:form id="formEmail" acceptcharset="ISO-8859-1">
+
+								<p:growl id="messages" showDetail="true" />
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+									<h:outputLabel value="#{msg.lbl_email_incluir_smtp}" />
+									<h:outputText value="#{emailMB.email.email_smtp}" size="70"
+										styleClass="fonteCorFormulario" />
+
+									<h:outputLabel value="#{msg.lbl_email_incluir_email}" />
+									<h:outputText value="#{emailMB.email.email_email}" size="70"
+										styleClass="fonteCorFormulario" />
+
+									<h:outputLabel value="#{msg.lbl_email_incluir_senha}" />
+									<h:outputText value="#{msg.lbl_email_get_senha}" size="70"
+										styleClass="fonteCorFormulario" />
+
+									<h:outputLabel value="#{msg.lbl_email_incluir_porta}" />
+									<h:outputText value="#{emailMB.email.email_porta}" size="5"
+										styleClass="fonteCorFormulario" />
+
+									<h:outputLabel value="#{msg.lbl_email_incluir_autenticacao}" />
+									<h:outputText value="#{emailMB.email.email_auth}" size="10"
+										styleClass="fonteCorFormulario" />
+
+									<h:outputLabel value="#{msg.lbl_email_incluir_tls}" />
+									<h:outputText value="#{emailMB.email.email_tls}" size="10"
+										styleClass="fonteCorFormulario" />
+
+								</h:panelGrid>
+
+								<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
+									<p:commandButton value="#{msg.btn_voltar_email}"
+										icon="#{msg.icon_btn_voltar}"
+										action="#{emailMB.voltarEmail}" ajax="false" />
+								</h:panelGrid>
+							</h:form>
+
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+
+	<ui:composition template="/paginas/templates/base.xhtml">
+
+		<ui:define name="content">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="box">
+
+						<div align="center">
+
+							<p:fieldset legend="#{msg.lbl_novo_cadastro_titulo}">
+
+								<h:form id="formNovoCadastro" acceptcharset="ISO-8859-1">
+
+									<p:growl id="messages" showDetail="true" life="8000" />
+
+									<h:panelGrid columns="2" cellpadding="2" cellspacing="2">
+
+										<h:outputText value="#{msg.lbl_cadastro_incluir_nome}" />
+										<p:inputText value="#{cadastroMB.cadastro.cadastro_nome}"
+											id="nome_cadastro" size="50" />
+
+										<h:outputText value="#{msg.lbl_cadastro_incluir_cpf}" />
+										<p:inputMask value="#{cadastroMB.cadastro.cadastro_cpf}"
+											mask="#{msg.lbl_msk_cpf}" id="cpf_cadastro" />
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_formacao_atual}" />
+										<h:selectOneMenu value="#{cadastroMB.cadastro.formacao}"
+											id="formacao_atual" converter="toFormacaoConverter"
+											styleClass="fonteCorFormulario">
+											<f:selectItem itemLabel="#{msg.lbl_formacao_inicial}"
+												itemValue="#{null}" />
+											<f:selectItems
+												value="#{formacaoMB.listarTodasFormacoesAtivas()}"
+												var="formacao" itemLabel="#{formacao.formacao_descricao}"
+												itemValue="#{formacao}" />
+										</h:selectOneMenu>
+
+									</h:panelGrid>
+
+									<h:panelGrid columns="2" cellpadding="5">
+
+										<h:outputText value="#{msg.lbl_cadastro_incluir_email}" />
+										<p:inputText id="email"
+											value="#{cadastroMB.cadastro.cadastro_email}" size="50"
+											maxlength="50" validatorMessage="#{msg.msg_falha_email}">
+											<f:validateRegex
+												pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
+										</p:inputText>
+										<h:message for="email" />
+
+									</h:panelGrid>
+
+
+									<p:outputLabel value="#{msg.lbl_cadastro_info_senha}" />
+									<p:separator style="width: 100%; height: 2px" />
+
+									<h:panelGrid columns="3" cellpadding="5" cellspacing="5">
+
+										<h:outputText value="#{msg.lbl_cadastro_incluir_senha}" />
+										<p:password id="senhaNova" value="#{cadastroMB.senhaTmp}"
+											size="30" feedback="true" inline="true"
+											promptLabel="#{msg.lbl_login_prompt}"
+											weakLabel="#{msg.lbl_login_fraco}"
+											goodLabel="#{msg.lbl_login_medio}"
+											strongLabel="#{msg.lbl_login_forte}" />
+										<p:watermark for="senhaNova"
+											value="#{msg.msg_cadastro_senha_tmp}" id="watermarkNova" />
+
+										<h:outputText
+											value="#{msg.lbl_cadastro_incluir_confirma_senha}" />
+										<p:password id="senhaCompara"
+											value="#{cadastroMB.senhaCompara}" size="30" feedback="true"
+											inline="true" promptLabel="#{msg.lbl_login_prompt}"
+											weakLabel="#{msg.lbl_login_fraco}"
+											goodLabel="#{msg.lbl_login_medio}"
+											strongLabel="#{msg.lbl_login_forte}" />
+										<p:watermark for="senhaCompara"
+											value="#{msg.msg_cadastro_senha_compara}"
+											id="watermarkCompara" />
+
+
+									</h:panelGrid>
+
+									<p:separator style="width: 100%; height: 2px" />
+
+									<h:panelGrid columns="2" cellpadding="20" cellspacing="10">
+
+										<p:commandButton styleClass="fonteMaior"
+											value="#{msg.btn_gravar_novo_cadastro}"
+											icon="#{msg.icon_btn_salvar}"
+											actionListener="#{cadastroMB.salvarCadastroNovo}"
+											ajax="false" />
+
+										<p:commandButton styleClass="fonteMaior"
+											value="#{msg.btn_voltar_cadastro}"
+											icon="#{msg.icon_btn_voltar}" action="#{loginMB.voltarLogin}"
+											ajax="false" />
+
+									</h:panelGrid>
+
+								</h:form>
+
+							</p:fieldset>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</ui:define>
+
+	</ui:composition>
+
+</h:body>
+
+</html>

@@ -1,0 +1,85 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+						<p:fieldset legend="#{msg.lbl_idioma_gerenciar_titulo}">
+
+							<h:form id="formIdioma" style="font-weight: bold;">
+
+								<p:growl id="messages" showDetail="true" />
+								<p:dataTable id="dataTable" styleClass="fonteMenorCentralizado"
+									var="idioma" value="#{idiomaMB.listarTodosIdiomas()}"
+									paginator="true" rows="#{msg.lbl_quantidade_linhas}"
+									paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+									emptyMessage="#{msg.lbl_idioma_listagem}">
+
+									<p:column>
+										<f:facet name="header">
+											<h:outputText value="#{msg.lbl_idioma_status}" />
+										</f:facet>
+										<h:graphicImage library="imagens"
+											name="idioma_#{idioma.idioma_status}.png" style="border:0" />
+									</p:column>
+
+									<p:column headerText="#{msg.lbl_idioma_descricao}"
+										filterBy="#{idioma.idioma_descricao}"
+										filterMatchMode="contains">
+										<h:outputText value="#{idioma.idioma_descricao}" />
+									</p:column>
+
+
+									<p:column>
+										<f:facet name="header">
+											<h:outputText value="#{msg.lbl_acoes_jobs}" />
+										</f:facet>
+
+										<h:commandLink action="#{idiomaMB.editarIdioma}"
+											title="#{msg.lbl_idioma_commandlink_editar}">
+											<h:graphicImage library="imagens" name="editar.png"
+												style="border:0" />
+											<f:setPropertyActionListener target="#{idiomaMB.idioma}"
+												value="#{idioma}"></f:setPropertyActionListener>
+										</h:commandLink>
+
+										<h:commandLink action="#{idiomaMB.detalharIdioma}"
+											title="#{msg.lbl_idioma_commandlink_ver}">
+											<h:graphicImage library="imagens" name="ver.png"
+												style="border:0" />
+											<f:setPropertyActionListener target="#{idiomaMB.idioma}"
+												value="#{idioma}"></f:setPropertyActionListener>
+										</h:commandLink>
+
+									</p:column>
+								</p:dataTable>
+
+							</h:form>
+
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

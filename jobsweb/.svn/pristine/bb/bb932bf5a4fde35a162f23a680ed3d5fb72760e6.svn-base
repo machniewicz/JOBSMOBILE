@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+						<p:fieldset legend="#{msg.lbl_categoria_detalhar_titulo}">
+
+							<h:form id="formCategoria" acceptcharset="ISO-8859-1">
+
+								<p:growl id="messages" showDetail="true" />
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+									<h:outputLabel value="#{msg.lbl_categoria_incluir_descricao}" />
+									<h:outputText
+										value="#{categoriaMB.categoria.categoria_descricao}"
+										size="100" styleClass="fonteCorFormulario" />
+
+									<h:outputLabel value="#{msg.lbl_categoria_incluir_status}" />
+									<h:outputText value="#{categoriaMB.carregaStatusCategoria()}"
+										styleClass="fonteCorFormulario" />
+
+								</h:panelGrid>
+
+								<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
+									<p:commandButton value="#{msg.btn_voltar_categoria}"
+										icon="#{msg.icon_btn_voltar}"
+										action="#{categoriaMB.voltarCategoria}" ajax="false" />
+								</h:panelGrid>
+							</h:form>
+
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

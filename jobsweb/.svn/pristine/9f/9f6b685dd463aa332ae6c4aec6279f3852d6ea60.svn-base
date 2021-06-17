@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/paginas/templates/componentes/corpo.xhtml">
+
+	<ui:define name="corpo">
+
+		<p:fieldset legend="#{msg.lbl_combinacao_software_detalhar_titulo}"
+			styleClass="cadastro">
+
+			<p:scrollPanel mode="native" style="border: none" styleClass="cadastroBarra" >
+			
+			<h:form id="formCombinacaoSoftware" acceptcharset="ISO-8859-1"
+				styleClass="fonteMenor" style="font-weight: bold;">
+
+				<p:growl id="messages" showDetail="true" />
+
+				<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+					<h:outputLabel value="#{msg.lbl_combinacao_software_incluir_status}" />
+					<h:outputText value="#{combinacaoSoftwareMB.carregaStatusSoftware()}"	styleClass="fonteCorFormulario" />
+
+					<h:outputLabel value="#{msg.lbl_combinacao_software_incluir_software}" />
+					<h:outputText value="#{combinacaoSoftwareMB.combinacao_Software.software.software_descricao}" size="100" styleClass= "fonteCorFormulario" />
+
+					<h:outputLabel value="#{msg.lbl_combinacao_software_incluir_nivel}" />
+					<h:outputText value="#{combinacaoSoftwareMB.combinacao_Software.nivel.nivel_descricao}" size="100" styleClass= "fonteCorFormulario" />
+					
+				</h:panelGrid>
+
+				<h:panelGrid columns="3">
+					<p:commandButton value="#{msg.btn_voltar_combinacao_software}" icon="#{msg.icon_btn_voltar}" action="#{combinacaoSoftwareMB.voltarCombinacaoSoftware}" ajax="false" />
+				</h:panelGrid>
+			</h:form>
+			</p:scrollPanel>
+		</p:fieldset>
+	</ui:define>
+
+</ui:composition>
+
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+						<p:fieldset legend="#{msg.lbl_oportunidade_incluir_titulo}">
+
+							<h:form id="formOportunidade" >
+
+								<p:growl id="messages" showDetail="true" />
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_data}" />
+									<h:outputText value="#{oportunidadeMB.dataAtual()}" size="20"
+										disabled="true" styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_status}" />
+									<h:selectOneMenu id="status"
+										value="#{oportunidadeMB.oportunidade.oportunidade_status}"
+										styleClass="fonteCorFormulario">
+										<f:selectItem
+											itemLabel="#{msg.lbl_oportunidade_status_ativo_1}"
+											itemValue="true" />
+										<f:selectItem
+											itemLabel="#{msg.lbl_oportunidade_status_ativo_0}"
+											itemValue="false" />
+									</h:selectOneMenu>
+
+								</h:panelGrid>
+
+
+								<!-- Perfil da Oportunidade -->
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText value="#{msg.lbl_oportunidade_vaga_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="1" cellpadding="1" cellspacing="1">
+
+									<p:selectOneRadio id="vaga"
+										value="#{oportunidadeMB.oportunidade.vaga}" layout="grid"
+										columns="1" converter="toVagaConverter">
+
+										<f:selectItems value="#{vagaMB.listarTodasVagasAtivas()}"
+											var="vaga"
+											itemLabel="#{vaga.vaga_descricao} - #{vaga.vaga_informacao}"
+											itemValue="#{vaga}" />
+
+									</p:selectOneRadio>
+								</h:panelGrid>
+
+
+								<!-- Dados da Oportunidade -->
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText value="#{msg.lbl_oportunidade_area_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="2" cellpadding="1" cellspacing="10">
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_categoria}" />
+
+									<h:selectOneMenu
+										value="#{oportunidadeMB.oportunidade.categoria}"
+										id="categoria"
+										valueChangeListener="#{funcaoMB.listarTodasPorCategoria}"
+										converter="toCategoriaConverter" styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_categoria_inicial}"
+											itemValue="#{null}" />
+										<f:selectItems
+											value="#{categoriaMB.listarTodasCategoriasAtivas()}"
+											var="categoria" itemLabel="#{categoria.categoria_descricao}"
+											itemValue="#{categoria}" />
+										<f:ajax event="change" render="funcao" />
+									</h:selectOneMenu>
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_funcao}" />
+									<h:selectOneMenu value="#{oportunidadeMB.oportunidade.funcao}"
+										id="funcao" converter="toFuncaoConverter" styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_funcao_inicial}"
+											itemValue="#{null}" />
+										<f:selectItems value="#{funcaoMB.funcoes}" var="funcao"
+											itemLabel="#{funcao.funcao_descricao}" itemValue="#{funcao}" />
+									</h:selectOneMenu>
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_estado}" />
+									<h:selectOneMenu value="#{oportunidadeMB.oportunidade.estado}"
+										id="estado"
+										valueChangeListener="#{cidadeMB.listarTodasPorEstado}"
+										converter="toEstadoConverter" styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_estado_inicial}"
+											itemValue="#{null}" />
+										<f:selectItems value="#{estadoMB.listarTodosEstados()}"
+											var="estado" itemLabel="#{estado.estado_descricao}"
+											itemValue="#{estado}" />
+										<f:ajax event="change" render="cidade" />
+									</h:selectOneMenu>
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_cidade}" />
+									<h:selectOneMenu value="#{oportunidadeMB.oportunidade.cidade}"
+										id="cidade" converter="toCidadeConverter" styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_cidade_inicial}"
+											itemValue="#{null}" />
+										<f:selectItems value="#{cidadeMB.cidades}" var="cidade"
+											itemLabel="#{cidade.cidade_descricao}" itemValue="#{cidade}" />
+									</h:selectOneMenu>
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_descricao}" />
+									<p:inputTextarea rows="5" cols="70" maxlength="1600"
+										autoResize="false"
+										value="#{oportunidadeMB.oportunidade.oportunidade_descricao}" />
+
+								</h:panelGrid>
+
+
+								<!-- Faixa Salarial Oferecida -->
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText
+									value="#{msg.lbl_oportunidade_faixa_salarial_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="2" cellpadding="1" cellspacing="10">
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_salario}" />
+
+									<h:selectOneMenu value="#{oportunidadeMB.oportunidade.salario}"
+										id="salario" converter="toSalarioConverter" styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_salario_inicial}"
+											itemValue="#{null}" />
+										<f:selectItems
+											value="#{salarioMB.listarTodosSalariosAtivas()}"
+											var="salario" itemLabel="#{salario.salario_descricao}"
+											itemValue="#{salario}" />
+									</h:selectOneMenu>
+								</h:panelGrid>
+
+								<!-- Benefícios -->
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText value="#{msg.lbl_oportunidade_beneficio_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="1" cellpadding="1" cellspacing="10">
+
+									<p:selectManyCheckbox id="beneficio"
+										value="#{oportunidadeMB.oportunidade.beneficios}"
+										layout="grid" columns="4" converter="toBeneficioConverter">
+										<f:selectItems
+											value="#{beneficioMB.listarTodosBeneficiosAtivos()}"
+											var="beneficio" itemLabel="#{beneficio.beneficio_descricao}"
+											itemValue="#{beneficio}" />
+									</p:selectManyCheckbox>
+
+								</h:panelGrid>
+
+
+								<!-- Formação Mínima -->
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText value="#{msg.lbl_oportunidade_formacao_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="2" cellpadding="1" cellspacing="10">
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_formacao}" />
+
+									<h:selectOneMenu
+										value="#{oportunidadeMB.oportunidade.formacao}" id="formacao"
+										converter="toFormacaoConverter" styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_formacao_inicial}"
+											itemValue="#{null}" />
+										<f:selectItems
+											value="#{formacaoMB.listarTodasFormacoesAtivas()}"
+											var="formacao" itemLabel="#{formacao.formacao_descricao}"
+											itemValue="#{formacao}" />
+									</h:selectOneMenu>
+
+								</h:panelGrid>
+
+
+								<!-- Habilidades - Idiomas -->
+
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText value="#{msg.lbl_oportunidade_idioma_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="1" cellpadding="1" cellspacing="1">
+
+									<!-- <h:form id="formIdioma" acceptcharset="ISO-8859-1" styleClass="fonteMenor" style="font-weight: bold;"> -->
+
+									<p:growl id="messagesIdioma" showDetail="true" />
+
+									<p:panelGrid columns="2" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+
+										<f:facet name="header">
+											<h:outputText
+												value="#{msg.lbl_oportunidade_idioma_sub_titulo}"
+												styleClass="fonteCorTamanhoTitulo" />
+										</f:facet>
+
+										<h:outputText value="#{msg.lbl_oportunidade_incluir_idioma}" />
+										<h:selectOneMenu
+											value="#{combinacaoIdiomaMB.combinacao_Idioma.idioma}"
+											id="idioma" immediate="true" converter="toIdiomaConverter"
+											styleClass="fonteCorFormulario">
+											<f:selectItem itemLabel="#{msg.lbl_idioma_inicial}"
+												itemValue="#{null}" />
+											<f:selectItems value="#{idiomaMB.listarTodosIdiomasAtivos()}"
+												var="idioma" itemLabel="#{idioma.idioma_descricao}"
+												itemValue="#{idioma}" />
+										</h:selectOneMenu>
+
+										<h:outputText value="#{msg.lbl_oportunidade_incluir_nivel}" />
+										<h:selectOneMenu
+											value="#{combinacaoIdiomaMB.combinacao_Idioma.nivel}"
+											id="nivel" immediate="true" converter="toNivelConverter"
+											styleClass="fonteCorFormulario">
+											<f:selectItem itemLabel="#{msg.lbl_nivel_inicial}"
+												itemValue="#{null}" />
+											<f:selectItems value="#{nivelMB.listarTodosNiveisAtivos()}"
+												var="nivel" itemLabel="#{nivel.nivel_descricao}"
+												itemValue="#{nivel}" />
+										</h:selectOneMenu>
+
+									</p:panelGrid>
+
+									<p:panelGrid columns="1" layout="grid"
+										styleClass="painelGridIdioma">
+										<p:commandButton
+											value="#{msg.btn_adicionar_idioma_oportunidade}"
+											id="adicionar" update="messagesIdioma"
+											icon="#{msg.icon_btn_adicionar}"
+											actionListener="#{oportunidadeMB.adicionarCombinacaoIdioma(combinacaoIdiomaMB.combinacao_Idioma)}"
+											ajax="false" />
+									</p:panelGrid>
+
+									<h:panelGrid columns="1" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+										<h:outputText
+											value="#{msg.lbl_oportunidade_idioma_adicionados}" />
+										<p:dataTable id="dataTable"
+											styleClass="fonteMenorCentralizado" var="combinacoes_idiomas"
+											value="#{oportunidadeMB.oportunidade.combinacoes_idiomas}"
+											paginator="true" rows="#{msg.lbl_quantidade_linhas_pequeno}"
+											paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+											emptyMessage="#{msg.lbl_idioma_listagem}">
+
+											<p:column headerText="#{msg.lbl_oportunidade_incluir_idioma}"
+												filterBy="#{combinacoes_idiomas.idioma.idioma_descricao}"
+												filterMatchMode="contains">
+												<h:outputText
+													value="#{combinacoes_idiomas.idioma.idioma_descricao}" />
+											</p:column>
+
+											<p:column headerText="#{msg.lbl_oportunidade_incluir_nivel}"
+												filterBy="#{combinacoes_idiomas.nivel.nivel_descricao}"
+												filterMatchMode="contains">
+												<h:outputText
+													value="#{combinacoes_idiomas.nivel.nivel_descricao}" />
+											</p:column>
+
+											<p:column>
+												<f:facet name="header">
+													<h:outputText value="#{msg.lbl_acoes_jobs}" />
+												</f:facet>
+
+												<p:commandButton
+													value="#{msg.btn_remover_idioma_oportunidade}" id="remover"
+													update="messagesIdioma" icon="#{msg.icon_btn_remover}"
+													actionListener="#{oportunidadeMB.removerCombinacaoIdioma(combinacoes_idiomas)}"
+													ajax="false">
+												</p:commandButton>
+											</p:column>
+
+										</p:dataTable>
+
+									</h:panelGrid>
+
+									<!-- </h:form> -->
+
+								</h:panelGrid>
+
+
+								<!-- Habilidades - Softwares -->
+
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText value="#{msg.lbl_oportunidade_software_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="1" cellpadding="1" cellspacing="1">
+
+									<p:growl id="messagesSoftware" showDetail="true" />
+
+									<p:panelGrid columns="2" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+
+										<f:facet name="header">
+											<h:outputText
+												value="#{msg.lbl_oportunidade_software_sub_titulo}"
+												styleClass="fonteCorTamanhoTitulo" />
+										</f:facet>
+
+										<h:outputText value="#{msg.lbl_oportunidade_incluir_software}" />
+										<h:selectOneMenu
+											value="#{combinacaoSoftwareMB.combinacao_Software.software}"
+											id="software" immediate="true"
+											converter="toSoftwareConverter"
+											styleClass="fonteCorFormulario">
+											<f:selectItem itemLabel="#{msg.lbl_software_inicial}"
+												itemValue="#{null}" />
+											<f:selectItems
+												value="#{softwareMB.listarTodosSoftwaresAtivos()}"
+												var="software" itemLabel="#{software.software_descricao}"
+												itemValue="#{software}" />
+										</h:selectOneMenu>
+
+										<h:outputText value="#{msg.lbl_oportunidade_incluir_nivel}" />
+										<h:selectOneMenu
+											value="#{combinacaoSoftwareMB.combinacao_Software.nivel}"
+											id="nivel_sw" immediate="true" converter="toNivelConverter"
+											styleClass="fonteCorFormulario">
+											<f:selectItem itemLabel="#{msg.lbl_nivel_inicial}"
+												itemValue="#{null}" />
+											<f:selectItems value="#{nivelMB.listarTodosNiveisAtivos()}"
+												var="nivel_sw" itemLabel="#{nivel_sw.nivel_descricao}"
+												itemValue="#{nivel_sw}" />
+										</h:selectOneMenu>
+
+									</p:panelGrid>
+
+									<p:panelGrid columns="1" layout="grid"
+										styleClass="painelGridIdioma">
+										<p:commandButton
+											value="#{msg.btn_adicionar_software_oportunidade}"
+											id="adicionarSw" update="messagesSoftware"
+											icon="#{msg.icon_btn_adicionar}"
+											actionListener="#{oportunidadeMB.adicionarCombinacaoSoftware(combinacaoSoftwareMB.combinacao_Software)}"
+											ajax="false" />
+									</p:panelGrid>
+
+									<h:panelGrid columns="1" cellpadding="1" cellspacing="1"
+										styleClass="painelGridIdioma">
+										<h:outputText
+											value="#{msg.lbl_oportunidade_software_adicionados}" />
+										<p:dataTable id="dataTableSw"
+											styleClass="fonteMenorCentralizado"
+											var="combinacoes_softwares"
+											value="#{oportunidadeMB.oportunidade.combinacoes_softwares}"
+											paginator="true" rows="#{msg.lbl_quantidade_linhas_pequeno}"
+											paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+											emptyMessage="#{msg.lbl_software_listagem}">
+
+											<p:column headerText="#{msg.lbl_software_descricao}"
+												filterBy="#{combinacoes_softwares.software.software_descricao}"
+												filterMatchMode="contains">
+												<h:outputText
+													value="#{combinacoes_softwares.software.software_descricao}" />
+											</p:column>
+
+											<p:column headerText="#{msg.lbl_software_conhecimento}"
+												filterBy="#{combinacoes_softwares.nivel.nivel_descricao}"
+												filterMatchMode="contains">
+												<h:outputText
+													value="#{combinacoes_softwares.nivel.nivel_descricao}" />
+											</p:column>
+
+											<p:column>
+												<f:facet name="header">
+													<h:outputText value="#{msg.lbl_acoes_jobs}" />
+												</f:facet>
+
+												<p:commandButton
+													value="#{msg.btn_remover_software_oportunidade}"
+													id="removerSw" update="messagesSoftware"
+													icon="#{msg.icon_btn_remover}"
+													actionListener="#{oportunidadeMB.removerCombinacaoSoftware(combinacoes_softwares)}"
+													ajax="false">
+												</p:commandButton>
+											</p:column>
+
+										</p:dataTable>
+
+									</h:panelGrid>
+
+									<!-- </h:form> -->
+
+								</h:panelGrid>
+
+
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText
+									value="#{msg.lbl_oportunidade_incluir_dados_contato}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<!-- Email para contato -->
+								<h:panelGrid columns="2" cellpadding="2">
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_contato}" />
+
+									<p:inputText id="email"
+										value="#{oportunidadeMB.oportunidade.oportunidade_contato}"
+										size="50" maxlength="50"
+										validatorMessage="#{msg.msg_falha_email}">
+
+										<f:validateRegex
+											pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
+
+									</p:inputText>
+
+									<h:message for="email" />
+
+								</h:panelGrid>
+
+								<h:panelGrid columns="2" cellpadding="5">
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_telefone}" />
+									<p:inputMask
+										value="#{oportunidadeMB.oportunidade.oportunidade_fone}"
+										mask="#{msg.lbl_msk_telefone}" id="telefone" />
+								</h:panelGrid>
+
+
+								<!-- Empresa - Oportunidade -->
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText
+									value="#{msg.lbl_oportunidade_incluir_dados_empresa}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="2" cellpadding="5">
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_usuario}" />
+									<h:outputText
+										value="#{contextoMB.usuarioLogado.empresa.empresa_razao}"
+										disabled="true" size="70" styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_site}" />
+									<h:outputText
+										value="#{contextoMB.usuarioLogado.empresa.empresa_site}"
+										disabled="true" size="70" styleClass="fonteCorFormulario" />
+
+								</h:panelGrid>
+
+
+								<!-- Botões -->
+								<p:separator style="width: 100%; height: 2px" />
+
+								<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
+
+									<p:commandButton styleClass="fonteMaior"
+										value="#{msg.btn_gravar_oportunidade}"
+										icon="#{msg.icon_btn_salvar}"
+										action="#{oportunidadeMB.salvarOportunidade}" ajax="false" />
+
+									<p:commandButton styleClass="fonteMaior"
+										value="#{msg.btn_listar_oportunidade}"
+										icon="#{msg.icon_btn_listar}"
+										action="#{oportunidadeMB.administrarOportunidade}"
+										ajax="false" />
+
+								</h:panelGrid>
+
+							</h:form>
+
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

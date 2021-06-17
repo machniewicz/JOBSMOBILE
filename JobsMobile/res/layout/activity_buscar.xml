@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        style="@style/TitleBar"
+        android:background="@drawable/shapetextview" >
+
+        <ImageView
+            android:id="@+id/img1"
+            style="@style/TitleBarLogo"
+            android:layout_gravity="center"
+            android:layout_marginBottom="4dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:layout_marginTop="5dip"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:paddingBottom="2dip"
+            android:paddingLeft="5dip"
+            android:paddingRight="7dip"
+            android:src="@drawable/jobs_medium_2" />
+
+        <ImageView
+            android:id="@+id/sep"
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="7dip"
+            android:background="@drawable/separator"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/tv1"
+            style="@style/TitleBarText"
+            android:paddingLeft="8dip"
+            android:text="@string/app_name"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickVoltar"
+            android:src="@drawable/voltar_jobs" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/llRodape"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linearLayout1" >
+
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scrollbars="none" >
+                
+        <LinearLayout
+            android:id="@+id/LinearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/background"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="10dip" >
+
+            
+                <TextView
+                    style="@style/HomeText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dip"
+                    android:text="@string/ac_buscar_titulo"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:id="@+id/LinearBuscar"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shapeborder"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="10dip" >
+
+                    <!-- Text Label -->
+
+                    <TextView
+                        style="@style/HomeText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="10dip"
+                        android:text="@string/ac_buscar_lbl_filtrar_estado" />
+
+                    <!-- Spinner Element -->
+
+                    <Spinner
+                        android:id="@+id/spnEstado"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dip"
+                        android:prompt="@string/ac_buscar_prompt_estado" />
+
+                    <!-- Text -->
+
+                    <TextView
+                        style="@style/HomeText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="10dip"
+                        android:text="@string/ac_buscar_lbl_filtrar_categoria" />
+
+                    <!-- Spinner Element -->
+
+                    <Spinner
+                        android:id="@+id/spnCategoria"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dip"
+                        android:prompt="@string/ac_buscar_prompt_categoria" />
+
+                    <!-- Text -->
+
+                    <TextView
+                        style="@style/HomeText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="10dip"
+                        android:text="@string/ac_buscar_lbl_filtrar_vaga" />
+
+                    <!-- Spinner Element -->
+
+                    <Spinner
+                        android:id="@+id/spnVaga"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dip"
+                        android:prompt="@string/ac_buscar_prompt_vaga" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/ivBuscar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@null"
+                        android:onClick="onClickBuscar"
+                        android:src="@drawable/buscar_jobs" />
+
+                    <ImageView
+                        android:id="@+id/ivVoltar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@null"
+                        android:onClick="onClickVoltar"
+                        android:src="@drawable/voltar_jobs" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tvBuscar"
+                        style="@style/HomeText"
+                        android:layout_width="0dp"
+                        android:layout_marginTop="0dip"
+                        android:layout_weight="1"
+                        android:text="@string/ac_buscar_btn_pesquisar" />
+
+                    <TextView
+                        android:id="@+id/tvVoltar"
+                        style="@style/HomeText"
+                        android:layout_width="0dp"
+                        android:layout_marginTop="0dip"
+                        android:layout_weight="1"
+                        android:text="@string/ac_buscar_btn_voltar" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/ivLogo_Jobs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@null"
+                        android:src="@drawable/jobs_large" />
+                </LinearLayout>
+            
+        </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llRodape"
+        style="@style/TitleBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/shapetextview"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tvRodape"
+            style="@style/TitleBarText"
+            android:layout_width="fill_parent"
+            android:layout_height="38dp"
+            android:background="@drawable/shapetextview"
+            android:gravity="center"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</RelativeLayout>

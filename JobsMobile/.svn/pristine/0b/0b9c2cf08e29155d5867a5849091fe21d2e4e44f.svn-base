@@ -1,0 +1,113 @@
+﻿# Arquivos JAVA
+lbl_dialog_titulo=Aguarde
+lbl_dialog_titulo_oportunidade=Carregando Oportunidades...
+lbl_dialog_titulo_categoria=Carregando Categorias...
+lbl_dialog_titulo_vaga=Carregando Classificação Vaga...
+lbl_dialog_titulo_estado=Carregando Estados...
+lbl_dialog_titulo_resumo=Carregando Resumo...
+lbl_dialog_titulo_provedor=Carregando Provedor...
+lbl_dialog_titulo_formacao=Carregando Formação...
+lbl_dialog_titulo_salario=Carregando Faixa Salarial...
+lbl_dialog_titulo_atuacao= Carregando Área de Atuação...
+lbl_dialog_titulo_preferencia= Carregando Preferências...
+lbl_quantidade=Quantidade: 
+lbl_tempo_experiencia_singular=Tempo de Experiência: {0} ano.
+lbl_tempo_experiencia_plural=Tempo de Experiência: {0} anos.
+lbl_oportunidade_quantidade=oportunidade(s).
+msg_internet_true=Conexão com a internet está disponível.
+msg_internet_false=Internet indisponível no momento. Tente mais tarde.
+
+msg_preferencia_incluir=Registro inserido com sucesso!
+msg_preferencia_alterar=Registro alterado com sucesso!
+msg_preferencia_excluir=Registro excluído com sucesso!
+msg_preferencia_excluir_falha=Não há registro para excluir!
+msg_preferencia_curriculo_falha=Não há registros gravados.Favor Cadastrar de E-mail.
+lbl_preferencia_falha=Falha ao buscar preferência. Verifique CPF e/ou SENHA.
+
+msg_curriculo_status=Currículo Anexado!
+lbl_curriculo_label= Arquivo:
+lbl_curriculo_status_default=Nenhum currículo anexado!
+
+lbl_alert_dialog_titulo_excluir=Excluir - JOBS Mobile
+lbl_alert_dialog_mensagem_excluir=Deseja excluir o registro?
+lbl_alert_dialog_mensagem_em_branco=Todos os campos devem ser preenchidos!
+
+lbl_alert_dialog_titulo=Finalizar JOBS Mobile
+lbl_alert_dialog_mensagem=Deseja sair do JOBS Mobile?
+lbl_alert_dialog_sim=Sim
+lbl_alert_dialog_nao=Não
+lbl_alert_dialog_ok=OK
+
+lbl_alert_dialog_toast=JOBS Mobile finalizado
+lbl_alert_dialog_titulo_internet=Acesso Internet - JOBS Mobile
+lbl_alert_dialog_mensagem_internet=Internet indisponível. Verifique sua conexão e tente mais tarde.
+lbl_alert_dialog_titulo_ws=Buscar Informações - JOBS Mobile
+lbl_alert_dialog_mensagem_ws=Falha ao conectar com servidor... Tente mais tarde!
+
+lbl_diretorio_default=sdcard
+lbl_diretorio_anexar=Caminho:
+lbl_pasta_anexar=Pasta
+lbl_diretorio_voltar=Voltar
+lbl_diretorio_voltar2=..
+lbl_documento_anexar=Arquivo:
+lbl_documento_selecionado=Arquivo selecionado:
+
+lbl_enviar_email_titulo=JOBS Mobile - E-Mail
+lbl_enviar_email_mensagem=Enviando Email... Aguarde!
+lbl_enviar_email_falha=Falha ao enviar e-mail. Verifique Cadastrar E-Mail.
+lbl_enviar_email_sucesso=E-Mail enviado com sucesso!
+lbl_enviar_email_falha_2=O envio de E-Mail falhou! Tente novamente...
+lbl_enviar_email_assunto=Jobs Mobile - Oportunidade
+lbl_enviar_email_msg_prezado=Prezado(a),
+lbl_enviar_email_msg_corpo=Visualizei no aplicativo Jobs Mobile a oportunidade código:
+lbl_enviar_email_msg_anexo=Segue em anexo meu currículo a fim de participar do processo seletivo.
+lbl_enviar_email_msg_agradecimento= Desde já agradeçoo e fico a disposição.
+lbl_enviar_email_msg_atenciosamente=Atenciosamente,
+
+lbl_enviar_email_msg_copia_prezado=Prezado(a),
+lbl_enviar_email_msg_copia_corpo=Seu currículo foi encaminhado para:
+lbl_enviar_email_msg_copia_oportunidade=Referente a seguinte oportunidade:
+lbl_enviar_email_msg_copia_agradecimento= Mensagem automática. Não ha necessidade de respondê-la.
+lbl_enviar_email_msg_copia_atenciosamente=Atenciosamente,
+lbl_enviar_email_msg_copia_jobs= Jobs Mobile
+
+lbl_enviar_email_titulo_enviar=Enviar E-mail 
+lbl_enviar_email_msg_enviar=Enviar E-mail para essa Oportunidade?
+lbl_enviar_email_sim=Sim
+lbl_enviar_email_nao=Não
+
+lbl_preferencia_titulo_gravar=Gravar Preferências
+lbl_preferencia_msg_gravar=Gravar dados sincronizados?
+lbl_preferencia_sim=Sim
+lbl_preferencia_nao=Não
+
+lbl_historico_dialog_titulo=Carregando histórico...
+lbl_historico_registros=Registro N°:  
+lbl_historico_data_envio=Data de Envio:  
+lbl_historico_titulo=Excluir Histórico 
+lbl_historico_msg=Deseja excluir esse registro de histórico de envio de currículo?
+lbl_historico_sim=Sim
+lbl_historico_nao=Não
+
+lbl_buscar_estado_one=TODOS OS ESTADOS
+lbl_buscar_categoria_one=TODAS AS CATEGORIAS
+lbl_buscar_vaga_one=TODAS AS CLASSIFICAÇÕES
+lbl_buscar_formacao_one_cadastro=SELECIONE SUA FORMAÇÃO
+lbl_buscar_estado_one_cadastro=SELECIONE SEU ESTADO
+lbl_buscar_atuacao_one_cadastro=SELECIONE SUA ATUAÇÃO
+lbl_buscar_salario_one_cadastro=SELECIONE FAIXA SALARIAL
+
+lbl_oportunidade_cadastrada_em=Cadastrada em: 
+lbl_oportunidade_codigo=Codigo: 
+lbl_oportunidade_funcao=Função: 
+lbl_oportunidade_vaga_descricao= Vaga para: 
+lbl_oportunidade_telefone_divulgado=Telefone confidencial.
+lbl_oportunidade_email_divulgado=E-mail confidencial.
+lbl_oportunidade_site_divulgado=Site confidencial.
+lbl_oportunidade_nenhum_idioma=Nenhum idioma encontrado!
+lbl_oportunidade_nenhum_software=Nenhum software encontrado!
+lbl_oportunidade_nenhum_beneficio=Nenhum benefício encontrado!
+
+lbl_notifica_ticker:Novas Oportunidades Jobs Mobile.
+lbl_notifica_titulo:Informação Jobs Mobile
+lbl_notifica_mensagem:oportunidade(s):

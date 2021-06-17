@@ -1,0 +1,115 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+						<p:fieldset legend="#{msg.lbl_beneficio_administrar_titulo}">
+
+								<h:form id="formBeneficio" style="font-weight: bold;">
+
+									<p:growl id="messages" showDetail="true" />
+
+									<p:dataTable id="dataTable" styleClass="fonteMenorCentralizado"
+										var="beneficio" value="#{beneficioMB.listarTodosBeneficios()}"
+										paginator="true" rows="#{msg.lbl_quantidade_linhas}"
+										paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+										emptyMessage="#{msg.lbl_beneficio_listagem}">
+
+										<p:column>
+											<f:facet name="header">
+												<h:outputText value="#{msg.lbl_beneficio_status}" />
+											</f:facet>
+											<h:commandLink action="#{beneficioMB.ativarBeneficio}"
+												title="#{msg.lbl_beneficio_commandlink_status}">
+												<h:graphicImage library="imagens"
+													name="beneficio_#{beneficio.beneficio_status}.png"
+													style="border:0" />
+												<f:setPropertyActionListener
+													target="#{beneficioMB.beneficio}" value="#{beneficio}" />
+											</h:commandLink>
+										</p:column>
+
+										<p:column headerText="#{msg.lbl_beneficio_descricao}"
+											filterBy="#{beneficio.beneficio_descricao}"
+											filterMatchMode="contains">
+											<h:outputText value="#{beneficio.beneficio_descricao}" />
+										</p:column>
+										<p:column>
+											<f:facet name="header">
+												<h:outputText value="#{msg.lbl_acoes_jobs}" />
+											</f:facet>
+
+											<h:commandLink action="#{beneficioMB.editarBeneficio}"
+												title="#{msg.lbl_beneficio_commandlink_editar}">
+												<h:graphicImage library="imagens" name="editar.png"
+													style="border:0" />
+												<f:setPropertyActionListener
+													target="#{beneficioMB.beneficio}" value="#{beneficio}"></f:setPropertyActionListener>
+											</h:commandLink>
+
+											<h:commandLink action="#{beneficioMB.detalharBeneficio}"
+												title="#{msg.lbl_beneficio_commandlink_ver}">
+												<h:graphicImage library="imagens" name="ver.png"
+													style="border:0" />
+												<f:setPropertyActionListener
+													target="#{beneficioMB.beneficio}" value="#{beneficio}"></f:setPropertyActionListener>
+											</h:commandLink>
+
+											<p:commandLink
+												title="#{msg.lbl_beneficio_commandlink_excluir}"
+												update=":formDelete:Delete" oncomplete="confirmation.show()"
+												immediate="true">
+												<h:graphicImage library="imagens" name="excluir.png"
+													style="border:0" />
+												<f:setPropertyActionListener
+													target="#{beneficioMB.beneficio}" value="#{beneficio}" />
+											</p:commandLink>
+
+										</p:column>
+
+									</p:dataTable>
+
+								</h:form>
+
+						</p:fieldset>
+
+						<h:form id="formDelete">
+							<p:confirmDialog id="Delete"
+								message="#{msg.msg_beneficio_excluir_confirmacao}"
+								header="#{msg.msg_beneficio_titulo_confirmacao_excluir}"
+								severity="alert" widgetVar="confirmation" showEffect="fade"
+								hideEffect="explode">
+								<p:commandButton id="confirm" value="#{msg.msg_sim}"
+									oncomplete="confirmation.hide()"
+									actionListener="#{beneficioMB.excluirBeneficio()}"
+									update=":formBeneficio:dataTable, :formBeneficio:messages" />
+								<p:commandButton id="decline" value="#{msg.msg_nao}"
+									onclick="confirmation.hide()" type="button" />
+							</p:confirmDialog>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+
+
+</ui:composition>
+
+</html>

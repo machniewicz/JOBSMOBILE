@@ -1,0 +1,94 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="/home/nilson/desenvolvimento/java_web_projetos/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/WSJobsMobile/WEB-INF/attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Controle" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="atualizarCurriculo" qname="ns1:atualizarCurriculo" soapAction="" xmlns:ns1="http://mobile.jobs.com.br" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns3:parameter qname="ns1:preferencia" type="ns2:Preferencia" xmlns:ns2="http://modelo.mobile.jobs.com.br" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
+   <ns2:parameter qname="ns1:curriculo" type="ns3:Curriculo" xmlns:ns3="http://modelo.mobile.jobs.com.br"/>
+  </ns2:operation>
+  <ns1:operation name="listaNotificacao" qname="ns4:listaNotificacao" returnQName="ns4:listaNotificacaoReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://mobile.jobs.com.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="listaVaga" qname="ns5:listaVaga" returnQName="ns5:listaVagaReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://mobile.jobs.com.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="listaResumo" qname="ns6:listaResumo" returnQName="ns6:listaResumoReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://mobile.jobs.com.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="listaOportunidade" qname="ns7:listaOportunidade" returnQName="ns7:listaOportunidadeReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://mobile.jobs.com.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:estadoID" type="xsd:int"/>
+   <ns1:parameter qname="ns7:categoriaID" type="xsd:int"/>
+   <ns1:parameter qname="ns7:vagaID" type="xsd:int"/>
+   <ns1:parameter qname="ns7:flag" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="listaConfiguracaoEmail" qname="ns8:listaConfiguracaoEmail" returnQName="ns8:listaConfiguracaoEmailReturn" returnType="xsd:string" soapAction="" xmlns:ns8="http://mobile.jobs.com.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="atualizarEstatitisca" qname="ns9:atualizarEstatitisca" soapAction="" xmlns:ns9="http://mobile.jobs.com.br">
+   <ns1:parameter qname="ns9:enviado" type="ns10:Enviado" xmlns:ns10="http://modelo.mobile.jobs.com.br"/>
+   <ns1:parameter qname="ns9:preferencia" type="ns11:Preferencia" xmlns:ns11="http://modelo.mobile.jobs.com.br"/>
+  </ns1:operation>
+  <ns1:operation name="atualizarPrecadastro" qname="ns12:atualizarPrecadastro" soapAction="" xmlns:ns12="http://mobile.jobs.com.br">
+   <ns1:parameter qname="ns12:preferencia" type="ns13:Preferencia" xmlns:ns13="http://modelo.mobile.jobs.com.br"/>
+  </ns1:operation>
+  <ns1:operation name="listaEstado" qname="ns14:listaEstado" returnQName="ns14:listaEstadoReturn" returnType="xsd:string" soapAction="" xmlns:ns14="http://mobile.jobs.com.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="listaFormacao" qname="ns15:listaFormacao" returnQName="ns15:listaFormacaoReturn" returnType="xsd:string" soapAction="" xmlns:ns15="http://mobile.jobs.com.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="listaSalario" qname="ns16:listaSalario" returnQName="ns16:listaSalarioReturn" returnType="xsd:string" soapAction="" xmlns:ns16="http://mobile.jobs.com.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="listaCategoria" qname="ns17:listaCategoria" returnQName="ns17:listaCategoriaReturn" returnType="xsd:string" soapAction="" xmlns:ns17="http://mobile.jobs.com.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="listaPreferencia" qname="ns18:listaPreferencia" returnQName="ns18:listaPreferenciaReturn" returnType="xsd:string" soapAction="" xmlns:ns18="http://mobile.jobs.com.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns18:login" type="xsd:string"/>
+   <ns1:parameter qname="ns18:senha" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="atualizarEstatitisca listaOportunidade listaFormacao listaNotificacao atualizarCurriculo listaResumo listaPreferencia atualizarPrecadastro listaCategoria listaSalario listaEstado listaConfiguracaoEmail listaVaga"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="Controle"/>
+  <ns1:parameter name="className" value="br.com.jobs.mobile.Controle"/>
+  <ns1:parameter name="wsdlServicePort" value="Controle"/>
+  <ns1:parameter name="schemaQualified" value="http://modelo.mobile.jobs.com.br,http://mobile.jobs.com.br"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://mobile.jobs.com.br"/>
+  <ns1:parameter name="wsdlServiceElement" value="ControleService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns19:Enviado" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:br.com.jobs.mobile.modelo.Enviado" xmlns:ns19="http://modelo.mobile.jobs.com.br"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns20:Curriculo" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:br.com.jobs.mobile.modelo.Curriculo" xmlns:ns20="http://modelo.mobile.jobs.com.br"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns21:Preferencia" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:br.com.jobs.mobile.modelo.Preferencia" xmlns:ns21="http://modelo.mobile.jobs.com.br"/>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+ 
+    <!-- Cabeçalho -->
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        style="@style/TitleBar"
+        android:background="@drawable/shapetextview" >
+                       
+       <ImageView
+            style="@style/TitleBarLogo"
+            android:id="@+id/img1"                
+            android:src="@drawable/jobs_medium_2"
+            android:contentDescription="@null"
+            android:layout_marginTop = "5dip"
+            android:layout_marginRight="5dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginBottom = "4dip"
+            android:paddingBottom = "2dip"
+            android:background="@null"
+            android:layout_gravity="center"
+            android:paddingLeft="5dip"
+            android:paddingRight="7dip" />
+ 
+        <ImageView
+            android:id="@+id/sep"
+            android:contentDescription="@null"
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"   
+            android:background="@drawable/separator"
+            android:layout_marginRight="7dip"/>
+ 
+        <TextView
+            android:id="@+id/tv1"
+            style="@style/TitleBarText"
+            android:paddingLeft="8dip"
+            android:text="@string/app_name"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickVoltar"
+            android:src="@drawable/voltar_jobs" />
+    </LinearLayout>
+    
+    <!-- Corpo -->
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/llRodape"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linearLayout1"
+        android:background="@color/background" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/ac_op_lista_titulo"
+            android:textColor="@color/txt_detalhes_oportunidades"
+            android:textSize="18sp" />
+        
+        
+
+           <LinearLayout
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+               android:layout_centerVertical="true"
+               android:orientation="vertical"
+               android:layout_below="@+id/textView1"
+               android:paddingTop="15dp" >
+
+               <TextView
+            android:id="@+id/txtQuantidadeOportunidades"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/text_outras_resumo"
+            android:background="@color/lista_resumo"
+            android:lineSpacingExtra="4dp"
+        	android:textSize="18sp" />
+               
+               <ListView
+                   android:id="@android:id/list"
+                   android:layout_width="fill_parent"
+                   android:layout_height="match_parent"
+                   android:background="@color/lista_resumo"
+                   android:numColumns="auto_fit" >
+               </ListView>
+
+           </LinearLayout>
+
+    </RelativeLayout>
+    
+    <!-- Rodapé -->     
+    <LinearLayout
+        android:id="@+id/llRodape"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical" 
+        style="@style/TitleBar"
+        android:background="@drawable/shapetextview" >
+ 
+        <TextView
+            android:id="@+id/tvRodape"
+            style="@style/TitleBarText"
+            android:layout_width="fill_parent"
+            android:layout_height="38dp"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:background="@drawable/shapetextview"/>
+
+    </LinearLayout>       
+ 
+</RelativeLayout>

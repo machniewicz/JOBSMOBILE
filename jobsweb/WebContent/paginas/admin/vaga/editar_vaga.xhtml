@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+
+						<p:fieldset legend="#{msg.lbl_vaga_editar_titulo}">
+
+							<h:form id="formVaga" acceptcharset="ISO-8859-1">
+
+								<p:growl id="messages" showDetail="true" />
+
+								<h:panelGrid columns="2" cellpadding="5">
+
+									<h:outputText value="#{msg.lbl_vaga_incluir_status}" />
+									<h:selectOneMenu id="status" value="#{vagaMB.vaga.vaga_status}"
+										styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_vaga_status_ativo_1}"
+											itemValue="true" />
+										<f:selectItem itemLabel="#{msg.lbl_vaga_status_ativo_0}"
+											itemValue="false" />
+									</h:selectOneMenu>
+
+									<h:outputText value="#{msg.lbl_vaga_incluir_descricao}" />
+									<p:inputText value="#{vagaMB.vaga.vaga_descricao}" size="70"
+										converter="toUpperCaseConverter" />
+
+									<h:outputText value="#{msg.lbl_vaga_incluir_informacao}" />
+									<p:inputTextarea rows="5" cols="70" maxlength="1600"
+										autoResize="false" value="#{vagaMB.vaga.vaga_informacao}" />
+
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 5px" />
+
+								<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
+
+									<p:commandButton styleClass="fonteMaior"
+										value="#{msg.btn_alterar_vaga}" icon="#{msg.icon_btn_alterar}"
+										action="#{vagaMB.atualizarVaga}" ajax="false"
+										update="messages" />
+									<p:commandButton styleClass="fonteMaior"
+										value="#{msg.btn_voltar_vaga}" 
+										icon="#{msg.icon_btn_voltar}"
+										action="#{vagaMB.voltarVaga}" ajax="false" />
+								</h:panelGrid>
+							</h:form>
+
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

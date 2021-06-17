@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:body>
+	<ui:composition template="/paginas/templates/baseInicio.xhtml">
+		<ui:define name="content">
+
+			<h:form prependId="false">
+
+				<div class="container">
+
+					<div class="row">
+
+						<div class="box">
+
+							<div align="center">
+
+								<p:fieldset legend="#{msg.lbl_login_opcao}">
+
+									<p:separator style="width: 100%; height: 1px" />
+
+									<h:panelGrid columns="2">
+
+										<p:panelGrid columns="1"  >
+										<f:facet name="header">#{msg.lbl_login_empresa}</f:facet>
+										<h:commandLink action="#{loginMB.loginEmpresa}"
+											title="#{msg.lbl_login_commandlink_empresa}">
+											<h:graphicImage library="imagens" name="empresa_login.png"
+												style="border:0" />
+											
+										</h:commandLink>
+										</p:panelGrid>
+										
+										
+										<p:panelGrid columns="1" >
+										<f:facet name="header">#{msg.lbl_login_candidato}</f:facet>
+										<h:commandLink action="#{loginMB.loginCandidato}"
+											title="#{msg.lbl_login_commandlink_candidato}">
+											<h:graphicImage library="imagens" name="candidato_login.png"
+												style="border:0" />
+											
+										</h:commandLink>
+										</p:panelGrid>
+										
+										
+										<!--  
+										<div class="circular_empresa" style="float: left;">
+											
+												<a href="login.jsf" class="fill-div">#{msg.lbl_login_empresa}</a>
+											
+										</div>
+
+										<div class="circular_candidato" style="float: left;">
+											
+												<a href="loginCandidato.jsf" class="fill-div">#{msg.lbl_login_candidato}</a>
+											
+										</div>
+										-->
+
+									</h:panelGrid>
+
+									<p:separator style="width: 100%; height: 2px" />
+
+									<h:outputLabel value="#{msg.lbl_login_idiomas}" />
+
+									<h:panelGrid columns="3">
+
+										<h:commandLink action="#{localeMB.portuguesLocale}"
+											title="#{msg.lbl_login_idioma_pt}">
+											<h:graphicImage library="imagens" name="br_language.png" style="border:0" />
+										</h:commandLink>
+
+										<h:commandLink action="#{localeMB.inglesLocale}"
+											title="#{msg.lbl_login_idioma_en}">
+											<h:graphicImage library="imagens" name="en_language.png" style="border:0" />
+										</h:commandLink>
+
+										<h:commandLink action="#{localeMB.espanholLocale}"
+											title="#{msg.lbl_login_idioma_es}">
+											<h:graphicImage library="imagens" name="es_language.png" style="border:0" />
+										</h:commandLink>
+
+									</h:panelGrid>
+								</p:fieldset>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
+

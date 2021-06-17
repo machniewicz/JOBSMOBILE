@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+						<h:body>
+							<p:fieldset legend="#{msg.lbl_informacoes_titulo_cadastro}">
+
+								<h:form id="formInfo" acceptcharset="ISO-8859-1">
+
+									<p:layout style="min-width:300px;min-height:250px;">
+										<p:layoutUnit position="west" resizable="true" size="250"
+											minSize="50" maxSize="400">
+
+											<h:outputText value="#{msg.lbl_menu_rapido_cadastro_titulo}" />
+
+											<p:separator style="width: 100%; height: 2px" />
+
+											<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+
+												<h:graphicImage library="imagens" name="favorito.png"
+													style="border:0" />
+												<h:commandLink action="#{cadastroMB.editarCadastro}"
+													value="#{msg.lbl_menu_rapido_cadastro_cadastro}" />
+
+												<h:graphicImage library="imagens" name="trocar.png"
+													style="border:0" />
+												<h:commandLink action="#{usuarioMB.trocarSenha}"
+													value="#{msg.lbl_menu_rapido_cadastro_senha}" />
+
+											</h:panelGrid>
+
+											<p:separator style="width: 100%; height: 2px" />
+
+
+										</p:layoutUnit>
+
+										<p:layoutUnit position="center">
+
+											<h:outputText
+												value="#{msg.lbl_informacoes_bem_vindo_cadastro}" />
+
+											<p:separator style="width: 100%; height: 2px" />
+
+											<h:panelGrid columns="2" cellpadding="3" cellspacing="2">
+
+												<h:outputText
+													value="#{msg.lbl_informacoes_usuario_cadastro}" />
+												<p:outputLabel value="#{cadastroMB.cadastro.cadastro_nome}"
+													size="42" converter="toUpperCaseConverter"
+													styleClass="fonteCorFormulario" />
+
+												<h:outputText value="#{msg.lbl_informacoes_email_cadastro}" />
+												<p:outputLabel value="#{cadastroMB.cadastro.cadastro_email}"
+													size="42" converter="toLowerCaseConverter"
+													styleClass="fonteCorFormulario" />
+
+												<h:outputText value="#{msg.lbl_informacoes_data_cadastro}" />
+												<p:outputLabel value="#{cadastroMB.cadastro.cadastro_data}"
+													styleClass="fonteCorFormulario" converter="dateConverter" />
+											</h:panelGrid>
+
+											<p:separator style="width: 100%; height: 2px" />
+											<h:outputText value="#{msg.lbl_informacoes_desenvolvido}" />
+											<h:outputLink id="sobre">
+												<h:outputText value="#{msg.lbl_informacoes_descricao}" />
+											</h:outputLink>
+											<p:tooltip id="toolTipContent" for="sobre">
+												<p:graphicImage library="imagens" name="4u.png" />
+											</p:tooltip>
+										</p:layoutUnit>
+									</p:layout>
+
+								</h:form>
+							</p:fieldset>
+
+						</h:body>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

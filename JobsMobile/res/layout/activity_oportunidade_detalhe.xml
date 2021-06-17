@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <!-- Cabeçalho -->
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        style="@style/TitleBar"
+        android:background="@drawable/shapetextview" >
+
+        <ImageView
+            android:id="@+id/img1"
+            style="@style/TitleBarLogo"
+            android:layout_gravity="center"
+            android:layout_marginBottom="4dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:layout_marginTop="5dip"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:paddingBottom="2dip"
+            android:paddingLeft="5dip"
+            android:paddingRight="7dip"
+            android:src="@drawable/jobs_medium_2" />
+
+        <ImageView
+            android:id="@+id/sep"
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="7dip"
+            android:background="@drawable/separator"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/tv1"
+            style="@style/TitleBarText"
+            android:paddingLeft="8dip"
+            android:text="@string/app_name"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickVoltar"
+            android:src="@drawable/voltar_jobs" />
+    </LinearLayout>
+
+    <!-- Corpo -->
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/llRodape"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linearLayout1" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:paddingTop="0dp" >
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scrollbars="none" >
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/background"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="10dp" >
+
+                    <TextView
+                        style="@style/HomeText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="10dip"
+                        android:text="@string/ac_op_detalhes_titulo"
+                        android:textSize="20sp" />
+
+                    <!-- LinearLayout - Dados Oportunidade -->
+                    <LinearLayout
+                        android:id="@+id/LinearOportunidadeDesc"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shapeborder"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:padding="10dip" >
+
+                        <LinearLayout
+                            android:id="@+id/Linear1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10sp" >
+
+                            <TextView
+                                android:id="@+id/lblCodigo"
+                                android:layout_width="96dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:text="@string/ac_op_detalhes_txt_codigo"
+                                android:textColor="@color/lbl_detalhes_oportunidades"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/txtCodigo"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:textColor="@color/txt_detalhes_oportunidades"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/Linear101"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10sp" >
+
+                            <TextView
+                                android:id="@+id/lblVaga"
+                                android:layout_width="96dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:paddingTop="5dp"
+                                android:text="@string/ac_op_detalhes_txt_vaga"
+                                android:textColor="@color/lbl_detalhes_oportunidades"
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:id="@+id/imageVaga"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:paddingTop="5dp"
+                                android:src="@drawable/vaga_4" />
+
+                            <TextView
+                                android:id="@+id/txtVaga"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:paddingTop="5dp"
+                                android:text="@string/ac_op_detalhes_txt_vaga"
+                                android:textColor="@color/txt_detalhes_oportunidades"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/Linear102"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10sp" >
+
+                            <TextView
+                                android:id="@+id/lblFuncao"
+                                android:layout_width="96dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:paddingTop="5dp"
+                                android:text="@string/ac_op_detalhes_txt_funcao"
+                                android:textColor="@color/lbl_detalhes_oportunidades"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/txtFuncao"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:textColor="@color/txt_detalhes_oportunidades"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/Linear103"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10sp" >
+
+                            <TextView
+                                android:id="@+id/lblCategoria"
+                                android:layout_width="96dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:paddingTop="5dp"
+                                android:text="@string/ac_op_detalhes_txt_categoria"
+                                android:textColor="@color/lbl_detalhes_oportunidades"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/txtCategoria"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:textColor="@color/txt_detalhes_oportunidades"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/Linear104"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10sp" >
+
+                            <TextView
+                                android:id="@+id/lblCidade_Estado"
+                                android:layout_width="96dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:paddingTop="5dp"
+                                android:text="@string/ac_op_detalhes_txt_cidade_estado"
+                                android:textColor="@color/lbl_detalhes_oportunidades"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/txtCidade_Estado"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:textColor="@color/txt_detalhes_oportunidades"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/Linear105"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10sp" >
+
+                            <TextView
+                                android:id="@+id/lblTelefone"
+                                android:layout_width="96dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:paddingTop="5dp"
+                                android:text="@string/ac_op_detalhes_txt_telefone"
+                                android:textColor="@color/lbl_detalhes_oportunidades"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/txtTelefone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:textColor="@color/txt_detalhes_oportunidades"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/Linear106"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10sp" >
+
+                            <TextView
+                                android:id="@+id/lblContato"
+                                android:layout_width="96dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:paddingTop="5dp"
+                                android:text="@string/ac_op_detalhes_txt_contato"
+                                android:textColor="@color/lbl_detalhes_oportunidades"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/txtContato"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:textColor="@color/txt_detalhes_oportunidades"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/Linear107"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="10dp"
+                            android:paddingLeft="10sp" >
+
+                            <TextView
+                                android:id="@+id/lblSite"
+                                android:layout_width="96dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:paddingTop="5dp"
+                                android:text="@string/ac_op_detalhes_txt_site"
+                                android:textColor="@color/lbl_detalhes_oportunidades"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/txtSite"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:textColor="@color/txt_detalhes_oportunidades"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                    
+                    </LinearLayout>
+                    
+                    <!-- LinearLayout - Formação -->
+                    <TextView
+                        style="@style/HomeText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/ac_op_detalhes_exigencia_formacao"
+                        android:textSize="16sp" />
+                        
+                    <LinearLayout
+                        android:id="@+id/LinearFormacao"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shapeborder"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:paddingLeft="10sp" >
+                         
+                        <TextView
+                            android:id="@+id/lblFormacao"
+                            style="@style/HomeText"
+                            android:layout_width="96dp"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/ac_op_detalhes_txt_formacao"
+                            android:textColor="@color/lbl_detalhes_oportunidades"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/txtFormacao"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="5dp"
+                            android:textColor="@color/txt_detalhes_oportunidades"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                
+                    <!-- LinearLayout - Idiomas -->
+                    <TextView
+                        style="@style/HomeText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/ac_op_detalhes_exigencia_idioma"
+                        android:textSize="16sp" />
+                        
+                    <LinearLayout
+                        android:id="@+id/LinearIdioma"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shapeborder"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:paddingLeft="10sp" >
+                         
+                        
+                        <ListView
+                            android:id="@+id/listIdioma"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:divider="#ECECEC"
+        					android:dividerHeight="1sp"
+                            android:numColumns="auto_fit" >
+                        </ListView>
+
+                    </LinearLayout>
+                    
+                    <!-- LinearLayout - Software -->
+                    <TextView
+                        style="@style/HomeText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/ac_op_detalhes_exigencia_software"
+                        android:textSize="16sp" />
+                        
+                    <LinearLayout
+                        android:id="@+id/LinearSoftware"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shapeborder"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:paddingLeft="10sp" >
+                         
+                        <ListView
+                            android:id="@+id/listSoftware"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/background"
+                            android:divider="#ECECEC"
+        					android:dividerHeight="1sp"
+                            android:numColumns="auto_fit" >
+                           </ListView>
+                        
+                        </LinearLayout>
+                    
+                    <!-- LinearLayout - Salario -->
+                    
+                    <TextView
+                        style="@style/HomeText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/ac_op_detalhes_txt_salario"
+                        android:textSize="16sp" />
+                        
+                    <LinearLayout
+                        android:id="@+id/LinearSalario"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shapeborder"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:paddingLeft="10sp" >
+                         
+                         <TextView
+                            android:id="@+id/txtSalario"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="5dp"
+                            android:textColor="@color/txt_detalhes_oportunidades"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <!-- LinearLayout - Beneficio -->
+                    <TextView
+                        style="@style/HomeText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/ac_op_detalhes_txt_beneficios"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:id="@+id/LinearBeneficio"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shapeborder"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:paddingLeft="10sp" >
+                         
+                        <ListView
+                            android:id="@+id/listBeneficio"
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:textColor="@color/lbl_detalhes_oportunidades"
+                            android:textSize="15sp" 
+                            android:background="@color/lista_arquivos"
+                            android:numColumns="auto_fit" >
+                           </ListView>
+                        
+                        </LinearLayout>
+                    
+                    <!-- LinearLayout - Descricao da Oportunidade -->
+                    
+                    <LinearLayout
+                        android:id="@+id/LinearDescricao"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shapeborder"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:layout_marginTop="20dp">
+                         
+                        <TextView
+                            android:id="@+id/lblDescricao"
+                            style="@style/HomeText"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:gravity="center"
+                            android:text="@string/ac_op_detalhes_txt_descricao"
+                            android:textColor="@color/lbl_detalhes_oportunidades"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:id="@+id/txtDescricao"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="5dp"
+                            android:textColor="@color/txt_detalhes_oportunidades"
+                            android:textSize="15sp" />
+                    
+                    </LinearLayout>
+
+                                        
+                    <!-- Enviar Curriculo -->
+
+                    <LinearLayout
+                        android:id="@+id/Linear108"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="10sp"
+                        android:padding="10dp" >
+
+                        <ImageView
+                            android:id="@+id/imageEmails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:onClick="onClickEmail"
+                            android:paddingTop="10dp"
+                            android:src="@drawable/enviar_email_jobs" />
+
+                        <TextView
+                            android:id="@+id/lblContatos"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:paddingTop="20dp"
+                            android:text="@string/ac_op_detalhes_enviar"
+                            android:textColor="@color/lbl_detalhes_oportunidades"
+                            android:textSize="17sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Rodapé -->
+
+    <LinearLayout
+        android:id="@+id/llRodape"
+        style="@style/TitleBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/shapetextview"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tvRodape"
+            style="@style/TitleBarText"
+            android:layout_width="fill_parent"
+            android:layout_height="38dp"
+            android:background="@drawable/shapetextview"
+            android:gravity="center"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</RelativeLayout>

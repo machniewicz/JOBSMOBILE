@@ -1,0 +1,286 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+						<p:fieldset legend="#{msg.lbl_oportunidade_editar_titulo}">
+
+							<h:form id="formOportunidade" acceptcharset="ISO-8859-1">
+
+								<p:growl id="messages" showDetail="true" />
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_data}" />
+									<h:outputText
+										value="#{oportunidadeMB.oportunidade.oportunidade_data}"
+										size="20" disabled="true" styleClass="fonteCorFormulario"
+										converter="dateConverter" />
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_status}" />
+									<h:outputText
+										value="#{oportunidadeMB.carregaStatusOportunidade()}"
+										size="30" styleClass="fonteCorFormulario" />
+
+								</h:panelGrid>
+
+
+								<!-- Perfil da Oportunidade -->
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText value="#{msg.lbl_oportunidade_vaga_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="1" cellpadding="5" cellspacing="5">
+									<h:outputText
+										value="#{oportunidadeMB.oportunidade.vaga.vaga_descricao} - #{oportunidadeMB.oportunidade.vaga.vaga_informacao}"
+										size="150" styleClass="fonteCorFormulario" />
+
+								</h:panelGrid>
+
+
+								<!-- Dados da Oportunidade -->
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText value="#{msg.lbl_oportunidade_area_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="2" cellpadding="1" cellspacing="10">
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_categoria}" />
+									<h:outputText
+										value="#{oportunidadeMB.oportunidade.categoria.categoria_descricao}"
+										size="30" styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_funcao}" />
+									<h:outputText
+										value="#{oportunidadeMB.oportunidade.funcao.funcao_descricao}"
+										size="30" styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_estado}" />
+									<h:outputText
+										value="#{oportunidadeMB.oportunidade.estado.estado_descricao}"
+										size="30" styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_cidade}" />
+									<h:outputText
+										value="#{oportunidadeMB.oportunidade.cidade.cidade_descricao}"
+										size="50" styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_descricao}" />
+									<h:outputText
+										value="#{oportunidadeMB.oportunidade.oportunidade_descricao}"
+										size="50" styleClass="fonteCorFormulario" escape="false" />
+
+
+								</h:panelGrid>
+
+
+								<!-- Faixa Salarial Oferecida -->
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText
+									value="#{msg.lbl_oportunidade_faixa_salarial_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="2" cellpadding="1" cellspacing="10">
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_salario}" />
+									<h:outputText
+										value="#{oportunidadeMB.oportunidade.salario.salario_descricao}"
+										size="50" styleClass="fonteCorFormulario" />
+
+								</h:panelGrid>
+
+								<!-- Benefícios -->
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText value="#{msg.lbl_oportunidade_beneficio_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="1" cellpadding="1" cellspacing="1"
+									styleClass="painelGridIdioma">
+
+									<h:outputText
+										value="#{msg.lbl_oportunidade_beneficio_adicionados}" />
+
+									<p:dataTable id="dataTableBeneficios"
+										styleClass="fonteMenorCentralizado" var="beneficios"
+										value="#{oportunidadeMB.oportunidade.beneficios}"
+										paginator="true" rows="#{msg.lbl_quantidade_linhas_pequeno}"
+										paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+										emptyMessage="#{msg.lbl_beneficio_listagem}">
+
+										<p:column
+											headerText="#{msg.lbl_oportunidade_beneficio_titulo}"
+											filterBy="#{beneficios.beneficio_descricao}"
+											filterMatchMode="contains">
+											<h:outputText value="#{beneficios.beneficio_descricao}" />
+										</p:column>
+
+									</p:dataTable>
+
+								</h:panelGrid>
+
+
+								<!-- Formação Mínima -->
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText value="#{msg.lbl_oportunidade_formacao_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="2" cellpadding="1" cellspacing="10">
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_formacao}" />
+									<h:outputText
+										value="#{oportunidadeMB.oportunidade.formacao.formacao_descricao}"
+										size="50" styleClass="fonteCorFormulario" />
+
+								</h:panelGrid>
+
+
+								<!-- Habilidades - Idiomas -->
+
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText value="#{msg.lbl_oportunidade_idioma_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="1" cellpadding="1" cellspacing="1"
+									styleClass="painelGridIdioma">
+									<h:outputText
+										value="#{msg.lbl_oportunidade_idioma_adicionados}" />
+									<p:dataTable id="dataTable" styleClass="fonteMenorCentralizado"
+										var="combinacoes_idiomas"
+										value="#{oportunidadeMB.oportunidade.combinacoes_idiomas}"
+										paginator="true" rows="#{msg.lbl_quantidade_linhas_pequeno}"
+										paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+										emptyMessage="#{msg.lbl_idioma_listagem}">
+
+										<p:column
+											headerText="#{msg.lbl_oportunidade_incluir_habilidade_idioma}"
+											filterBy="#{combinacoes_idiomas.idioma.idioma_descricao}"
+											filterMatchMode="contains">
+											<h:outputText
+												value="#{combinacoes_idiomas.idioma.idioma_descricao} - #{combinacoes_idiomas.nivel.nivel_descricao}" />
+										</p:column>
+
+									</p:dataTable>
+
+								</h:panelGrid>
+
+								<!-- Habilidades - Softwares -->
+
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText value="#{msg.lbl_oportunidade_software_titulo}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="1" cellpadding="1" cellspacing="1"
+									styleClass="painelGridIdioma">
+									<h:outputText
+										value="#{msg.lbl_oportunidade_software_adicionados}" />
+									<p:dataTable id="dataTableSw"
+										styleClass="fonteMenorCentralizado"
+										var="combinacoes_softwares"
+										value="#{oportunidadeMB.oportunidade.combinacoes_softwares}"
+										paginator="true" rows="#{msg.lbl_quantidade_linhas_pequeno}"
+										paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+										emptyMessage="#{msg.lbl_software_listagem}">
+
+										<p:column
+											headerText="#{msg.lbl_oportunidade_incluir_habilidade_software}"
+											filterBy="#{combinacoes_softwares.software.software_descricao}"
+											filterMatchMode="contains">
+											<h:outputText
+												value="#{combinacoes_softwares.software.software_descricao} - #{combinacoes_softwares.nivel.nivel_descricao}" />
+										</p:column>
+
+									</p:dataTable>
+
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText
+									value="#{msg.lbl_oportunidade_incluir_dados_contato}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<!-- Email para contato -->
+
+								<h:panelGrid columns="2" cellpadding="5">
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_contato}" />
+									<h:outputText id="email"
+										value="#{oportunidadeMB.oportunidade.oportunidade_contato}"
+										size="50" styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_telefone}" />
+									<h:outputText
+										value="#{oportunidadeMB.oportunidade.oportunidade_fone}"
+										id="telefone" styleClass="fonteCorFormulario" />
+								</h:panelGrid>
+
+
+								<!-- Empresa - Oportunidade -->
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:outputText
+									value="#{msg.lbl_oportunidade_incluir_dados_empresa}"
+									styleClass="fonteCorTamanhoTitulo" />
+
+								<h:panelGrid columns="2" cellpadding="5">
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_usuario}" />
+									<h:outputText
+										value="#{contextoMB.usuarioLogado.empresa.empresa_razao}"
+										disabled="true" size="70" styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_oportunidade_incluir_site}" />
+									<h:outputText
+										value="#{contextoMB.usuarioLogado.empresa.empresa_site}"
+										disabled="true" size="70" styleClass="fonteCorFormulario" />
+
+								</h:panelGrid>
+
+
+								<!-- Botões -->
+								<p:separator style="width: 100%; height: 2px" />
+
+								<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
+
+									<p:commandButton styleClass="fonteMaior"
+										value="#{msg.btn_voltar_oportunidade}"
+										icon="#{msg.icon_btn_voltar}"
+										action="#{oportunidadeMB.voltarOportunidade()}" ajax="false" />
+
+								</h:panelGrid>
+
+							</h:form>
+
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

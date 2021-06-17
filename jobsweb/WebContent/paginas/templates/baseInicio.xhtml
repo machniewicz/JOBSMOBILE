@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<f:view locale="#{localeMB.currentLocale}">
+
+	<h:head>
+
+		<link rel="shortcut icon" type="image/x-icon"
+			href="#{request.contextPath}/img/icone.ico" />
+		<style type="text/css">
+@import
+	url("#{facesContext.externalContext.request.contextPath}/css/bootstrap.min.css")
+	;
+</style>
+		<style type="text/css">
+@import
+	url("#{facesContext.externalContext.request.contextPath}/css/business-casual.css")
+	;
+</style>
+		<style type="text/css">
+@import
+	url("#{facesContext.externalContext.request.contextPath}/css/principal.css")
+	;
+</style>
+
+
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+		<link href="css/business-casual.css" rel="stylesheet" />
+		<link href="css/principal.css" rel="stylesheet" />
+		<link rel="shortcut icon" href="img/icone.ico" />
+
+
+		<script src="js/jquery.js" />
+		<script src="js/bootstrap.min.js" />
+
+		<link
+			href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+			rel="stylesheet" type="text/css" />
+
+		<link
+			href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
+			rel="stylesheet" type="text/css" />
+
+		<title>#{msg.lbl_titulo_principal}</title>
+
+	</h:head>
+
+	<h:body>
+
+		<div class="brand">
+			<span class="auto-style1">#{msg.lbl_jobs}</span> <span
+				class="auto-style2">#{msg.lbl_mobile}</span>
+		</div>
+
+		<!-- Navigation -->
+		<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Jobs Mobile</span> <span class="icon-bar"></span>
+					<span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+				<a class="navbar-brand" href="index.html">Jobs Mobile</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="../sobre.html">Sobre App</a></li>
+					<li><a href="../parceiros.html">Parceiros</a></li>
+					<li><a href="../contato.html">Contato</a></li>
+					<li><a href="../arearestrita.html">Área Restrita</a></li>
+					<li><a href="carregar_oportunidades.jsf">Vagas</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container --> </nav>
+
+		<div id="content">
+			<ui:insert name="menu" />
+		</div>
+		<div id="content">
+			<ui:insert name="content">
+
+			</ui:insert>
+		</div>
+		<div id="footer">
+			<ui:insert name="footer">
+				<ui:include src="/paginas/templates/componentes/layout_rodape.xhtml" />
+			</ui:insert>
+		</div>
+
+	</h:body>
+
+</f:view>
+</html>

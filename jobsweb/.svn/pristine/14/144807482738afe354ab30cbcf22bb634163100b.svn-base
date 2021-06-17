@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+						<p:fieldset legend="#{msg.lbl_empresa_editar_titulo}">
+
+							<h:form id="formEmpresa" acceptcharset="ISO-8859-1">
+
+								<p:growl id="messages" showDetail="true" life="8000" />
+
+								<h:panelGrid columns="2" cellpadding="3" cellspacing="5">
+									<h:outputText value="#{msg.lbl_empresa_incluir_razao}" />
+									<p:inputText value="#{empresaMB.empresa.empresa_razao}"
+										size="100" disabled="false" converter="toUpperCaseConverter" />
+								</h:panelGrid>
+
+								<h:panelGrid columns="6" cellpadding="3" cellspacing="5">
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_cnpj}" />
+									<p:inputMask value="#{empresaMB.empresa.empresa_cnpj}"
+										mask="#{msg.lbl_msk_cnpj}" disabled="false" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_estado}" />
+									<h:selectOneMenu value="#{empresaMB.empresa.estado}"
+										id="estado"
+										valueChangeListener="#{cidadeMB.listarTodasPorEstado}"
+										immediate="true" converter="toEstadoConverter"
+										styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_estado_inicial}"
+											itemValue="#{null}" />
+										<f:selectItems value="#{estadoMB.listarTodosEstados()}"
+											var="estado" itemLabel="#{estado.estado_descricao}"
+											itemValue="#{estado}" />
+										<f:ajax event="change" render="cidade" />
+									</h:selectOneMenu>
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_cidade}" />
+									<h:selectOneMenu value="#{empresaMB.empresa.cidade}"
+										id="cidade" converter="toCidadeConverter" styleClass="fonteCorFormulario">
+										<f:selectItem itemLabel="#{msg.lbl_cidade_inicial}"
+											itemValue="#{null}" />
+										<f:selectItems
+											value="#{cidadeMB.listarPorEstado(empresaMB.empresa.estado)}"
+											var="cidade" itemLabel="#{cidade.cidade_descricao}"
+											itemValue="#{cidade}" />
+									</h:selectOneMenu>
+
+								</h:panelGrid>
+
+								<h:panelGrid columns="2" cellpadding="3" cellspacing="5">
+									<h:outputText value="#{msg.lbl_empresa_incluir_endereco}" />
+									<p:inputText value="#{empresaMB.empresa.empresa_endereco}"
+										size="100" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_bairro}" />
+									<p:inputText value="#{empresaMB.empresa.empresa_bairro}"
+										size="100" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_cep}" />
+									<p:inputMask value="#{empresaMB.empresa.empresa_cep}"
+										mask="#{msg.lbl_msk_cep}" disabled="false" />
+
+									<h:outputLabel value="#{msg.lbl_empresa_incluir_email}"
+										for="email" />
+									<h:panelGroup>
+										<p:inputText id="email"
+											value="#{empresaMB.empresa.empresa_email}" size="50"
+											maxlength="50" required="true"
+											validatorMessage="#{msg.msg_falha_email}">
+											<f:validateRegex
+												pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
+										</p:inputText>
+										<h:message for="email" />
+									</h:panelGroup>
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_telefone}" />
+									<p:inputMask value="#{empresaMB.empresa.empresa_telefone}"
+										mask="#{msg.lbl_msk_telefone}" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_site}" />
+									<p:inputText value="#{empresaMB.empresa.empresa_site}"
+										size="100" disabled="false" converter="toUpperCaseConverter" />
+
+
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+								<h:panelGrid columns="1" cellpadding="5" cellspacing="5">
+									<h:outputText value="#{msg.lbl_empresa_incluir_divulgar_alias}" />
+									<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+										<h:outputText value="#{msg.lbl_empresa_incluir_alias}" />
+										<h:outputText value="#{empresaMB.empresa.empresa_alias}"
+											styleClass="fonteCorFormulario" />
+									</h:panelGrid>
+								</h:panelGrid>
+
+
+								<p:separator style="width: 100%; height: 2px" />
+								<h:panelGrid columns="1" cellpadding="5" cellspacing="5">
+									<h:outputText value="#{msg.lbl_empresa_incluir_divulgar}" />
+									<h:outputText value="#{msg.lbl_empresa_incluir_observacao}" />
+									<p:selectOneRadio id="divulgar"
+										value="#{empresaMB.empresa.empresa_divulgar}">
+										<f:selectItem itemLabel="#{msg.msg_sim}" itemValue="true" />
+										<f:selectItem itemLabel="#{msg.msg_nao}" itemValue="false" />
+									</p:selectOneRadio>
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+								<h:panelGrid columns="1" cellpadding="5" cellspacing="5">
+									<h:outputText value="#{msg.lbl_empresa_incluir_banco}" />
+									<p:selectOneRadio id="banco"
+										value="#{empresaMB.empresa.empresa_banco_curriculo}">
+										<f:selectItem itemLabel="#{msg.msg_sim}" itemValue="true" />
+										<f:selectItem itemLabel="#{msg.msg_nao}" itemValue="false" />
+									</p:selectOneRadio>
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+								<h:panelGrid columns="1" cellpadding="5" cellspacing="5">
+									<h:outputText value="#{msg.lbl_empresa_incluir_curriculo}" />
+									<p:selectOneRadio id="curriculo"
+										value="#{empresaMB.empresa.empresa_recebe_curriculo}">
+										<f:selectItem itemLabel="#{msg.msg_sim}" itemValue="true" />
+										<f:selectItem itemLabel="#{msg.msg_nao}" itemValue="false" />
+									</p:selectOneRadio>
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+								<h:panelGrid columns="1" cellpadding="5" cellspacing="5">
+									<h:outputText value="#{msg.lbl_empresa_incluir_gratuito}" />
+									<h:outputText value="#{msg.lbl_empresa_incluir_gratuito_obs}" />
+									<p:selectOneRadio id="gratuito"
+										value="#{empresaMB.empresa.empresa_gratuito}">
+										<f:selectItem itemLabel="#{msg.msg_sim}" itemValue="true" />
+										<f:selectItem itemLabel="#{msg.msg_nao}" itemValue="false" />
+									</p:selectOneRadio>
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+								<h:outputText value="#{msg.lbl_empresa_incluir_periodo}" />
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+									<h:outputText value="#{msg.lbl_empresa_incluir_data_inicio}" />
+									<p:calendar
+										value="#{empresaMB.empresa.empresa_dt_validade_inicio}"
+										pattern="#{msg.lbl_msk_data_calendar}" mask="true"
+										disabled="false" converter="dateConverter" />
+									<h:outputText value="#{msg.lbl_empresa_incluir_data_fim}" />
+									<p:calendar
+										value="#{empresaMB.empresa.empresa_dt_validade_fim}"
+										pattern="#{msg.lbl_msk_data_calendar}" mask="true"
+										disabled="false" converter="dateConverter" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_quantidade}" />
+									<p:inputText value="#{empresaMB.empresa.empresa_quantidade}"
+										disabled="false" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_valor}" />
+									<pe:inputNumber value="#{empresaMB.empresa.empresa_valor}"
+										symbol="#{msg.lbl_msk_moeda}" />
+
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_data}" />
+									<h:outputText value="#{empresaMB.empresa.empresa_dt_inclusao}"
+										size="20" disabled="true" styleClass="fonteCorFormulario"
+										converter="dateConverter" />
+
+									<h:outputText value="#{msg.lbl_empresa_incluir_status}" />
+									<h:outputText value="#{msg.lbl_empresa_status_ativo_1}"
+										styleClass="fonteCorFormulario" />
+
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+
+								<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
+
+									<p:commandButton styleClass="fonteMaior"
+										value="#{msg.btn_alterar_empresa}"
+										icon="#{msg.icon_btn_alterar}"
+										action="#{empresaMB.atualizarEmpresa}" ajax="false"
+										update="messages" />
+									<p:commandButton styleClass="fonteMaior"
+										value="#{msg.btn_voltar_empresa}"
+										icon="#{msg.icon_btn_voltar}"
+										action="#{empresaMB.voltarEmpresa}" ajax="false" />
+								</h:panelGrid>
+							</h:form>
+
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

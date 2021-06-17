@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+
+						<p:fieldset legend="#{msg.lbl_trocar_senha_titulo}">
+
+
+							<h:form id="formUsuario" acceptcharset="ISO-8859-1">
+
+								<p:growl id="messages" showDetail="true" life="8000" />
+
+								<h:panelGrid columns="3" cellpadding="5" cellspacing="5">
+
+									<h:outputText value="#{msg.lbl_trocar_senha_senha}" />
+									<p:password id="senhaNova" value="#{usuarioMB.senhaTmp}"
+										size="30" feedback="true" inline="true"
+										promptLabel="#{msg.lbl_login_prompt}"
+										weakLabel="#{msg.lbl_login_fraco}"
+										goodLabel="#{msg.lbl_login_medio}"
+										strongLabel="#{msg.lbl_login_forte}" />
+									<p:watermark for="senhaNova"
+										value="#{msg.msg_usuario_senha_tmp}" id="watermarkNova" />
+
+									<h:outputText value="#{msg.lbl_trocar_senha_comparar}" />
+									<p:password id="senhaCompara" value="#{usuarioMB.senhaCompara}"
+										size="30" feedback="true" inline="true"
+										promptLabel="#{msg.lbl_login_prompt}"
+										weakLabel="#{msg.lbl_login_fraco}"
+										goodLabel="#{msg.lbl_login_medio}"
+										strongLabel="#{msg.lbl_login_forte}" />
+									<p:watermark for="senhaCompara"
+										value="#{msg.msg_usuario_senha_compara}" id="watermarkCompara" />
+
+
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+
+								<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
+									<p:commandButton value="#{msg.btn_trocar_senha_usuario}"
+										styleClass="fonteMaior" icon="#{msg.icon_btn_alterar}"
+										action="#{usuarioMB.alterarSenhaUsuario}" ajax="false"
+										update="messages" />
+									<p:commandButton value="#{msg.btn_voltar_usuario}"
+										styleClass="fonteMaior" icon="#{msg.icon_btn_voltar}"
+										action="#{usuarioMB.voltarUsuario}" ajax="false" />
+								</h:panelGrid>
+							</h:form>
+
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

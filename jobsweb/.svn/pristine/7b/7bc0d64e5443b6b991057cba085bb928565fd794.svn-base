@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+						<p:fieldset legend="#{msg.lbl_usuario_incluir_titulo}">
+
+							<h:form id="formUsuario" acceptcharset="ISO-8859-1">
+
+								<p:growl id="messages" showDetail="true" life="8000" />
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+									<h:outputText value="#{msg.lbl_usuario_incluir_descricao}" />
+									<p:inputText value="#{usuarioMB.usuario.usuario_descricao}"
+										size="100" disabled="false" converter="toUpperCaseConverter" />
+								</h:panelGrid>
+
+								<h:panelGrid columns="4">
+
+									<h:outputText value="#{msg.lbl_usuario_incluir_login}" />
+									<h:outputText value="#{usuarioMB.carregaAliasEmpresa()}_"
+										styleClass="fonteCorFormulario" />
+									<p:inputText id="txt_login"
+										value="#{usuarioMB.usuario.usuario_login}" required="true"
+										disabled="false" size="15" converter="toLowerCaseConverter">
+										<f:validateLength minimum="2" maximum="15" />
+										<p:clientValidator />
+									</p:inputText>
+									<p:message for="txt_login" />
+								</h:panelGrid>
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+									<h:outputText value="#{msg.lbl_usuario_incluir_senha}" />
+									<p:password value="#{usuarioMB.usuario.usuario_senha}"
+										size="30" />
+
+
+									<h:outputLabel value="#{msg.lbl_usuario_incluir_email}"
+										for="email" />
+									<h:panelGroup>
+										<p:inputText id="email"
+											value="#{usuarioMB.usuario.usuario_email}" size="50"
+											maxlength="50" required="true"
+											validatorMessage="#{msg.msg_falha_email}">
+											<f:validateRegex
+												pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
+										</p:inputText>
+										<p:message for="email" />
+									</h:panelGroup>
+
+									<h:outputText value="#{msg.lbl_usuario_incluir_empresa}" />
+									<h:outputText
+										value="#{contextoMB.usuarioLogado.empresa.empresa_razao}"
+										styleClass="fonteCorFormulario" />
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="5">
+
+									<h:outputText value="#{msg.lbl_usuario_incluir_data}" />
+									<h:outputText value="#{usuarioMB.dataAtual()}" size="20"
+										disabled="true" styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_usuario_incluir_perfil}" />
+									<h:outputText value="#{msg.lbl_usuario_perfil_cliente}"
+										styleClass="fonteCorFormulario" />
+
+									<h:outputText value="#{msg.lbl_usuario_incluir_status}" />
+									<h:outputText value="#{msg.lbl_usuario_status_ativo_1}"
+										styleClass="fonteCorFormulario" />
+
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 1px" />
+
+								<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
+
+									<p:commandButton styleClass="fonteMaior"
+										value="#{msg.btn_salvar_usuario}"
+										icon="#{msg.icon_btn_salvar}"
+										action="#{usuarioMB.salvarUsuario}" ajax="false" />
+
+								</h:panelGrid>
+							</h:form>
+
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>

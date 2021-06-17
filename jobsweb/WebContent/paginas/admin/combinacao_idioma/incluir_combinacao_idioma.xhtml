@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/corpo.xhtml">
+
+	<ui:define name="corpo">
+
+		<p:fieldset legend="#{msg.lbl_combinacao_idioma_incluir_titulo}" styleClass="cadastro">
+		
+		<p:scrollPanel mode="native" style="border: none" styleClass="cadastroBarra" >
+		
+			<h:form id="formCombinacaoIdioma" styleClass="fonteMenor" style="font-weight: bold;">
+		
+				<p:growl id="messages" showDetail="true" />
+						
+				<h:panelGrid columns="2" cellpadding="5">
+
+					<h:outputText value="#{msg.lbl_combinacao_idioma_incluir_status}" />
+						<h:selectOneMenu id="status" value="#{combinacaoIdiomaMB.combinacao_Idioma.combinacao_idioma_status}"	styleClass="fonteCorFormulario">	
+							<f:selectItem itemLabel="#{msg.lbl_combinacao_idioma_status_ativo_1}"  itemValue="true" />
+							<f:selectItem itemLabel="#{msg.lbl_combinacao_idioma_status_ativo_0}" itemValue="false"/>
+						</h:selectOneMenu>
+
+					<h:outputText value="#{msg.lbl_combinacao_idioma_incluir_idioma}" />
+						<h:selectOneMenu value="#{combinacaoIdiomaMB.combinacao_Idioma.idioma}" id="idioma" converter="toIdiomaConverter">
+							<f:selectItems value="#{idiomaMB.listarTodosIdiomasAtivos()}" var="idioma" itemLabel="#{idioma.idioma_descricao}" itemValue="#{idioma}"/>
+						</h:selectOneMenu>
+						
+					<h:outputText value="#{msg.lbl_combinacao_idioma_incluir_nivel}" />
+						<h:selectOneMenu value="#{combinacaoIdiomaMB.combinacao_Idioma.nivel}" id="nivel" converter="toNivelConverter">
+							<f:selectItems value="#{nivelMB.listarTodosNiveisAtivos()}" var="nivel" itemLabel="#{nivel.nivel_descricao}" itemValue="#{nivel}"/>
+						</h:selectOneMenu>
+											
+				</h:panelGrid>
+				<p:separator style="width: 80%; height: 5px" />
+
+				<h:panelGrid columns="3">
+					<p:commandButton value="#{msg.btn_gravar_combinacao_idioma}" icon="#{msg.icon_btn_salvar}" actionListener="#{combinacaoIdiomaMB.salvarCombinacaoIdioma}" ajax="false" /> 
+				</h:panelGrid>
+			</h:form>
+			</p:scrollPanel>
+		</p:fieldset>
+	</ui:define>
+
+</ui:composition>
+
+</html>

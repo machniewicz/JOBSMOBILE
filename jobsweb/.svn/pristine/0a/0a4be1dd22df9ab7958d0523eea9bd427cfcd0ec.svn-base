@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:composition template="/paginas/templates/base.xhtml">
+		<ui:define name="content">
+
+				<h:form prependId="false">
+				
+				<div class="container">
+
+					<div class="row">
+
+						<div class="box">
+
+							<div align="center">
+							
+							<p:fieldset legend="#{loginMB.titulo()}">
+								
+								<h:panelGrid columns="1">
+
+									<p:messages id="mensagens" showDetail="true" showSummary="false" />
+
+									<h:outputLabel value="#{msg.lbl_login_usuario}" />
+									<p:inputMask id="j_username" size="33" style="text-transform:uppercase;" converter="toLowerCaseConverter"
+												mask="#{loginMB.mascara()}" />
+									
+									<h:outputLabel value="#{msg.lbl_login_senha}" />
+									<p:password id="j_password" style="text-transform:uppercase;" size="33" feedback="true" inline="true" promptLabel="#{msg.lbl_login_prompt}"
+										weakLabel="#{msg.lbl_login_fraco}"
+										goodLabel="#{msg.lbl_login_medio}"
+										strongLabel="#{msg.lbl_login_forte}">
+									</p:password>
+									
+
+									<br />
+									<p:commandButton styleClass="fonteMaior"
+											value="#{msg.btn_login_valida}"
+											icon="#{msg.icon_login}"
+											action="#{loginMB.logar}"
+											ajax="false" />
+											
+									<p:commandButton styleClass="fonteMaior"
+											value="#{msg.btn_login_voltar}"
+											icon="#{msg.icon_btn_voltar}" action="/inicial.jsf"
+											ajax="false" />
+									
+								</h:panelGrid>
+								
+								<p:separator style="width: 100%; height: 2px" />
+								
+								<h:panelGrid columns="2">
+								
+									<h:graphicImage library="imagens" name="recuperar_senha.png" style="border:0" />
+									<h:commandLink value="#{msg.lbl_login_recuperar}" action="#{loginMB.recuperarSenha}" />
+								
+									<h:graphicImage library="imagens" name="novo_cadastro.png" style="border:0" />						
+									<h:commandLink value="#{msg.lbl_login_novo_cadastro}" action="#{cadastroMB.novoCadastroCurriculo}" />
+								
+								</h:panelGrid>
+
+								<p:separator style="width: 100%; height: 2px" />
+								
+								<h:outputLabel value="#{msg.lbl_login_idiomas}" />
+								
+								<h:panelGrid columns="3">
+
+									<h:commandLink action="#{localeMB.portuguesLocale}"	title="#{msg.lbl_login_idioma_pt}">
+										<h:graphicImage library="imagens" name="br_language.png" style="border:0" />
+									</h:commandLink>
+
+									<h:commandLink action="#{localeMB.inglesLocale}" title="#{msg.lbl_login_idioma_en}">
+										<h:graphicImage library="imagens" name="en_language.png" style="border:0" />
+									</h:commandLink>
+
+									<h:commandLink action="#{localeMB.espanholLocale}" title="#{msg.lbl_login_idioma_es}">
+										<h:graphicImage library="imagens" name="es_language.png" style="border:0" />
+									</h:commandLink>
+
+								</h:panelGrid>
+								
+								</p:fieldset>
+							</div>
+						</div>
+				
+					</div>
+
+				</div>
+			
+			</h:form>
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
+

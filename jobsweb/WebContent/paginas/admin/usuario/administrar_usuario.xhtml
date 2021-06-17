@@ -1,0 +1,125 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+					<p:fieldset legend="#{msg.lbl_usuario_administrar_titulo}">
+
+						<h:form id="formUsuario" style="font-weight: bold;">
+
+							<p:growl id="messages" showDetail="true" />
+
+							<p:dataTable id="dataTable" styleClass="fonteMenorCentralizado"
+								var="usuario" value="#{usuarioMB.listarTodosUsuarios()}"
+								paginator="true" rows="#{msg.lbl_quantidade_linhas}"
+								paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+								emptyMessage="#{msg.lbl_usuario_listagem}">
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="#{msg.lbl_usuario_status}" />
+									</f:facet>
+									<h:commandLink action="#{usuarioMB.ativarUsuario}"
+										title="#{msg.lbl_usuario_commandlink_status}">
+										<h:graphicImage library="imagens"
+											name="usuario_#{usuario.usuario_status}.png" style="border:0" />
+										<f:setPropertyActionListener target="#{usuarioMB.usuario}"
+											value="#{usuario}" />
+									</h:commandLink>
+								</p:column>
+
+								<p:column headerText="#{msg.lbl_usuario_login}"
+									filterBy="#{usuario.usuario_login}" filterMatchMode="contains">
+									<h:outputText value="#{usuario.usuario_login}" />
+								</p:column>
+
+								<p:column headerText="#{msg.lbl_usuario_descricao}"
+									filterBy="#{usuario.usuario_descricao}"
+									filterMatchMode="contains">
+									<h:outputText value="#{usuario.usuario_descricao}" />
+								</p:column>
+
+								<p:column headerText="#{msg.lbl_usuario_email}"
+									filterBy="#{usuario.usuario_email}" filterMatchMode="contains">
+									<h:outputText value="#{usuario.usuario_email}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="#{msg.lbl_acoes_jobs}" />
+									</f:facet>
+
+									<h:commandLink action="#{usuarioMB.editarUsuario}"
+										title="#{msg.lbl_usuario_commandlink_editar}">
+										<h:graphicImage library="imagens" name="editar.png"
+											style="border:0" />
+										<f:setPropertyActionListener target="#{usuarioMB.usuario}"
+											value="#{usuario}"></f:setPropertyActionListener>
+									</h:commandLink>
+
+									<h:commandLink action="#{usuarioMB.detalharUsuario}"
+										title="#{msg.lbl_usuario_commandlink_ver}">
+										<h:graphicImage library="imagens" name="ver.png"
+											style="border:0" />
+										<f:setPropertyActionListener target="#{usuarioMB.usuario}"
+											value="#{usuario}"></f:setPropertyActionListener>
+									</h:commandLink>
+
+									<p:commandLink title="#{msg.lbl_usuario_commandlink_excluir}"
+										update=":formDelete:Delete" oncomplete="confirmation.show()"
+										immediate="true">
+										<h:graphicImage library="imagens" name="excluir.png"
+											style="border:0" />
+										<f:setPropertyActionListener target="#{usuarioMB.usuario}"
+											value="#{usuario}"></f:setPropertyActionListener>
+									</p:commandLink>
+
+								</p:column>
+
+							</p:dataTable>
+
+						</h:form>
+
+					</p:fieldset>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<h:form id="formDelete">
+		<p:confirmDialog id="Delete"
+			message="#{msg.msg_usuario_excluir_confirmacao}"
+			header="#{msg.msg_usuario_titulo_confirmacao_excluir}"
+			severity="alert" widgetVar="confirmation" showEffect="fade"
+			hideEffect="explode">
+			<p:commandButton id="confirm" value="#{msg.msg_sim}"
+				oncomplete="confirmation.hide()"
+				actionListener="#{usuarioMB.excluirUsuario()}"
+				update=":formUsuario:dataTable, :formUsuario:messages" />
+			<p:commandButton id="decline" value="#{msg.msg_nao}"
+				onclick="confirmation.hide()" type="button" />
+		</p:confirmDialog>
+	</h:form>
+
+</ui:define>
+
+</ui:composition>
+
+</html>

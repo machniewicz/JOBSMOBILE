@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ControleService WSDL service -->
+
+  <service name="Controle" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://mobile.jobs.com.br"/>
+      <parameter name="wsdlServiceElement" value="ControleService"/>
+      <parameter name="schemaQualified" value="http://modelo.mobile.jobs.com.br,http://mobile.jobs.com.br"/>
+      <parameter name="wsdlServicePort" value="Controle"/>
+      <parameter name="className" value="br.com.jobs.mobile.Controle"/>
+      <parameter name="wsdlPortType" value="Controle"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://mobile.jobs.com.br" name="atualizarCurriculo" qname="operNS:atualizarCurriculo" soapAction="">
+        <parameter xmlns:pns="http://mobile.jobs.com.br" xmlns:tns="http://modelo.mobile.jobs.com.br" qname="pns:preferencia" type="tns:Preferencia"/>
+        <parameter xmlns:pns="http://mobile.jobs.com.br" xmlns:tns="http://modelo.mobile.jobs.com.br" qname="pns:curriculo" type="tns:Curriculo"/>
+      </operation>
+      <operation xmlns:operNS="http://mobile.jobs.com.br" xmlns:retNS="http://mobile.jobs.com.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="listaNotificacao" qname="operNS:listaNotificacao" returnQName="retNS:listaNotificacaoReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://mobile.jobs.com.br" xmlns:retNS="http://mobile.jobs.com.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="listaVaga" qname="operNS:listaVaga" returnQName="retNS:listaVagaReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://mobile.jobs.com.br" xmlns:retNS="http://mobile.jobs.com.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="listaResumo" qname="operNS:listaResumo" returnQName="retNS:listaResumoReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://mobile.jobs.com.br" xmlns:retNS="http://mobile.jobs.com.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="listaOportunidade" qname="operNS:listaOportunidade" returnQName="retNS:listaOportunidadeReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://mobile.jobs.com.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:estadoID" type="tns:int"/>
+        <parameter xmlns:pns="http://mobile.jobs.com.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:categoriaID" type="tns:int"/>
+        <parameter xmlns:pns="http://mobile.jobs.com.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:vagaID" type="tns:int"/>
+        <parameter xmlns:pns="http://mobile.jobs.com.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:flag" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://mobile.jobs.com.br" xmlns:retNS="http://mobile.jobs.com.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="listaConfiguracaoEmail" qname="operNS:listaConfiguracaoEmail" returnQName="retNS:listaConfiguracaoEmailReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://mobile.jobs.com.br" name="atualizarEstatitisca" qname="operNS:atualizarEstatitisca" soapAction="">
+        <parameter xmlns:pns="http://mobile.jobs.com.br" xmlns:tns="http://modelo.mobile.jobs.com.br" qname="pns:enviado" type="tns:Enviado"/>
+        <parameter xmlns:pns="http://mobile.jobs.com.br" xmlns:tns="http://modelo.mobile.jobs.com.br" qname="pns:preferencia" type="tns:Preferencia"/>
+      </operation>
+      <operation xmlns:operNS="http://mobile.jobs.com.br" name="atualizarPrecadastro" qname="operNS:atualizarPrecadastro" soapAction="">
+        <parameter xmlns:pns="http://mobile.jobs.com.br" xmlns:tns="http://modelo.mobile.jobs.com.br" qname="pns:preferencia" type="tns:Preferencia"/>
+      </operation>
+      <operation xmlns:operNS="http://mobile.jobs.com.br" xmlns:retNS="http://mobile.jobs.com.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="listaEstado" qname="operNS:listaEstado" returnQName="retNS:listaEstadoReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://mobile.jobs.com.br" xmlns:retNS="http://mobile.jobs.com.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="listaFormacao" qname="operNS:listaFormacao" returnQName="retNS:listaFormacaoReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://mobile.jobs.com.br" xmlns:retNS="http://mobile.jobs.com.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="listaSalario" qname="operNS:listaSalario" returnQName="retNS:listaSalarioReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://mobile.jobs.com.br" xmlns:retNS="http://mobile.jobs.com.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="listaCategoria" qname="operNS:listaCategoria" returnQName="retNS:listaCategoriaReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://mobile.jobs.com.br" xmlns:retNS="http://mobile.jobs.com.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="listaPreferencia" qname="operNS:listaPreferencia" returnQName="retNS:listaPreferenciaReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://mobile.jobs.com.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:login" type="tns:string"/>
+        <parameter xmlns:pns="http://mobile.jobs.com.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:senha" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="atualizarEstatitisca listaOportunidade listaFormacao listaNotificacao atualizarCurriculo listaResumo listaPreferencia atualizarPrecadastro listaCategoria listaSalario listaEstado listaConfiguracaoEmail listaVaga"/>
+
+      <typeMapping xmlns:ns="http://modelo.mobile.jobs.com.br" qname="ns:Enviado" type="java:br.com.jobs.mobile.modelo.Enviado" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://modelo.mobile.jobs.com.br" qname="ns:Curriculo" type="java:br.com.jobs.mobile.modelo.Curriculo" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://modelo.mobile.jobs.com.br" qname="ns:Preferencia" type="java:br.com.jobs.mobile.modelo.Preferencia" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

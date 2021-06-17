@@ -1,0 +1,61 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="corpo">
+
+			<p:fieldset legend="#{msg.lbl_combinacao_software_listar_titulo}" styleClass="cadastro">
+
+			<p:scrollPanel mode="native" style="border: none" styleClass="cadastroBarra" >
+			
+			<h:form id="formCombinacaoSoftware" style="font-weight: bold;" >
+
+				<p:growl id="messages" showDetail="true" />
+				
+					<p:dataTable id="dataTable" styleClass="fonteMenorCentralizado" var="combinacaoSoftware"
+						value="#{combinacaoSoftwareMB.listarTodosCombinacaoSoftwares()}" paginator="true" rows="#{msg.lbl_quantidade_linhas}"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+						emptyMessage="#{msg.lbl_combinacao_software_listagem}">
+						
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="#{msg.lbl_combinacao_software_status}" />
+							</f:facet>
+							<h:commandLink action="#{combinacaoSoftwareMB.ativarCombinacaoSoftware}" title="#{msg.lbl_combinacao_software_commandlink_status}">
+								<h:graphicImage library="imagens" name="combinacao_software_#{combinacaoSoftware.combinacao_software_status}.png" style="border:0" />
+								<f:setPropertyActionListener target="#{combinacaoSoftwareMB.combinacao_Software}" value="#{combinacaoSoftware}" />
+							</h:commandLink>
+						</p:column>
+						
+						<p:column headerText="#{msg.lbl_combinacao_software_software}" filterBy="#{combinacaoSoftware.software}" filterMatchMode="contains">
+							<h:outputText value="#{combinacaoSoftware.software.software_descricao}" />
+						</p:column>			
+						
+						<p:column headerText="#{msg.lbl_combinacao_software_nivel}" filterBy="#{combinacaoSoftware.nivel}" filterMatchMode="contains">
+							<h:outputText value="#{combinacaoSoftware.nivel.nivel_descricao}" />
+						</p:column>
+
+						<p:column>
+								<f:facet name="header">
+								<h:outputText value="#{msg.lbl_acoes_jobs}" />
+							</f:facet>
+												
+							<h:commandLink action="#{combinacaoSoftwareMB.combinacao_Software}" title="#{msg.lbl_combinacao_software_commandlink_ver}" >
+								<h:graphicImage library="imagens" name="ver.png"	style="border:0" />
+								<f:setPropertyActionListener target="#{combinacaoSoftwareMB.combinacao_Software}" value="#{combinacaoSoftware}"></f:setPropertyActionListener>
+							</h:commandLink>
+							
+						</p:column>
+					</p:dataTable>
+			</h:form>
+
+			</p:scrollPanel>
+		</p:fieldset>
+
+	</ui:define>
+
+</html>

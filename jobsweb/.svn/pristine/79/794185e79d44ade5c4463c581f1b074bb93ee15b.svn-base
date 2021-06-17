@@ -1,0 +1,947 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="buscar_cadastro::#paginas#cliente#cadastro#buscar_cadastro.xhtml"
+    NAME="output" PATH="/paginas/cliente/cadastro/buscar_cadastro.xhtml"
+    TARGET="rules:#paginas#cliente#cadastro#buscar_cadastro.xhtml"
+    TITLE="buscar_cadastro" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::1" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::1" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="detalhar_cadastro::#paginas#cliente#cadastro#detalhar_cadastro.xhtml"
+    NAME="output"
+    PATH="/paginas/cliente/cadastro/detalhar_cadastro.xhtml"
+    TARGET="rules:#paginas#cliente#cadastro#detalhar_cadastro.xhtml"
+    TITLE="detalhar_cadastro" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::2" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::2" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editar_cadastro::#paginas#convidado#cadastro#editar_cadastro.xhtml"
+    NAME="output"
+    PATH="/paginas/convidado/cadastro/editar_cadastro.xhtml"
+    TARGET="rules:#paginas#convidado#cadastro#editar_cadastro.xhtml"
+    TITLE="editar_cadastro" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::3" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::3" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="detalhar_cadastro_escolaridade::#paginas#convidado#cadastro#detalhar_escolaridade.xhtml"
+    NAME="output"
+    PATH="/paginas/convidado/cadastro/detalhar_escolaridade.xhtml"
+    TARGET="rules:#paginas#convidado#cadastro#detalhar_escolaridade.xhtml"
+    TITLE="detalhar_cadastro_escolaridade" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::4" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::4" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="incluir_oportunidade::#paginas#cliente#oportunidade#incluir_oportunidade.xhtml"
+    NAME="output"
+    PATH="/paginas/cliente/oportunidade/incluir_oportunidade.xhtml"
+    TARGET="rules:#paginas#cliente#oportunidade#incluir_oportunidade.xhtml"
+    TITLE="incluir_oportunidade" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::5" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::5" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administrar_oportunidade::#paginas#cliente#oportunidade#administrar_oportunidade.xhtml"
+    NAME="output"
+    PATH="/paginas/cliente/oportunidade/administrar_oportunidade.xhtml"
+    TARGET="rules:#paginas#cliente#oportunidade#administrar_oportunidade.xhtml"
+    TITLE="administrar_oportunidade" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::6" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::6" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administrar_oportunidade_todos::#paginas#admin#oportunidade#administrar_oportunidade_todos.xhtml"
+    NAME="output"
+    PATH="/paginas/admin/oportunidade/administrar_oportunidade_todos.xhtml"
+    TARGET="rules:#paginas#admin#oportunidade#administrar_oportunidade_todos.xhtml"
+    TITLE="administrar_oportunidade_todos" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::7" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::7" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="detalhar_oportunidade::#paginas#cliente#oportunidade#detalhar_oportunidade.xhtml"
+    NAME="output"
+    PATH="/paginas/cliente/oportunidade/detalhar_oportunidade.xhtml"
+    TARGET="rules:#paginas#cliente#oportunidade#detalhar_oportunidade.xhtml"
+    TITLE="detalhar_oportunidade" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::8" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::8" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editar_oportunidade::#paginas#cliente#oportunidade#editar_oportunidade.xhtml"
+    NAME="output"
+    PATH="/paginas/cliente/oportunidade/editar_oportunidade.xhtml"
+    TARGET="rules:#paginas#cliente#oportunidade#editar_oportunidade.xhtml"
+    TITLE="editar_oportunidade" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::9" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::9" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="gerenciar_oportunidade::#paginas#cliente#oportunidade#gerenciar_oportunidade.xhtml"
+    NAME="output"
+    PATH="/paginas/cliente/oportunidade/gerenciar_oportunidade.xhtml"
+    TARGET="rules:#paginas#cliente#oportunidade#gerenciar_oportunidade.xhtml"
+    TITLE="gerenciar_oportunidade" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::10" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::10" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listar_oportunidade::#paginas#cliente#oportunidade#listar_oportunidade.xhtml"
+    NAME="output"
+    PATH="/paginas/cliente/oportunidade/listar_oportunidade.xhtml"
+    TARGET="rules:#paginas#cliente#oportunidade#listar_oportunidade.xhtml"
+    TITLE="listar_oportunidade" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::11" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::11" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listar_enviado::#paginas#cliente#enviado#listar_enviado.xhtml"
+    NAME="output" PATH="/paginas/cliente/enviado/listar_enviado.xhtml"
+    TARGET="rules:#paginas#cliente#enviado#listar_enviado.xhtml"
+    TITLE="listar_enviado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::12" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::12" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="detalhar_enviado::#paginas#cliente#enviado#detalhar_enviado.xhtml"
+    NAME="output" PATH="/paginas/cliente/enviado/detalhar_enviado.xhtml"
+    TARGET="rules:#paginas#cliente#enviado#detalhar_enviado.xhtml"
+    TITLE="detalhar_enviado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::13" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::13" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="incluir_usuario_empresa::#paginas#adm_emp#usuario#incluir_usuario_empresa.xhtml"
+    NAME="output"
+    PATH="/paginas/adm_emp/usuario/incluir_usuario_empresa.xhtml"
+    TARGET="rules:#paginas#adm_emp#usuario#incluir_usuario_empresa.xhtml"
+    TITLE="incluir_usuario_empresa" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::14" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::14" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editar_usuario_empresa::#paginas#adm_emp#usuario#editar_usuario_empresa.xhtml"
+    NAME="output"
+    PATH="/paginas/adm_emp/usuario/editar_usuario_empresa.xhtml"
+    TARGET="rules:#paginas#adm_emp#usuario#editar_usuario_empresa.xhtml"
+    TITLE="editar_usuario_empresa" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::15" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::15" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administrar_usuario_empresa::#paginas#adm_emp#usuario#administrar_usuario_empresa.xhtml"
+    NAME="output"
+    PATH="/paginas/adm_emp/usuario/administrar_usuario_empresa.xhtml"
+    TARGET="rules:#paginas#adm_emp#usuario#administrar_usuario_empresa.xhtml"
+    TITLE="administrar_usuario_empresa" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::16" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::16" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="incluir_categoria::#paginas#admin#categoria#incluir_categoria.xhtml"
+    NAME="output"
+    PATH="/paginas/admin/categoria/incluir_categoria.xhtml"
+    TARGET="rules:#paginas#admin#categoria#incluir_categoria.xhtml"
+    TITLE="incluir_categoria" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::17" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::17" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="gerenciar_categoria::#paginas#admin#categoria#gerenciar_categoria.xhtml"
+    NAME="output"
+    PATH="/paginas/admin/categoria/gerenciar_categoria.xhtml"
+    TARGET="rules:#paginas#admin#categoria#gerenciar_categoria.xhtml"
+    TITLE="gerenciar_categoria" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::18" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::18" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editar_categoria::#paginas#admin#categoria#editar_categoria.xhtml"
+    NAME="output" PATH="/paginas/admin/categoria/editar_categoria.xhtml"
+    TARGET="rules:#paginas#admin#categoria#editar_categoria.xhtml"
+    TITLE="editar_categoria" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::19" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::19" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administrar_categoria::#paginas#admin#categoria#administrar_categoria.xhtml"
+    NAME="output"
+    PATH="/paginas/admin/categoria/administrar_categoria.xhtml"
+    TARGET="rules:#paginas#admin#categoria#administrar_categoria.xhtml"
+    TITLE="administrar_categoria" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::20" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::20" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="detalhar_categoria::#paginas#cliente#categoria#detalhar_categoria.xhtml"
+    NAME="output"
+    PATH="/paginas/cliente/categoria/detalhar_categoria.xhtml"
+    TARGET="rules:#paginas#cliente#categoria#detalhar_categoria.xhtml"
+    TITLE="detalhar_categoria" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::21" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::21" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listar_categoria::#paginas#cliente#categoria#listar_categoria.xhtml"
+    NAME="output"
+    PATH="/paginas/cliente/categoria/listar_categoria.xhtml"
+    TARGET="rules:#paginas#cliente#categoria#listar_categoria.xhtml"
+    TITLE="listar_categoria" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::22" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::22" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="incluir_usuario::#paginas#admin#usuario#incluir_usuario.xhtml"
+    NAME="output" PATH="/paginas/admin/usuario/incluir_usuario.xhtml"
+    TARGET="rules:#paginas#admin#usuario#incluir_usuario.xhtml"
+    TITLE="incluir_usuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::23" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::23" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="gerenciar_usuario::#paginas#admin#usuario#gerenciar_usuario.xhtml"
+    NAME="output" PATH="/paginas/admin/usuario/gerenciar_usuario.xhtml"
+    TARGET="rules:#paginas#admin#usuario#gerenciar_usuario.xhtml"
+    TITLE="gerenciar_usuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::24" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::24" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editar_usuario::#paginas#admin#usuario#editar_usuario.xhtml"
+    NAME="output" PATH="/paginas/admin/usuario/editar_usuario.xhtml"
+    TARGET="rules:#paginas#admin#usuario#editar_usuario.xhtml"
+    TITLE="editar_usuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::25" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="detalhar_usuario::#paginas#admin#usuario#detalhar_usuario.xhtml"
+    NAME="output" PATH="/paginas/admin/usuario/detalhar_usuario.xhtml"
+    TARGET="rules:#paginas#admin#usuario#detalhar_usuario.xhtml"
+    TITLE="detalhar_usuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::26" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::26" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administrar_usuario::#paginas#admin#usuario#administrar_usuario.xhtml"
+    NAME="output"
+    PATH="/paginas/admin/usuario/administrar_usuario.xhtml"
+    TARGET="rules:#paginas#admin#usuario#administrar_usuario.xhtml"
+    TITLE="administrar_usuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::27" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::27" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listar_usuario::#paginas#admin#usuario#listar_usuario.xhtml"
+    NAME="output" PATH="/paginas/admin/usuario/listar_usuario.xhtml"
+    TARGET="rules:#paginas#admin#usuario#listar_usuario.xhtml"
+    TITLE="listar_usuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::28" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::28" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="trocar_senha::#paginas#cliente#usuario#trocar_senha.xhtml"
+    NAME="output" PATH="/paginas/cliente/usuario/trocar_senha.xhtml"
+    TARGET="rules:#paginas#cliente#usuario#trocar_senha.xhtml"
+    TITLE="trocar_senha" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::29" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::29" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="painel_info::#paginas#inicio.xhtml"
+    NAME="output" PATH="/paginas/inicio.xhtml"
+    TARGET="rules:#paginas#inicio.xhtml" TITLE="painel_info" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::30" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::30" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="incluir_empresa::#paginas#admin#empresa#incluir_empresa.xhtml"
+    NAME="output" PATH="/paginas/admin/empresa/incluir_empresa.xhtml"
+    TARGET="rules:#paginas#admin#empresa#incluir_empresa.xhtml"
+    TITLE="incluir_empresa" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::31" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::31" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editar_empresa::#paginas#admin#empresa#editar_empresa.xhtml"
+    NAME="output" PATH="/paginas/admin/empresa/editar_empresa.xhtml"
+    TARGET="rules:#paginas#admin#empresa#editar_empresa.xhtml"
+    TITLE="editar_empresa" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::32" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::32" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="detalhar_empresa::#paginas#admin#empresa#detalhar_empresa.xhtml"
+    NAME="output" PATH="/paginas/admin/empresa/detalhar_empresa.xhtml"
+    TARGET="rules:#paginas#admin#empresa#detalhar_empresa.xhtml"
+    TITLE="detalhar_empresa" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::33" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::33" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administrar_empresa::#paginas#admin#empresa#administrar_empresa.xhtml"
+    NAME="output"
+    PATH="/paginas/admin/empresa/administrar_empresa.xhtml"
+    TARGET="rules:#paginas#admin#empresa#administrar_empresa.xhtml"
+    TITLE="administrar_empresa" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::34" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::34" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="incluir_email::#paginas#admin#email#incluir_email.xhtml"
+    NAME="output" PATH="/paginas/admin/email/incluir_email.xhtml"
+    TARGET="rules:#paginas#admin#email#incluir_email.xhtml"
+    TITLE="incluir_email" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::35" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::35" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="gerenciar_email::#paginas#admin#email#gerenciar_email.xhtml"
+    NAME="output" PATH="/paginas/admin/email/gerenciar_email.xhtml"
+    TARGET="rules:#paginas#admin#email#gerenciar_email.xhtml"
+    TITLE="gerenciar_email" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::36" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::36" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editar_email::#paginas#admin#email#editar_email.xhtml"
+    NAME="output" PATH="/paginas/admin/email/editar_email.xhtml"
+    TARGET="rules:#paginas#admin#email#editar_email.xhtml"
+    TITLE="editar_email" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::37" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::37" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administrar_email::#paginas#admin#email#administrar_email.xhtml"
+    NAME="output" PATH="/paginas/admin/email/administrar_email.xhtml"
+    TARGET="rules:#paginas#admin#email#administrar_email.xhtml"
+    TITLE="administrar_email" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::38" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::38" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="detalhar_email::#paginas#admin#email#detalhar_email.xhtml"
+    NAME="output" PATH="/paginas/admin/email/detalhar_email.xhtml"
+    TARGET="rules:#paginas#admin#email#detalhar_email.xhtml"
+    TITLE="detalhar_email" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::39" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::39" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listar_email::#paginas#admin#email#listar_email.xhtml"
+    NAME="output" PATH="/paginas/admin/email/listar_email.xhtml"
+    TARGET="rules:#paginas#admin#email#listar_email.xhtml"
+    TITLE="listar_email" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::40" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::40" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="incluir_vaga::#paginas#admin#vaga#incluir_vaga.xhtml"
+    NAME="output" PATH="/paginas/admin/vaga/incluir_vaga.xhtml"
+    TARGET="rules:#paginas#admin#vaga#incluir_vaga.xhtml"
+    TITLE="incluir_vaga" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::41" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="gerenciar_vaga::#paginas#admin#vaga#gerenciar_vaga.xhtml"
+    NAME="output" PATH="/paginas/admin/vaga/gerenciar_vaga.xhtml"
+    TARGET="rules:#paginas#admin#vaga#gerenciar_vaga.xhtml"
+    TITLE="gerenciar_vaga" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::42" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::42" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editar_vaga::#paginas#admin#vaga#editar_vaga.xhtml"
+    NAME="output" PATH="/paginas/admin/vaga/editar_vaga.xhtml"
+    TARGET="rules:#paginas#admin#vaga#editar_vaga.xhtml"
+    TITLE="editar_vaga" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::43" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::43" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administrar_vaga::#paginas#admin#vaga#administrar_vaga.xhtml"
+    NAME="output" PATH="/paginas/admin/vaga/administrar_vaga.xhtml"
+    TARGET="rules:#paginas#admin#vaga#administrar_vaga.xhtml"
+    TITLE="administrar_vaga" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::44" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::44" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="detalhar_vaga::#paginas#admin#vaga#detalhar_vaga.xhtml"
+    NAME="output" PATH="/paginas/admin/vaga/detalhar_vaga.xhtml"
+    TARGET="rules:#paginas#admin#vaga#detalhar_vaga.xhtml"
+    TITLE="detalhar_vaga" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::45" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::45" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listar_vaga::#paginas#admin#vaga#listar_vaga.xhtml"
+    NAME="output" PATH="/paginas/admin/vaga/listar_vaga.xhtml"
+    TARGET="rules:#paginas#admin#vaga#listar_vaga.xhtml"
+    TITLE="listar_vaga" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::46" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::46" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="incluir_software::#paginas#admin#software#incluir_software.xhtml"
+    NAME="output" PATH="/paginas/admin/software/incluir_software.xhtml"
+    TARGET="rules:#paginas#admin#software#incluir_software.xhtml"
+    TITLE="incluir_software" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::47" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::47" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="gerenciar_software::#paginas#admin#software#gerenciar_software.xhtml"
+    NAME="output"
+    PATH="/paginas/admin/software/gerenciar_software.xhtml"
+    TARGET="rules:#paginas#admin#software#gerenciar_software.xhtml"
+    TITLE="gerenciar_software" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::48" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::48" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editar_software::#paginas#admin#software#editar_software.xhtml"
+    NAME="output" PATH="/paginas/admin/software/editar_software.xhtml"
+    TARGET="rules:#paginas#admin#software#editar_software.xhtml"
+    TITLE="editar_software" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::49" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::49" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administrar_software::#paginas#admin#software#administrar_software.xhtml"
+    NAME="output"
+    PATH="/paginas/admin/software/administrar_software.xhtml"
+    TARGET="rules:#paginas#admin#software#administrar_software.xhtml"
+    TITLE="administrar_software" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::50" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::50" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="detalhar_software::#paginas#admin#software#detalhar_software.xhtml"
+    NAME="output" PATH="/paginas/admin/software/detalhar_software.xhtml"
+    TARGET="rules:#paginas#admin#software#detalhar_software.xhtml"
+    TITLE="detalhar_software" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::51" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::51" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listar_software::#paginas#admin#software#listar_software.xhtml"
+    NAME="output" PATH="/paginas/admin/software/listar_software.xhtml"
+    TARGET="rules:#paginas#admin#software#listar_software.xhtml"
+    TITLE="listar_software" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::52" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::52" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="incluir_beneficio::#paginas#admin#beneficio#incluir_beneficio.xhtml"
+    NAME="output"
+    PATH="/paginas/admin/beneficio/incluir_beneficio.xhtml"
+    TARGET="rules:#paginas#admin#beneficio#incluir_beneficio.xhtml"
+    TITLE="incluir_beneficio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::53" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::53" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="gerenciar_beneficio::#paginas#admin#beneficio#gerenciar_beneficio.xhtml"
+    NAME="output"
+    PATH="/paginas/admin/beneficio/gerenciar_beneficio.xhtml"
+    TARGET="rules:#paginas#admin#beneficio#gerenciar_beneficio.xhtml"
+    TITLE="gerenciar_beneficio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::54" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::54" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editar_beneficio::#paginas#admin#beneficio#editar_beneficio.xhtml"
+    NAME="output" PATH="/paginas/admin/beneficio/editar_beneficio.xhtml"
+    TARGET="rules:#paginas#admin#beneficio#editar_beneficio.xhtml"
+    TITLE="editar_beneficio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::55" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::55" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administrar_beneficio::#paginas#admin#beneficio#administrar_beneficio.xhtml"
+    NAME="output"
+    PATH="/paginas/admin/beneficio/administrar_beneficio.xhtml"
+    TARGET="rules:#paginas#admin#beneficio#administrar_beneficio.xhtml"
+    TITLE="administrar_beneficio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::56" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::56" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="detalhar_beneficio::#paginas#admin#beneficio#detalhar_beneficio.xhtml"
+    NAME="output"
+    PATH="/paginas/admin/beneficio/detalhar_beneficio.xhtml"
+    TARGET="rules:#paginas#admin#beneficio#detalhar_beneficio.xhtml"
+    TITLE="detalhar_beneficio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::57" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listar_beneficio::#paginas#admin#beneficio#listar_beneficio.xhtml"
+    NAME="output" PATH="/paginas/admin/beneficio/listar_beneficio.xhtml"
+    TARGET="rules:#paginas#admin#beneficio#listar_beneficio.xhtml"
+    TITLE="listar_beneficio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::58" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::58" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="incluir_idioma::#paginas#admin#idioma#incluir_idioma.xhtml"
+    NAME="output" PATH="/paginas/admin/idioma/incluir_idioma.xhtml"
+    TARGET="rules:#paginas#admin#idioma#incluir_idioma.xhtml"
+    TITLE="incluir_idioma" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::59" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::59" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="gerenciar_idioma::#paginas#admin#idioma#gerenciar_idioma.xhtml"
+    NAME="output" PATH="/paginas/admin/idioma/gerenciar_idioma.xhtml"
+    TARGET="rules:#paginas#admin#idioma#gerenciar_idioma.xhtml"
+    TITLE="gerenciar_idioma" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::60" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::60" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editar_idioma::#paginas#admin#idioma#editar_idioma.xhtml"
+    NAME="output" PATH="/paginas/admin/idioma/editar_idioma.xhtml"
+    TARGET="rules:#paginas#admin#idioma#editar_idioma.xhtml"
+    TITLE="editar_idioma" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::61" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::61" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administrar_idioma::#paginas#admin#idioma#administrar_idioma.xhtml"
+    NAME="output" PATH="/paginas/admin/idioma/administrar_idioma.xhtml"
+    TARGET="rules:#paginas#admin#idioma#administrar_idioma.xhtml"
+    TITLE="administrar_idioma" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::62" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::62" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="detalhar_idioma::#paginas#admin#idioma#detalhar_idioma.xhtml"
+    NAME="output" PATH="/paginas/admin/idioma/detalhar_idioma.xhtml"
+    TARGET="rules:#paginas#admin#idioma#detalhar_idioma.xhtml"
+    TITLE="detalhar_idioma" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::63" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::63" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listar_idioma::#paginas#admin#idioma#listar_idioma.xhtml"
+    NAME="output" PATH="/paginas/admin/idioma/listar_idioma.xhtml"
+    TARGET="rules:#paginas#admin#idioma#listar_idioma.xhtml"
+    TITLE="listar_idioma" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::64" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::64" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="incluir_nivel::#paginas#admin#nivel#incluir_nivel.xhtml"
+    NAME="output" PATH="/paginas/admin/nivel/incluir_nivel.xhtml"
+    TARGET="rules:#paginas#admin#nivel#incluir_nivel.xhtml"
+    TITLE="incluir_nivel" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::65" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::65" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="gerenciar_nivel::#paginas#admin#nivel#gerenciar_nivel.xhtml"
+    NAME="output" PATH="/paginas/admin/nivel/gerenciar_nivel.xhtml"
+    TARGET="rules:#paginas#admin#nivel#gerenciar_nivel.xhtml"
+    TITLE="gerenciar_nivel" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::66" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::66" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editar_nivel::#paginas#admin#nivel#editar_nivel.xhtml"
+    NAME="output" PATH="/paginas/admin/nivel/editar_nivel.xhtml"
+    TARGET="rules:#paginas#admin#nivel#editar_nivel.xhtml"
+    TITLE="editar_nivel" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::67" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::67" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administrar_nivel::#paginas#admin#nivel#administrar_nivel.xhtml"
+    NAME="output" PATH="/paginas/admin/nivel/administrar_nivel.xhtml"
+    TARGET="rules:#paginas#admin#nivel#administrar_nivel.xhtml"
+    TITLE="administrar_nivel" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::68" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::68" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="detalhar_nivel::#paginas#admin#nivel#detalhar_nivel.xhtml"
+    NAME="output" PATH="/paginas/admin/nivel/detalhar_nivel.xhtml"
+    TARGET="rules:#paginas#admin#nivel#detalhar_nivel.xhtml"
+    TITLE="detalhar_nivel" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::69" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::69" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listar_nivel::#paginas#admin#nivel#listar_nivel.xhtml"
+    NAME="output" PATH="/paginas/admin/nivel/listar_nivel.xhtml"
+    TARGET="rules:#paginas#admin#nivel#listar_nivel.xhtml"
+    TITLE="listar_nivel" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::70" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::70" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="incluir_funcao::#paginas#admin#funcao#incluir_funcao.xhtml"
+    NAME="output" PATH="/paginas/admin/funcao/incluir_funcao.xhtml"
+    TARGET="rules:#paginas#admin#funcao#incluir_funcao.xhtml"
+    TITLE="incluir_funcao" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::71" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::71" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="gerenciar_funcao::#paginas#admin#funcao#gerenciar_funcao.xhtml"
+    NAME="output" PATH="/paginas/admin/funcao/gerenciar_funcao.xhtml"
+    TARGET="rules:#paginas#admin#funcao#gerenciar_funcao.xhtml"
+    TITLE="gerenciar_funcao" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::72" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::72" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="editar_funcao::#paginas#admin#funcao#editar_funcao.xhtml"
+    NAME="output" PATH="/paginas/admin/funcao/editar_funcao.xhtml"
+    TARGET="rules:#paginas#admin#funcao#editar_funcao.xhtml"
+    TITLE="editar_funcao" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::73" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::73" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administrar_funcao::#paginas#admin#funcao#administrar_funcao.xhtml"
+    NAME="output" PATH="/paginas/admin/funcao/administrar_funcao.xhtml"
+    TARGET="rules:#paginas#admin#funcao#administrar_funcao.xhtml"
+    TITLE="administrar_funcao" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::74" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::74" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="detalhar_funcao::#paginas#admin#funcao#detalhar_funcao.xhtml"
+    NAME="output" PATH="/paginas/admin/funcao/detalhar_funcao.xhtml"
+    TARGET="rules:#paginas#admin#funcao#detalhar_funcao.xhtml"
+    TITLE="detalhar_funcao" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::75" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::75" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listar_funcao::#paginas#admin#funcao#listar_funcao.xhtml"
+    NAME="output" PATH="/paginas/admin/funcao/listar_funcao.xhtml"
+    TARGET="rules:#paginas#admin#funcao#listar_funcao.xhtml"
+    TITLE="listar_funcao" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::76" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::76" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="recuperar_senha::#recuperar_senha.xhtml"
+    NAME="output" PATH="/recuperar_senha.xhtml"
+    TARGET="rules:#recuperar_senha.xhtml" TITLE="recuperar_senha" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::77" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::77" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="novo_cadastro_curriculo::#novo_usuario.xhtml" NAME="output"
+    PATH="/novo_usuario.xhtml" TARGET="rules:#novo_usuario.xhtml"
+    TITLE="novo_cadastro_curriculo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::78" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::78" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="voltar::#inicial.xhtml" NAME="output"
+    PATH="/inicial.xhtml" TARGET="rules:#inicial.xhtml" TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#email#administrar_email.xhtml"
+  PATH="/paginas/admin/email/administrar_email.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#vaga#incluir_vaga.xhtml"
+  PATH="/paginas/admin/vaga/incluir_vaga.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#beneficio#gerenciar_beneficio.xhtml"
+  PATH="/paginas/admin/beneficio/gerenciar_beneficio.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#oportunidade#administrar_oportunidade_todos.xhtml"
+  PATH="/paginas/admin/oportunidade/administrar_oportunidade_todos.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#empresa#administrar_empresa.xhtml"
+  PATH="/paginas/admin/empresa/administrar_empresa.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#software#gerenciar_software.xhtml"
+  PATH="/paginas/admin/software/gerenciar_software.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#cliente#categoria#detalhar_categoria.xhtml"
+  PATH="/paginas/cliente/categoria/detalhar_categoria.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#categoria#gerenciar_categoria.xhtml"
+  PATH="/paginas/admin/categoria/gerenciar_categoria.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#cliente#cadastro#buscar_cadastro.xhtml"
+  PATH="/paginas/cliente/cadastro/buscar_cadastro.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#funcao#gerenciar_funcao.xhtml"
+  PATH="/paginas/admin/funcao/gerenciar_funcao.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#cliente#oportunidade#editar_oportunidade.xhtml"
+  PATH="/paginas/cliente/oportunidade/editar_oportunidade.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#idioma#listar_idioma.xhtml"
+  PATH="/paginas/admin/idioma/listar_idioma.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#email#detalhar_email.xhtml"
+  PATH="/paginas/admin/email/detalhar_email.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#novo_usuario.xhtml"
+  PATH="/novo_usuario.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#cliente#oportunidade#gerenciar_oportunidade.xhtml"
+  PATH="/paginas/cliente/oportunidade/gerenciar_oportunidade.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#software#administrar_software.xhtml"
+  PATH="/paginas/admin/software/administrar_software.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#cliente#enviado#listar_enviado.xhtml"
+  PATH="/paginas/cliente/enviado/listar_enviado.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#beneficio#administrar_beneficio.xhtml"
+  PATH="/paginas/admin/beneficio/administrar_beneficio.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#idioma#editar_idioma.xhtml"
+  PATH="/paginas/admin/idioma/editar_idioma.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#vaga#detalhar_vaga.xhtml"
+  PATH="/paginas/admin/vaga/detalhar_vaga.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#cliente#categoria#listar_categoria.xhtml"
+  PATH="/paginas/cliente/categoria/listar_categoria.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#nivel#editar_nivel.xhtml"
+  PATH="/paginas/admin/nivel/editar_nivel.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#idioma#administrar_idioma.xhtml"
+  PATH="/paginas/admin/idioma/administrar_idioma.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#vaga#listar_vaga.xhtml"
+  PATH="/paginas/admin/vaga/listar_vaga.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#adm_emp#usuario#incluir_usuario_empresa.xhtml"
+  PATH="/paginas/adm_emp/usuario/incluir_usuario_empresa.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#email#incluir_email.xhtml"
+  PATH="/paginas/admin/email/incluir_email.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#cliente#oportunidade#administrar_oportunidade.xhtml"
+  PATH="/paginas/cliente/oportunidade/administrar_oportunidade.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#beneficio#incluir_beneficio.xhtml"
+  PATH="/paginas/admin/beneficio/incluir_beneficio.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#vaga#gerenciar_vaga.xhtml"
+  PATH="/paginas/admin/vaga/gerenciar_vaga.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#email#gerenciar_email.xhtml"
+  PATH="/paginas/admin/email/gerenciar_email.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#beneficio#listar_beneficio.xhtml"
+  PATH="/paginas/admin/beneficio/listar_beneficio.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#nivel#detalhar_nivel.xhtml"
+  PATH="/paginas/admin/nivel/detalhar_nivel.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#idioma#incluir_idioma.xhtml"
+  PATH="/paginas/admin/idioma/incluir_idioma.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#recuperar_senha.xhtml"
+  PATH="/recuperar_senha.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#inicio.xhtml"
+  PATH="/paginas/inicio.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#funcao#editar_funcao.xhtml"
+  PATH="/paginas/admin/funcao/editar_funcao.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#usuario#detalhar_usuario.xhtml"
+  PATH="/paginas/admin/usuario/detalhar_usuario.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#software#incluir_software.xhtml"
+  PATH="/paginas/admin/software/incluir_software.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#idioma#gerenciar_idioma.xhtml"
+  PATH="/paginas/admin/idioma/gerenciar_idioma.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#nivel#incluir_nivel.xhtml"
+  PATH="/paginas/admin/nivel/incluir_nivel.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#software#listar_software.xhtml"
+  PATH="/paginas/admin/software/listar_software.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#categoria#editar_categoria.xhtml"
+  PATH="/paginas/admin/categoria/editar_categoria.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#cliente#usuario#trocar_senha.xhtml"
+  PATH="/paginas/cliente/usuario/trocar_senha.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#categoria#incluir_categoria.xhtml"
+  PATH="/paginas/admin/categoria/incluir_categoria.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#empresa#editar_empresa.xhtml"
+  PATH="/paginas/admin/empresa/editar_empresa.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#nivel#listar_nivel.xhtml"
+  PATH="/paginas/admin/nivel/listar_nivel.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#cliente#cadastro#detalhar_cadastro.xhtml"
+  PATH="/paginas/cliente/cadastro/detalhar_cadastro.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#empresa#detalhar_empresa.xhtml"
+  PATH="/paginas/admin/empresa/detalhar_empresa.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#funcao#administrar_funcao.xhtml"
+  PATH="/paginas/admin/funcao/administrar_funcao.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#usuario#administrar_usuario.xhtml"
+  PATH="/paginas/admin/usuario/administrar_usuario.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#funcao#incluir_funcao.xhtml"
+  PATH="/paginas/admin/funcao/incluir_funcao.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#idioma#detalhar_idioma.xhtml"
+  PATH="/paginas/admin/idioma/detalhar_idioma.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#email#editar_email.xhtml"
+  PATH="/paginas/admin/email/editar_email.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#software#detalhar_software.xhtml"
+  PATH="/paginas/admin/software/detalhar_software.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#email#listar_email.xhtml"
+  PATH="/paginas/admin/email/listar_email.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#usuario#listar_usuario.xhtml"
+  PATH="/paginas/admin/usuario/listar_usuario.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#cliente#oportunidade#listar_oportunidade.xhtml"
+  PATH="/paginas/cliente/oportunidade/listar_oportunidade.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#nivel#gerenciar_nivel.xhtml"
+  PATH="/paginas/admin/nivel/gerenciar_nivel.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#beneficio#editar_beneficio.xhtml"
+  PATH="/paginas/admin/beneficio/editar_beneficio.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#categoria#administrar_categoria.xhtml"
+  PATH="/paginas/admin/categoria/administrar_categoria.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#usuario#gerenciar_usuario.xhtml"
+  PATH="/paginas/admin/usuario/gerenciar_usuario.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#usuario#editar_usuario.xhtml"
+  PATH="/paginas/admin/usuario/editar_usuario.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#empresa#incluir_empresa.xhtml"
+  PATH="/paginas/admin/empresa/incluir_empresa.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#usuario#incluir_usuario.xhtml"
+  PATH="/paginas/admin/usuario/incluir_usuario.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#convidado#cadastro#editar_cadastro.xhtml"
+  PATH="/paginas/convidado/cadastro/editar_cadastro.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#adm_emp#usuario#editar_usuario_empresa.xhtml"
+  PATH="/paginas/adm_emp/usuario/editar_usuario_empresa.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#funcao#listar_funcao.xhtml"
+  PATH="/paginas/admin/funcao/listar_funcao.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#nivel#administrar_nivel.xhtml"
+  PATH="/paginas/admin/nivel/administrar_nivel.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#software#editar_software.xhtml"
+  PATH="/paginas/admin/software/editar_software.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#cliente#enviado#detalhar_enviado.xhtml"
+  PATH="/paginas/cliente/enviado/detalhar_enviado.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#admin#beneficio#detalhar_beneficio.xhtml"
+  PATH="/paginas/admin/beneficio/detalhar_beneficio.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#vaga#administrar_vaga.xhtml"
+  PATH="/paginas/admin/vaga/administrar_vaga.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#adm_emp#usuario#administrar_usuario_empresa.xhtml"
+  PATH="/paginas/adm_emp/usuario/administrar_usuario_empresa.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#cliente#oportunidade#incluir_oportunidade.xhtml"
+  PATH="/paginas/cliente/oportunidade/incluir_oportunidade.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#funcao#detalhar_funcao.xhtml"
+  PATH="/paginas/admin/funcao/detalhar_funcao.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#convidado#cadastro#detalhar_escolaridade.xhtml"
+  PATH="/paginas/convidado/cadastro/detalhar_escolaridade.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#cliente#oportunidade#detalhar_oportunidade.xhtml"
+  PATH="/paginas/cliente/oportunidade/detalhar_oportunidade.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#vaga#editar_vaga.xhtml"
+  PATH="/paginas/admin/vaga/editar_vaga.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::79" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::79" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="voltarEmpresa::#loginEmpresa.xhtml"
+    NAME="output" PATH="/loginEmpresa.xhtml"
+    TARGET="rules:#loginEmpresa.xhtml" TITLE="voltarEmpresa" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::80" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::80" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="voltarCandidato::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml"
+    TITLE="voltarCandidato" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#inicial.xhtml" PATH="/inicial.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#loginEmpresa.xhtml"
+  PATH="/loginEmpresa.xhtml" model-entity="JSFProcessGroup"/>
+</PROCESS>

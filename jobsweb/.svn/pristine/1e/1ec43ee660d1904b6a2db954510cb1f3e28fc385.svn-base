@@ -1,0 +1,92 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/paginas/templates/componentes/layout_corpo.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="box">
+
+					<div align="center">
+
+						<p:fieldset legend="#{msg.lbl_categoria_gerenciar_titulo}"
+							styleClass="cadastro">
+
+							<p:scrollPanel mode="native" style="border: none"
+								styleClass="cadastroBarra">
+
+								<h:form id="formCategoria" style="font-weight: bold;">
+
+									<p:growl id="messages" showDetail="true" />
+									<p:scrollPanel mode="native">
+										<p:dataTable id="dataTable"
+											styleClass="fonteMenorCentralizado" var="categoria"
+											value="#{categoriaMB.listarTodasCategorias()}"
+											paginator="true" rows="15"
+											paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+											emptyMessage="#{msg.lbl_categoria_listagem}">
+
+											<p:column>
+												<f:facet name="header">
+													<h:outputText value="#{msg.lbl_categoria_status}" />
+												</f:facet>
+												<h:graphicImage library="imagens"
+													name="categoria_#{categoria.categoria_status}.png"
+													style="border:0" />
+											</p:column>
+
+											<p:column headerText="#{msg.lbl_categoria_descricao}"
+												filterBy="#{categoria.categoria_descricao}"
+												filterMatchMode="contains">
+												<h:outputText value="#{categoria.categoria_descricao}" />
+											</p:column>
+
+
+											<p:column>
+												<f:facet name="header">
+													<h:outputText value="#{msg.lbl_acoes_jobs}" />
+												</f:facet>
+
+												<h:commandLink action="#{categoriaMB.editarCategoria}"
+													title="#{msg.lbl_categoria_commandlink_editar}">
+													<h:graphicImage library="imagens" name="editar.png"
+														style="border:0" />
+													<f:setPropertyActionListener
+														target="#{categoriaMB.categoria}" value="#{categoria}"></f:setPropertyActionListener>
+												</h:commandLink>
+
+												<h:commandLink action="#{categoriaMB.detalharCategoria}"
+													title="#{msg.lbl_categoria_commandlink_ver}">
+													<h:graphicImage library="imagens" name="ver.png"
+														style="border:0" />
+													<f:setPropertyActionListener
+														target="#{categoriaMB.categoria}" value="#{categoria}"></f:setPropertyActionListener>
+												</h:commandLink>
+
+											</p:column>
+										</p:dataTable>
+									</p:scrollPanel>
+
+								</h:form>
+							</p:scrollPanel>
+						</p:fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

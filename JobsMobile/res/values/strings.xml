@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">JobsMobile</string>
+    
+    <!-- Activity Principal - Jobs Mobile -->
+    <string name="ac_principal_btn_vagas">Há vagas</string>
+    <string name="ac_principal_btn_resumo">Resumo Semanal</string>
+    <string name="ac_principal_btn_historico">Currículos Enviados</string>
+    <string name="ac_principal_btn_email">Cadastre seu currículo</string>
+    
+    <!-- Activity Resumo - Jobs Mobile -->
+    <string name="activity_resumo">Resumo de Oportunidades - Jobs Mobile</string>
+    <string name="ac_resumo_titulo">Resumo de Oportunidades</string>
+    
+    <!-- Activity Lista de Oportunidades - Jobs Mobile -->
+    <string name="activity_oportunidade">Lista de Oportunidades - Jobs Mobile</string>
+    <string name="ac_op_lista_titulo">Lista de Oportunidades</string>
+    
+    <!-- Activity Buscar - Jobs Mobile -->
+    <string name="activity_buscar">Buscar Oportunidades - Jobs Mobile</string>
+    <string name="ac_buscar_titulo">Buscar Oportunidade</string>
+    <string name="ac_buscar_lbl_filtrar_estado">Filtrar por Estado:</string>
+    <string name="ac_buscar_lbl_filtrar_categoria">Filtrar por Categoria:</string>
+    <string name="ac_buscar_lbl_filtrar_vaga">Filtrar por Vaga:</string>
+    <string name="ac_buscar_btn_pesquisar">Buscar</string>
+    <string name="ac_buscar_btn_voltar">Voltar</string>
+    <string name="ac_buscar_prompt_estado">Selecione um Estado</string>
+    <string name="ac_buscar_prompt_categoria">Selecione uma Categoria</string>
+    <string name="ac_buscar_prompt_vaga">Selecione uma Vaga</string>
+    
+    <!-- Activity Detalhamento - Jobs Mobile -->
+    <string name="activity_oportunidade_detalhes">Detalhe da Oportunidade - Jobs Mobile</string>
+    <string name="ac_op_detalhes_txt_codigo">Código:</string>
+    <string name="ac_op_detalhes_txt_funcao">Função:</string>
+    <string name="ac_op_detalhes_txt_categoria">Categoria:</string>
+    <string name="ac_op_detalhes_txt_cidade_estado">Cidade/Estado:</string>
+    <string name="ac_op_detalhes_txt_telefone">Telefone:</string>
+    <string name="ac_op_detalhes_txt_contato">Contato:</string>
+    <string name="ac_op_detalhes_txt_formacao">Formação:</string>
+    <string name="ac_op_detalhes_txt_descricao">Descrição:</string>
+    <string name="ac_op_detalhes_txt_site">Site:</string>
+    <string name="ac_op_detalhes_txt_idiomas">Idiomas:</string>
+    <string name="ac_op_detalhes_txt_beneficios">Benefício(s):</string>
+    <string name="ac_op_detalhes_txt_softwares">Softwares:</string>
+    <string name="ac_op_detalhes_txt_vaga">Vaga para:</string>
+    <string name="ac_op_detalhes_txt_salario">Faixa Salarial:</string>
+    <string name="ac_op_detalhes_titulo">Detalhe da Oportunidade</string>
+    <string name="ac_op_detalhes_enviar">Enviar currículo</string>
+    <string name="ac_op_detalhes_separa_contato">Contatos:</string>
+    <string name="ac_op_detalhes_separa_exigencias">Requisitos para Oportunidade:</string>
+    <string name="ac_op_detalhes_exigencia_formacao">Exigências: Formação </string>
+    <string name="ac_op_detalhes_exigencia_idioma">Exigências: Idioma(s) </string>
+    <string name="ac_op_detalhes_exigencia_software">Exigências: Software(s) </string>
+    
+    <!-- Activity Sobre - Jobs Mobile -->
+    <string name="activity_sobre">Duvidas - Jobs Mobile</string>
+    <string name="ac_sobre_titulo">Tire suas duvidas</string>
+    <string name="ac_sobre_duvida">Duvidas, sugestões, críticas ou elogios:</string>
+    <string name="ac_sobre_desenvolvido">Desenvolvido por: 4U Soluções em TI</string>
+    <string name="ac_sobre_contato">contato@jobsmobile.com.br</string>
+    
+    <!-- Activity Preferencia - Jobs Mobile -->
+    <string name="activity_preferencia"> Configuração de Email - Jobs Mobile</string>
+    <string name="ac_preferencia_lbl_curriculo"> Anexar Currículo</string>
+    <string name="ac_preferencia_lbl_provedor"> Provedor de E-Mail:</string>
+    <string name="ac_preferencia_lbl_configuracao">Cadastro de E-Mail:</string>
+    <string name="ac_preferencia_nome">** Informe seu Nome Completo **</string>
+    <string name="ac_preferencia_email">** Informe seu E-Mail **</string>
+    <string name="ac_preferencia_senha">** Senha para acesso Web **</string>
+    <string name="ac_preferencia_cpf">** Informe CPF **</string>
+    <string name="ac_preferencia_estado">Estado(UF)</string>
+    <string name="ac_preferencia_atuacao">Área de Atuação</string>
+    <string name="ac_preferencia_formacao">Formação</string>
+    <string name="ac_preferencia_salarial">Faixa Salarial</string>
+    <string name="ac_preferencia_experiencia">Tempo de Experiência (anos):</string>
+    <string name="ac_preferencia_senha_obs">**Senha usada para sincronizar e/ou atualizar dados na Web</string>
+    <string name="ac_preferencia_btn_ok">Salvar</string>
+    <string name="ac_preferencia_btn_cancelar">Excluir</string>
+    <string name="ac_preferencia_btn_curriculo">Currículo</string>
+    
+    <!-- Activity Curriculo - Jobs Mobile -->
+    <string name="activity_curriculo"> Anexar Currículo - Jobs Mobile</string>
+    <string name="ac_curriculo_lbl_anexar">Anexar Currículo:</string>
+    <string name="ac_curriculo_data">** Data do Currículo **</string>
+    <string name="ac_curriculo_data_incluir">Inclusão:</string>
+    <string name="ac_curriculo_anexo_status">Nenhum currículo anexado!</string>
+    <string name="ac_curriculo_btn_ok">Salvar</string>
+    <string name="ac_curriculo_btn_anexar">Anexar Currículo</string>
+    <string name="ac_curriculo_btn_cancelar">Excluir</string>
+    <string name="ac_curriculo_lbl_info">Permitido anexar DOC, DOCX, PDF e ODT. Veja mais detalhes!</string>
+   
+    <!-- Activity Vazio - Jobs Mobile -->
+    <string name="ac_vazio_sem_registro">Nenhum registro encontrado!!</string>
+    
+     <!-- Activity Historico - Jobs Mobile -->
+    <string name="activity_historico">Histórico de Envio de Currículos - Jobs Mobile</string>
+    
+    <!-- Activity Info - Jobs Mobile -->
+    <string name="ac_info_titulo">Arquivos Permitidos:</string>
+    <string name="ac_info_doc">DOC / DOCX: utilizado pela Microsoft Word</string>
+    <string name="ac_info_pdf">PDF: utilizado pela Adobe Reader</string>
+    <string name="ac_info_odt">ODT: utilizado pela Open Office / Libre Office (Linux)</string>
+    
+    <!-- Activity Escolha -->
+    <string name="ac_escolha_titulo">Escolha uma das opções:</string>
+    <string name="ac_escolha_sincronizar">Sincronizar dados</string>
+    <string name="ac_escolha_cadastrar">Cadastrar dados</string>
+    
+     <!-- Activity Sobre - Jobs Mobile -->
+    <string name="activity_sincronizacao">Sincronização - Jobs Mobile</string>
+    <string name="ac_sincronizacao_titulo">Sincronizar informações Cadastradas:</string>
+    <string name="ac_sincronizacao_autenticacao">Validar usuário e senha:</string>
+    <string name="ac_sincronizacao_cpf">******* Informe seu CPF *******</string>
+    <string name="ac_sincronizacao_senha">**** Informe sua SENHA ****</string>
+    <string name="ac_sincronizacao_sincronizar">Sincronizar</string>
+    
+    
+   </resources>
